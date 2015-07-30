@@ -9,8 +9,8 @@
 # Beyond here there be dragons!
 
 [buildout]
-eggs-directory=buildout-cache/eggs
-download-cache=buildout-cache/downloads
+eggs-directory=../buildout-cache/eggs
+download-cache=../buildout-cache/downloads
 
 # Don't download new things unless needed to satisfy dependencies.
 # Override this on the command line with the "-n" flag.
