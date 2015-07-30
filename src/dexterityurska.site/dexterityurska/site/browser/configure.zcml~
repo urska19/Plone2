@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser" >
+
+    <i18n:registerTranslations directory="locales" />
+
+    <browser:page
+       name="vcardview"
+       for="*"
+       class=".views.VCardView"
+       template="templates/vcardview.pt"
+       permission="zope2.View"
+       />
+
+     <browser:page
+       name="summaryviewcustom"
+       for="*"
+       class=".views.SummaryViewCustom"
+       layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+       template="templates/summaryviewcustom.pt"
+       permission="zope2.View"
+       menu="plone_displayviews"
+       title="Summary Custom"
+       />   
+       
+     <include package=".portlets" />   
+</configure>

@@ -1,0 +1,13 @@
+#!./bin/python2.7
+
+import sys
+sys.path[0:0] = [
+  './buildout-cache/eggs/mr.developer-1.31-py2.7.egg',
+  './lib/python2.7/site-packages',
+  './buildout-cache/eggs/setuptools-12.2-py2.7.egg',
+  ]
+
+import mr.developer.develop
+
+if __name__ == '__main__':
+    sys.exit(mr.developer.develop.develop())

@@ -1,0 +1,32 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           xmlns:gs="http://namespaces.zope.org/genericsetup"
+           xmlns:cmf="http://namespaces.zope.org/cmf"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="plone.app.contenttypes">
+
+  <includeDependencies package="." />
+  <include file="profiles.zcml" />
+
+  <include package=".behaviors" />
+  <include package=".browser" />
+
+  <include file="indexers.zcml" />
+  <include file="permissions.zcml" />
+  <include file="subscribers.zcml" />
+  <include file="upgrades.zcml" />
+
+  <configure zcml:condition="installed Products.ATContentTypes">
+  <include
+    zcml:condition="installed archetypes.schemaextender"
+    package=".migration" />
+  </configure>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="plone.app.contenttypes"
+      provides="Products.CMFPlone.interfaces.INonInstallable" />
+
+</configure>

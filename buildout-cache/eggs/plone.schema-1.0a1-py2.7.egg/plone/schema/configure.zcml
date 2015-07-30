@@ -1,0 +1,47 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone.schema">
+
+    <i18n:registerTranslations directory="locales" />
+
+    <!-- Configure widgets if z3c.form is installed -->
+    <include zcml:condition="installed z3c.form" package=".browser" />
+
+    <!-- Configure plone.supermodel support if available -->
+    <configure zcml:condition="installed plone.supermodel">
+      <utility
+          component=".handler.URIHandler"
+          name="plone.schema.URI"
+          />
+
+      <utility
+          component=".handler.EmailHandler"
+          name="plone.schema.email.Email"
+          />
+    </configure>
+
+    <!-- Configure plone.schemaeditor field factory if installed -->
+    <configure zcml:condition="installed plone.schemaeditor">
+      <class class="zope.schema.URI">
+        <implements interface=".editor.IURI" />
+      </class>
+
+      <class class="plone.schema.email.Email">
+        <implements interface=".editor.IEmail" />
+      </class>
+
+      <utility
+          name="zope.schema._field.URI"
+          component=".editor.URIFactory"
+          />
+
+      <utility
+          name="plone.schema.email.Email"
+          component=".editor.EmailFactory"
+          />
+    </configure>
+
+</configure>

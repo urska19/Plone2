@@ -1,0 +1,18 @@
+setuptools
+zope.component
+zope.configuration
+zope.i18nmessageid
+zope.interface
+zope.location
+zope.proxy >= 3.4.2
+zope.schema
+
+[pytz]
+pytz
+
+[test]
+RestrictedPython
+zope.testing
+
+[untrustedpython]
+RestrictedPython

@@ -1,0 +1,4 @@
+<tal:block>
+  Palace view
+  <tal:resource tal:replace="static/resource.css" />
+</tal:block>

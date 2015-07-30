@@ -1,0 +1,22 @@
+setuptools
+Products.ResourceRegistries>=2.1
+plone.app.vocabularies>=2.1.12dev
+Products.CMFPlone>=5.0.dev0
+five.globalrequest
+
+[archetypes]
+DateTime
+Products.Archetypes
+archetypes.schemaextender
+
+[dexterity]
+pytz
+plone.app.dexterity
+plone.app.contenttypes>=1.1b1
+plone.app.event>=1.2
+
+[test]
+plone.app.robotframework[debug]
+plone.app.widgets[archetypes, dexterity]
+plone.app.testing>=4.2.4
+mock

@@ -1,0 +1,10 @@
+setuptools
+plone.app.controlpanel
+plone.scale [storage]
+Products.Archetypes
+z3c.caching
+five.globalrequest
+
+[test]
+plone.app.testing
+Products.ATContentTypes

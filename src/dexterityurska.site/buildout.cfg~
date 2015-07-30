@@ -1,0 +1,37 @@
+[buildout]
+develop = . 
+parts = scripts test
+	robot
+	test
+	
+versions = versions
+extends = 
+    http://dist.plone.org/release/4.0.1/versions.cfg
+    http://good-py.appspot.com/release/dexterity/1.0b1?plone=4.0.1
+
+    
+[robot]
+recipe = zc.recipe.egg
+eggs =
+    Pillow
+    ${test:eggs}
+    plone.app.robotframework    
+    
+[versions]
+
+[scripts]
+recipe = zc.recipe.egg
+eggs = 
+    dexterityurska.site
+    zest.releaser
+    ZopeSkel < 3.0dev
+    PasteScript
+    PasteDeploy
+    Paste
+    zopeskel.dexterity
+
+[test]
+recipe = zc.recipe.testrunner
+eggs = dexterityurska.site
+defaults = ['--auto-color', '--auto-progress']
+#defaults = ['--tests-pattern', '^f?tests$', '-v']

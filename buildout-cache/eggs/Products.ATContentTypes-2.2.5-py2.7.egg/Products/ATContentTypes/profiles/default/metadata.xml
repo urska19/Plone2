@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>1</version>
+  <dependencies>
+    <dependency>profile-Products.ATContentTypes:base</dependency>
+    <dependency>profile-plone.app.collection:default</dependency>
+    <dependency>profile-plone.app.imaging:default</dependency>
+    <dependency>profile-plone.app.widgets:default</dependency>
+  </dependencies>
+</metadata>

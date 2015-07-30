@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <!-- Apply the following rules to standard Plone pages -->
+    
+    
+      <!-- Exclude non-themed content -->
+
+	<notheme css:if-not-content="#visual-portal-wrapper"/>
+ 
+ 
+	<theme href="index.html" />
+<!--
+ 
+	<notheme if-path="@@manage-viewlets" />
+        <notheme if-path="dashboard" />
+        <notheme if-path="@@overview-controlpanel" />
+        <notheme if-path="@@personal-preferences" />
+        <notheme if-path="logged_out"/>
+ -->   
+	<before
+	  css:theme="header#header"
+	  css:content="div#edit-zone"
+	  />
+	<!-- Global nav -->
+	<replace
+	  css:theme-children="ul#nav"
+	  css:content-children="ul#portal-globalnav"
+	  />
+	<!-- Heading -->
+	<!-- title -->
+	<replace
+	  css:theme="h1 a"
+	  css:content="h1.documentFirstHeading"
+	  />
+	<drop
+	  css:theme="section#banner h1"
+	  />
+	<!-- content -->  
+	<replace
+	  css:theme="div#content"
+	  css:content="article#content"
+	  />
+
+	  
+	  
+	  <!-- portlets -->  
+	<replace
+	  css:theme="aside#sidebar"
+	  css:content="div#portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f506c6f6e650a6e657773 section.portlet"
+	  />
+	  
+	  <after
+	  css:theme="aside#sidebar"
+	  css:content="div#portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f506c6f6e652f686f6d652d706167650a7365617263682d31 section.portlet"
+	  />
+<!-- 	<rules css:if-content="#visual-portal-wrapper">
+ -->        
+ 
+	<!-- Exclude non-themed content -->
+<!--	<notheme css:if-not-content="#visual-portal-wrapper"/>
+	-->
+        <!-- Replace title with Plone's page title  -->
+        <replace css:theme="html head title" css:content="html head title" />
+
+        <!-- Copy base tag from Plone -->
+        <before css:theme-children="html head" css:content="html head base" />
+
+        <!-- Copy link, style, meta tags from Plone head -->
+        <after css:theme-children="html head"
+               content="/html/head/link | /html/head/style | /html/head/meta" />
+
+        <!-- merge classes from Plone body with theme body -->
+        <merge attributes="class" css:theme="body" css:content="body" />
+
+        <!-- Copy script tags from Plone head to end of body -->
+        <after css:theme-children="html body" css:content="html head script" />
+
+        <!-- Insert your own rules here -->    
+<!--         
+    </rules>
+ -->
+</rules>

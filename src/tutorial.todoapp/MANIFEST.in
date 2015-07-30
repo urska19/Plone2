@@ -1,0 +1,2 @@
+graft src/tutorial
+include *.cfg *.rst *.in

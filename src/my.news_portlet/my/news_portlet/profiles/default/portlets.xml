@@ -1,0 +1,9 @@
+<portlets>
+
+  <portlet
+    addview="lsm.MyNewsPortlet"
+    title="News portlet with images"
+    description="News portlet shows image, if it is available in the news item."
+    />
+
+</portlets>

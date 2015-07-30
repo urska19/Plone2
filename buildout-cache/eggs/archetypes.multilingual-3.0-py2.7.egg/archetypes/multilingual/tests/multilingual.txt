@@ -1,0 +1,25 @@
+testing the multilingualsupport
+===============================
+
+creating some sample-content::
+
+    >>> portal = layer['portal']
+    >>> from plone.app.testing import TEST_USER_ID, setRoles
+    >>> setRoles(portal, TEST_USER_ID, ['Manager'])
+    >>> content_id = portal.invokeFactory(type_name="Document", id='monkey_sample')
+    >>> content = portal[content_id]
+
+ITranslatable should be provided::
+
+    >>> from plone.app.multilingual.interfaces import ITranslatable
+    >>> ITranslatable.providedBy(content)
+    True
+
+language-adapter::
+
+    >>> from Products.CMFPlone.interfaces import ILanguage
+    >>> from zope import component
+    >>> adapter = component.queryAdapter(content, ILanguage)
+    >>> adapter is not None
+    True
+

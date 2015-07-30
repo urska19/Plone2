@@ -1,0 +1,9 @@
+<portlets>
+
+  <portlet
+    addview="lsm.GreyStaticPortlet"
+    title="Static portlet (grey)"
+    description="Portlet with light grey background"
+    />
+
+</portlets>

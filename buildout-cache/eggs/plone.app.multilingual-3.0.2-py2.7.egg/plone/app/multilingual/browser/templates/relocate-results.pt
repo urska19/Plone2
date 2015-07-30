@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/prefs_main_template/macros/master"
+    i18n:domain="plone.app.multilingual">
+
+<body>
+
+<metal:prefs fill-slot="prefs_configlet_content">
+
+<div id="results">
+
+<div class="resultInfo" i18n:domain="plone.app.multilingual">
+    <h2 i18n:translate=""
+        tal:content="view/stepinfo">
+        Relocate content to the proper root language folder
+    </h2>
+    <span i18n:translate="label_total_objects_translated">
+        Total objects handled:
+    </span>
+    <span tal:content="python: len(view.results)">Number of objects</span>
+</div>
+
+<tal:block repeat="result view/results">
+    <div class="result"
+    tal:attributes="class python:result.startswith('ERROR') and 'result error' or 'result'"
+    tal:content="result"></div>
+</tal:block>
+
+</div>
+</metal:prefs>
+</body>
+</html>

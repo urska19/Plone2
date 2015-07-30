@@ -1,0 +1,23 @@
+setuptools
+zope.browserpage
+zope.component
+zope.security
+zope.traversing
+plone.rfc822>=1.0b2
+
+[blobs]
+
+[editor]
+plone.schemaeditor
+
+[marshaler]
+
+[scales]
+plone.scale[storage] >=1.1
+
+[supermodel]
+plone.supermodel
+
+[test]
+lxml
+plone.scale

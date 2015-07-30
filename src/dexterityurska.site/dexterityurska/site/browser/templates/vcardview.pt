@@ -1,0 +1,65 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      i18n:domain="dexterityurska.site"
+      metal:use-macro="context/main_template/macros/master">
+  <body>
+    <h1 tal:content="context/title">Sample Page Title</h1>
+
+	<metal:block fill-slot="content-core">
+            See how <b tal:content="context/title">the Title</b> 
+            can take you everywhere! 
+            <p>
+	    </p>
+            <p>
+	    <img tal:replace="structure context/@@images/image/mini" /> 
+<!-- 	    scale = [large, preview, mini, thumb, tile, icon] -->
+	    </p>
+	    <p>
+	    Number of passengers: <b> <span tal:content="context/of_passengers">num</span>.    
+	   </b>
+	   </p>
+	    
+	    This vehicle offers following:
+	    <table>
+ 	    <tr tal:repeat="p context/properties"> 
+<!-- 	    <td tal:content="repeat/p/number"></td> -->
+ 	     <th tal:content="p"> </th> 
+	      </tr> 
+	    </table>
+	    
+	 
+	
+	<!-- suitable for
+            <span tal:replace="structure view/w/properties/render">
+                Audience
+            </span>-->
+<!--            <span tal:content="context/vehicle_card">
+                Talk
+            </span>
+            suitable for
+            <span tal:replace="structure view/w/properties/render">
+                Audience
+            </span>-->   
+<!--<div>
+	  Links
+	  <ul>
+	  <li><a href="/">Home</a></li>
+	  <li><a href="/products">Products</a></li>
+	  <li><a href="/support">Support</a></li>
+	  <li><a href="/contact">Contact Us</a></li>
+	  </ul>
+	  </div>  -->            
+         
+	    <p>         
+	    </p>
+	  
+	    Back to <a class="internal-link" href="/Plone/vehicles" target="_self" title="">vehicles</a>.
+<!--	    <a href="context/vehicles">vehicles</a>.-->
+	
+	</metal:block>   
+     
+  </body>
+</html>
+
+

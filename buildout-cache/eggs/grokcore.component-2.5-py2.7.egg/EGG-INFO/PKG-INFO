@@ -1,0 +1,450 @@
+Metadata-Version: 1.1
+Name: grokcore.component
+Version: 2.5
+Summary: Grok-like configuration for basic components (adapters, utilities, subscribers)
+Home-page: http://grok.zope.org
+Author: Grok Team
+Author-email: grok-dev@zope.org
+License: ZPL
+Download-URL: http://pypi.python.org/pypi/grokcore.component
+Description: This package provides base classes of basic component types for the
+        Zope Component Architecture, as well as means for configuring and
+        registering them directly in Python (without ZCML).
+        
+        .. contents::
+        
+        How to set up ``grokcore.component``
+        ====================================
+        
+        In the following we assume you're writing or extending an application
+        that does bootstrap configuration using ZCML.  There's always a single
+        ZCML file that is executed when the application is started, which then
+        includes everything else.  Let's assume this file is called
+        ``site.zcml`` (that's what it's called in Zope), so that file is what
+        we'll be editing.
+        
+        In order to register the components that you wrote using the base
+        classes and directives available from ``grokcore.component``, we'll
+        use the ``<grok:grok />`` ZCML directive.  But before we can use it,
+        we need to make sure it's available to the ZCML machinery.  We do this
+        by including the meta configuration from ``grokcore.component``::
+        
+          <include package="grokcore.component" file="meta.zcml" />
+        
+        Put this line somewhere to the top of ``site.zcml``, next to other
+        meta configuration includes.  Now, further down the line, we can tell
+        the machinery in ``grokcore.component`` to register all components in
+        your package (let's say it's called ``helloworld``)::
+        
+          <grok:grok package="helloworld" />
+        
+        To sum up, your ``site.zcml`` file should look like something like this::
+        
+          <configure
+              xmlns="http://namespaces.zope.org/zope"
+              xmlns:grok="http://namespaces.zope.org/grok">
+        
+            <!-- do the meta configuration to make the ZCML directives available -->
+            <include package="zope.foobar" file="meta.zcml" />
+            <include package="zope.frobnaz" file="meta.zcml" />
+            <include package="grokcore.component" file="meta.zcml" />
+        
+            <!-- now load the configuration of packages that we depend on -->
+            <include package="zope.barfoo" />
+            <include package="zope.somethingorother" />
+        
+            <!-- finally load my components which are based on grokcore.component -->
+            <grok:grok package="helloworld" />
+        
+          </configure>
+        
+        Examples
+        ========
+        
+        Adapter
+        -------
+        
+        Here's a simple adapter that may be useful in Zope.  It extracts the
+        languages that a user prefers from the request::
+        
+          import grokcore.component
+          from zope.publisher.interfaces.browser import IBrowserRequest
+          from zope.i18n.interfaces import IUserPreferredLanguages
+        
+          class CookieLanguage(grokcore.component.Adapter):
+              """Extract the preferred language from a cookie"""
+              grokcore.component.context(IBrowserRequest)
+              grokcore.component.implements(IUserPreferredLanguages)
+        
+              # No need to implement __init__, it's already provided by the base class.
+        
+              def getPreferredLanguages(self):
+                  # This an adapter for the request, so self.context is the request.
+                  request = self.context
+        
+                  # Extract the preferred language from a cookie:
+                  lang = request.cookies.get('language', 'en')
+        
+                  # According to IUserPreferredLanguages, we must return a list.
+                  return [lang]
+        
+        Multi-adapter
+        -------------
+        
+        Here's a multi-adapter that functions as a content provider as known
+        from the ``zope.contentprovider`` library.  Content providers are
+        components that return snippets of HTML.  They're multi-adapters for
+        the content object (model), the request and the view that they're
+        supposed to be a part of::
+        
+          import grokcore.component
+          from zope.publisher.interfaces.browser import IBrowserRequest
+          from zope.publisher.interfaces.browser import IBrowserPage
+          from zope.contentprovider.interfaces import IContentProvider
+        
+          class HelloWorldProvider(grokcore.component.MultiAdapter):
+              """Display Hello World!"""
+              grokcore.component.adapts(Interface, IBrowserRequest, IBrowserPage)
+              grokcore.component.implements(IContentProvider)
+        
+              def __init__(self, context, request, view):
+                  pass
+        
+              def update(self):
+                  pass
+        
+              def render(self):
+                  return u'<p>Hello World!</p>'
+        
+        
+        Global utility
+        --------------
+        
+        Here's a simple named utility, again from the Zope world.  It's a
+        translation domain.  In other words, it contains translations of user
+        messages and is invoked when the i18n machinery needs to translate
+        something::
+        
+          import grokcore.component
+          from zope.i18n.interfaces import ITranslationDomain
+        
+          class HelloWorldTranslationDomain(grokcore.component.GlobalUtility):
+              grokcore.component.implements(ITranslationDomain)
+              grokcore.component.name('helloworld')
+        
+              domain = u'helloworld'
+        
+              def translate(self, msgid, mapping=None, context=None,
+                            target_language=None, default=None):
+                  if target_language is None:
+                      preferred = IUserPreferredLanguages(context)
+                      target_language = preferred.getPreferredLanguages()[0]
+        
+                  translations = {'de': u'Hallo Welt',
+                                  'nl': u'Hallo Wereld'}
+                  return translations.get(target_language, u'Hello World')
+        
+        Of course, it's silly to implement your own translation domain utility
+        if there are already implementations available in ``zope.i18n`` (one
+        that reads translations from a GNU gettext message catalog and a
+        simple implementation for tests).  Let's try to reuse that
+        implementation and register an instance::
+        
+          import grokcore.component
+          from zope.i18n.interfaces import ITranslationDomain
+          from zope.i18n.simpletranslationdomain import SimpleTranslationDomain
+        
+          messages = {('de', u'Hello World'): u'Hallo Welt',
+                      ('nl', u'Hello World'): u'Hallo Wereld'}
+          helloworld_domain = SimpleTranslationDomain(u'helloworld', messages)
+        
+          grokcore.component.global_utility(helloworld_domain,
+                                            provides=ITranslationDomain,
+                                            name='helloworld',
+                                            direct=True)
+        
+        Global adapter
+        --------------
+        
+        Sometimes, you may have an object that should be registered as an adapter
+        factory. It may have come from some other framework that configured that
+        adapter for you, say, or you may have a class that you instantiate many
+        times to get different variations on a particular adapter factory. In these
+        cases, subclassing grokcore.component.Adapter or MultiAdapter is not
+        possible. Instead, you can use the global_adapter() directive. Here is an
+        example drawing on the ``z3c.form`` library, which provides an adapter factory
+        factory for named widget attributes::
+        
+          import zope.interface
+          import zope.schema
+          import grokcore.component
+          import z3c.form.widget import ComputedWidgetAttribute
+        
+          class ISchema(Interface):
+              """This schema will be used to power a z3c.form form"""
+        
+              field = zope.schema.TextLine(title=u"Sample field")
+        
+          ...
+        
+          label_override = z3c.form.widget.StaticWidgetAttribute(
+                                u"Override label", field=ISchema['field'])
+        
+          grokcore.component.global_adapter(label_override, name=u"label")
+        
+        In the example above, the provided and adapted interfaces are deduced from the
+        object returned by the ``StaticWidgetAttribute`` factory. The full syntax
+        for global_adapter is::
+        
+          global_adapter(factory, (IAdapted1, IAdapted2,), IProvided, name=u"name")
+        
+        The factory must be a callable (the adapter factory). Adapted interfaces are
+        given as a tuple. You may use a single interface instead of a one-element
+        tuple for single adapters. The provided interface is given as shown. The name
+        defaults to u"" (an unnamed adapter).
+        
+        Handling events
+        ---------------
+        
+        Here we see an event handler much like it occurs within Zope itself. It
+        subscribes to the modified event for all annotatable objects (in other words,
+        objects that can have metadata associated with them). When invoked, it updates
+        the Dublin Core 'Modified' property accordingly::
+        
+          import datetime
+          import grokcore.component
+          from zope.annotation.interfaces import IAnnotatable
+          from zope.lifecycleevent.interfaces import IObjectModifiedEvent
+          from zope.dublincore.interfaces import IZopeDublinCore
+        
+          @grokcore.component.subscribe(IAnnotatable, IObjectModifiedEvent)
+          def updateDublinCoreAfterModification(obj, event):
+              """Updated the Dublin Core 'Modified' property when a modified
+              event is sent for an object."""
+              IZopeDublinCore(obj).modified = datetime.datetime.utcnow()
+        
+        Subscriptions
+        -------------
+        
+        Subscriptions look similar to Adapter, however, unlike regular adapters,
+        subscription adapters are used when we want all of the adapters that adapt an
+        object to a particular adapter.
+        
+        Analogous to MultiAdapter, there is a MultiSubscription component that "adapts"
+        multiple objects.
+        
+        Changes
+        =======
+        
+        2.5 (2012-05-01)
+        ----------------
+        
+        - Introduce provideUtility, providerAdapter, provideSubscriptionAdapter,
+          provideHandler and provideInterface in grokcore.component. These by default
+          delegate the registration of components to the global site manager like
+          was done before, but provide the possibility for custom registries for the
+          grokked components.
+        
+        - Fix the `global_adapter` to properly use information annotated by
+          ``grok.adapter``, and using the IContext object if it was not
+          specified. (Fix Launchpad issue #960097).
+        
+        - Add a ``key`` option to ``sort_components`` that behave like ``key``
+          options available on standard Python sort methods.
+        
+        2.4 (2011-04-27)
+        ----------------
+        
+        - Fix the `global_adapter` directive implementation to accept an explicit
+          "empty" name for nameless adapter registrations (as it used to be that
+          providing an empty name in the registration would actually result in
+          registering a named adapter in case the factory has a `grok.name`).
+        
+        2.3 (2011-02-14)
+        ----------------
+        
+        - Implement the generic (Multi)Subscriptions components.
+        
+        2.2 (2010-11-03)
+        ----------------
+        
+        - The default values computation for the context directive and the provides
+          directive is now defined in the directives themselves. This means that where
+          the values for these directives is being retrieved, the "default_context"
+          function does not need to be passed along anymore for general cases.
+        
+          Analogous to this, when getting values for the provides directive the
+          "default_provides" function does not need to be passed along in the general
+          case.
+        
+        2.1 (2010-11-01)
+        ----------------
+        
+        * Made package comply to zope.org repository policy.
+        
+        * Moved directives 'order' from grokcore.viewlet and 'path' from
+          grokcore.view to this very package.
+        
+        * Tiny dependency adjustment: moved zope.event to test dependencies.
+        
+        * Port from 1.x branch exclude parameter to the Grok ZCML directive.
+        
+        * Port from 1.x branch the ignore of testing.py modules.
+        
+        2.0 (2009-09-16)
+        ----------------
+        
+        * Use a newer version of Martian that has better support for
+          inheritance.  This is demonstrated in ``tests/inherit``.
+        
+        * The ``ContextGrokker`` and the ``scan.py`` module have gone away
+          thanks the newer Martian.
+        
+        * Directive implementations (in their factory method) should *not*
+          bind directives. Directive binding cannot take place at import time,
+          but only at grok time. Binding directives during import time (when
+          directives are executed) can lead to change problems. (we noticed
+          this during our refactoring to use the new Martian).
+        
+        * Use 1.0b1 versions.cfg in Grok's release info instead of a local
+          copy; a local copy for all grokcore packages is just too hard to
+          maintain.
+        
+        1.7 (2009-06-01)
+        ----------------
+        
+        * Add missing provider, global_adapter, implementsOnly, classProvides() to
+          the module interface so that they are included in __all__
+        
+        1.6 (2009-04-10)
+        ----------------
+        
+        * Add convenience imports for implementsOnly() and classProvides() class
+          declarations form zope.interface.
+        
+        * Add support for registering global adapters at module level::
+        
+            grok.global_adapter(factory, (IAdapted1, IAdapted2,), IProvided, name=u"name")
+        
+          Only 'factory' is required. If only a single interface is adapted, the
+          second argument may be a single interface instead of a tuple. If the
+          component has declared adapted/provided interfaces, the second and third
+          arguments may be omitted.
+        
+        * Add support for an @provider decorator to let a function directly provide
+          an interface::
+        
+            @grok.provider(IFoo, IBar)
+            def some_function():
+                ...
+        
+          This is equivalent to doing alsoProvides(some_function, IFoo, IBar).
+        
+        * Add support for named adapters with the @adapter decorator::
+        
+            @grok.adapter(IAdaptedOne, IAdaptedTwo, name=u"foo")
+            def some_function(one, two):
+                ...
+        
+        1.5.1 (2008-07-28)
+        ------------------
+        
+        * The ``IGrokcoreComponentAPI`` interface was missing declarations for
+          the ``title`` and ``description`` directives.
+        
+        1.5 (2008-07-22)
+        ----------------
+        
+        * Fix https://bugs.launchpad.net/grok/+bug/242353: grokcore.component
+          contains old-style test setup. There is no `register_all_tests`
+          method in grokcore.component.testing anymore. Use z3c.testsetup
+          instead.
+        
+        * Allow functions that have been marked with @grok.subscribe also be
+          registered with ``zope.component.provideHandler()`` manually.  This
+          is useful for unit tests where you may not want to grok a whole
+          module.
+        
+        * Document grokcore.component's public API in an interface,
+          ``IGrokcoreComponentAPI``.  When you now do::
+        
+            from grokcore.component import *
+        
+          only the items documented in that interface will be imported into
+          your local namespace.
+        
+        1.4 (2008-06-11)
+        ----------------
+        
+        * Ported class grokkers to make use of further improvements in Martian.
+          This requires Martian 0.10.
+        
+        1.3 (2008-05-14)
+        ----------------
+        
+        * Ported class grokkers to make use of the new declarative way of
+          retrieving directive information from a class.  This requires
+          Martian 0.9.6.
+        
+        1.2.1 (2008-05-04)
+        ------------------
+        
+        * Upgrade to Martian 0.9.5, which has a slight change in the signature of
+          ``scan_for_classes``.
+        
+        * Remove an unnecessary import ``methods_from_class`` from
+          ``grokcore.component.scan``.
+        
+        1.2 (2008-05-04)
+        ----------------
+        
+        * Ported directives to Martian's new directive implementation.  As a
+          result, nearly all helper functions that were available from
+          ``grokcore.component.util`` have been removed.  The functionality is
+          mostly available from the directives themselves now.
+        
+        * The ``baseclass`` directive has been moved to Martian.
+        
+        * The ``order`` directive and its helper functions have been moved
+          back to Grok, as it was of no general use, but very specific to
+          viewlets.
+        
+        1.1 (2008-05-03)
+        ----------------
+        
+        * ``determine_module_component`` now looks for classes that implement
+          a certain interface (such as ``IContext``), instead of taking a list
+          of classes.  If looking for ``IContext``, it still will find
+          ``Context`` subclasses, as these were also made to implement
+          ``IContext``.
+        
+        * Move the ``public_methods_from_class`` helper function back to Grok,
+          it isn't used at all in ``grokcore.component``.
+        
+        1.0.1 (2008-05-02)
+        ------------------
+        
+        * The grokkers for adapters and global utilities did not use the
+          correct value for the *provided* interface in the configuration
+          action discriminator.  Because of this, uninformative and
+          potentially wrong conflict errors would occur, as well as no
+          conflict where a conflict should have occurred.
+        
+        * The grokker for the ``global_utility()`` directive did immediate
+          registrations instead of generating configuration actions.
+          Therefore it did not provoke ``ConflictErrors`` for conflicting
+          registrations.
+        
+        * Improved documentation
+        
+        1.0 (2008-05-01)
+        ----------------
+        
+        * Created ``grokcore.component`` in March 2008 by factoring basic
+          component base classes and their directives and grokkers out of
+          Grok.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python

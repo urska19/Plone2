@@ -1,0 +1,9 @@
+[console_scripts]
+libdoc = plone.app.robotframework.robotentrypoints:libdoc
+pybabel = plone.app.robotframework.robotentrypoints:pybabel
+pybot = plone.app.robotframework.robotentrypoints:pybot
+ride = plone.app.robotframework.robotentrypoints:ride
+robot = plone.app.robotframework.robotentrypoints:robot
+robot-debug = plone.app.robotframework.robotentrypoints:robot_debug
+robot-server = plone.app.robotframework.server:server
+

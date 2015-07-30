@@ -1,0 +1,16 @@
+setuptools
+zope.component
+zope.interface
+zope.viewlet
+Products.CMFCore
+plone.protect >= 3.0.0a1
+Products.GenericSetup
+Acquisition
+DateTime
+ZODB3
+Zope2
+plone.app.registry
+
+[test]
+zope.contentprovider
+Products.PloneTestCase

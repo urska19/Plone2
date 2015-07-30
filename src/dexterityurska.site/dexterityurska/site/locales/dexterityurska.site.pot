@@ -1,0 +1,56 @@
+# ##############################################################################
+# #
+# # Copyright (c) 2003-2004 Zope Foundation and Contributors.
+# # All Rights Reserved.
+# #
+# # This software is subject to the provisions of the Zope Public License,
+# # Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# # THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# # WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# # WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# # FOR A PARTICULAR PURPOSE.
+# #
+# ##############################################################################
+# msgid ""
+# msgstr ""
+# "Project-Id-Version: 1.0\n"
+# "POT-Creation-Date: Tue Jul 28 09:16:18 2015\n"
+# "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+# "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+# "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
+# "MIME-Version: 1.0\n"
+# "Content-Type: text/plain; charset=UTF-8\n"
+# "Content-Transfer-Encoding: 8bit\n"
+# "Generated-By: zope/app/locales/extract.py\n"
+# "Domain: dexterityurska.site\n"
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-04-28 12:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: dexterityurska.site\n"
+
+#: dexterity/site/browser/controlpanel.py:20
+msgid ""
+msgstr ""
+
+#: collective/mailchimp/browser/portlet.py:90
+msgid "Add MailChimp Portlet"
+msgstr ""
+
+#: collective/mailchimp/browser/controlpanel.pt:87
+msgid "Address 1:"
+msgstr ""
+

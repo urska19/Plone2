@@ -1,0 +1,27 @@
+AccessControl
+Acquisition
+Products.CMFCore
+Products.CMFPlone
+Products.PlonePAS
+Products.statusmessages
+ZODB3
+Zope2 >= 2.12.3
+plone.app.controlpanel >=2.1b1
+plone.app.layout
+plone.autoform >= 1.2
+plone.formwidget.namedfile >= 1.0.3
+plone.namedfile
+plone.protect
+plone.uuid
+setuptools
+z3c.form
+zope.component
+zope.event
+zope.interface
+zope.schema
+zope.site
+
+[test]
+Products.MailHost
+plone.app.testing
+plone.keyring

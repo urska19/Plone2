@@ -1,0 +1,2274 @@
+------
+2015-07-30T13:36:25 INFO ZServer HTTP server started at Thu Jul 30 13:36:25 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T13:36:38 INFO ZODB.blob (6738) Blob directory `/home/urska/Plone/zinstance/var/blobstorage` is unused and has no layout marker set. Selected `bushy` layout. 
+------
+2015-07-30T13:36:38 INFO ZODB.blob (6738) Blob temporary directory '/home/urska/Plone/zinstance/var/blobstorage/tmp' does not exist. Created new directory.
+------
+2015-07-30T13:37:15 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T13:37:21 INFO Zope Ready to handle requests
+------
+2015-07-30T13:41:49 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T13:41:49 INFO Z2 Shutting down
+------
+2015-07-30T13:46:28 INFO ZServer HTTP server started at Thu Jul 30 13:46:28 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T13:46:50 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T13:46:56 INFO Zope Ready to handle requests
+------
+2015-07-30T13:48:53 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T13:48:53 INFO Z2 Shutting down
+------
+2015-07-30T13:49:04 INFO ZServer HTTP server started at Thu Jul 30 13:49:04 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T13:49:08 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T13:49:10 INFO Zope Ready to handle requests
+------
+2015-07-30T13:49:44 INFO SignalHandler Caught signal SIGTERM
+------
+2015-07-30T13:49:44 INFO Z2 Shutting down fast
+------
+2015-07-30T13:49:44 INFO ZServer closing HTTP to new connections
+------
+2015-07-30T13:49:58 INFO ZServer HTTP server started at Thu Jul 30 13:49:58 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T13:50:02 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T13:50:05 INFO Zope Ready to handle requests
+------
+2015-07-30T13:55:04 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T13:55:04 INFO Z2 Shutting down
+------
+2015-07-30T13:56:17 INFO ZServer HTTP server started at Thu Jul 30 13:56:17 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T13:56:22 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T13:56:25 INFO Zope Ready to handle requests
+------
+2015-07-30T13:57:24 INFO Products.CMFPlone CSRF protection disabled on initial site creation
+------
+2015-07-30T13:57:24 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.properties Site properties imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.componentregistry Adapters purged.
+------
+2015-07-30T13:57:24 INFO GenericSetup.componentregistry Subscribers purged.
+------
+2015-07-30T13:57:24 INFO GenericSetup.componentregistry Utilities purged.
+------
+2015-07-30T13:57:24 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:24 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:24 INFO GenericSetup.skins Skins tool imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.memberdata MemberData tool imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.contenttypes Content type registry imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.mailhost Mailhost imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.propertiestool Properties tool imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:24 INFO GenericSetup.plone.app.viewletmanager Imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.types 'Discussion Item' type info imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.types 'Plone Site' type info imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.types 'TempFolder' type info imported.
+------
+2015-07-30T13:57:24 INFO GenericSetup.repositorytool Nothing to import.
+------
+2015-07-30T13:57:25 INFO GenericSetup.portlets Portlets imported
+------
+2015-07-30T13:57:25 INFO GenericSetup.catalog Catalog imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:25 INFO GenericSetup.repositorytool Nothing to import.
+------
+2015-07-30T13:57:25 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:25 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:25 INFO GenericSetup.skins Skins tool imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:25 INFO GenericSetup.repositorytool Nothing to import.
+------
+2015-07-30T13:57:25 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:25 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:25 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:25 INFO GenericSetup.repositorytool Nothing to import.
+------
+2015-07-30T13:57:25 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:25 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:25 INFO GenericSetup.skins Skins tool imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:25 INFO GenericSetup. RepositoryTool settings imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.catalog Catalog imported.
+------
+2015-07-30T13:57:25 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:25 INFO PluggableAuthService.upgrade.replaceRootUserFolder Capturing user info for admin
+
+------
+2015-07-30T13:57:25 INFO PluggableAuthService.upgrade.replaceRootUserFolder Translating user admin
+
+------
+2015-07-30T13:57:25 INFO PluggableAuthService.upgrade.replaceRootUserFolder Replaced root acl_users with PluggableAuthService
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_setup)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/MailHost)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/caching_policy_manager)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/content_type_registry)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/error_log)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/plone_utils)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/document_actions)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/document_actions/rss)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/document_actions/print)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/document_actions/extedit)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/site_actions)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/site_actions/sitemap)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/site_actions/accessibility)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/site_actions/contact)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons/copy)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons/cut)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons/rename)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons/paste)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons/delete)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/folder_buttons/change_state)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object/folderContents)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object/syndication)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object/contentrules)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object/local_roles)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object_buttons)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object_buttons/cut)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object_buttons/copy)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object_buttons/paste)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object_buttons/delete)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/object_buttons/rename)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/portal_tabs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/portal_tabs/index_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user/preferences)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user/login)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user/join)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user/undo)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user/plone_setup)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_actions/user/logout)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_catalog)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_catalog/htmltext_lexicon)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_catalog/plaintext_lexicon)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_catalog/plone_lexicon)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_controlpanel)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_css)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_diff)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_groupdata)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_groups)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_javascripts)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_memberdata)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_membership)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_migration)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_password_reset)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_properties)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_properties/navtree_properties)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_properties/site_properties)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_quickinstaller)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_registration)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/custom)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/PasswordReset)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/mimetypes_icons)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   -- Set savepoint at object # 100
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_content)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_ecmascript)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_form_scripts)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_forms)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_images)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   -- Set savepoint at object # 200
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_login)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_prefs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_scripts)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   -- Set savepoint at object # 300
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_templates)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/plone_wysiwyg)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/CMFEditions)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_skins/cmfeditions_views)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_types)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_types/Discussion Item)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_types/Plone Site)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_types/TempFolder)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_uidannotation)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_uidgenerator)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_uidhandler)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_url)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_view_customizations)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_workflow)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/translation_service)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_form_controller)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/mimetypes_registry)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/st_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/rest_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/word_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/safe_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/html_body)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   -- Set savepoint at object # 400
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/html_to_text)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/text_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/text-pre_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/pdf_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/pdf_to_text)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_png)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_gif)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_jpeg)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_pcx)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_ppm)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_tiff)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/image_to_bmp)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/python_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/rest_to_text)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/markdown_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/textile_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/web_intelligent_plain_text_to_html)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_transforms/html_to_web_intelligent_plain_text)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_archivist)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_historiesstorage)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_historyidhandler)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/OMInsideChildrensModifier)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/OMOutsideChildrensModifier)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/RetainUIDs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/RetainATRefs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/NotRetainATRefs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/RetainWorkflowStateAndHistory)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/RetainPermissionsSettings)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/SaveFileDataInFileTypeByReference)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/SillyDemoRetrieveModifier)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/SkipParentPointers)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/SkipRegistryBasesPointers)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/AbortVersioningOfLargeFilesAndImages)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/SkipVersioningOfLargeFilesAndImages)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/SkipBlobs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/CloneBlobs)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_modifier/Skip_z3c_blobfile)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_purgepolicy)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_referencefactories)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/portal_repository)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/Plone/acl_users)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Translated admin to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot   Assigned roles ['Owner'] to admin
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.upgradeLocalRoleAssignmentsFromRoot Local Roles map changed for (/acl_users)
+
+------
+2015-07-30T13:57:26 INFO PluggableAuthService.upgrade.replace_acl_users Root acl_users has been replaced, and local role assignments updated.
+
+------
+2015-07-30T13:57:26 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:26 INFO GenericSetup.plone.app.registry Cannot find registry
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:26 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:26 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:26 INFO GenericSetup.resourceregistry Stylesheet registry imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.resourceregistry Javascript registry imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.types 'Discussion Item' type info imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.catalog Catalog imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.workflow Workflow tool imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.resourceregistry Stylesheet registry imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.resourceregistry Javascript registry imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:26 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:26 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:26 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.portlets Portlets imported
+------
+2015-07-30T13:57:27 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.portlets Portlets imported
+------
+2015-07-30T13:57:27 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:27 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:27 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.workflow Workflow tool imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:28 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:28 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:28 INFO GenericSetup.resourceregistry Stylesheet registry imported.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Old catalog DateIndex start deleted.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Catalog DateRecurringIndex start created.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Catalog metadata column start already exists.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Old catalog DateIndex end deleted.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Catalog DateRecurringIndex end created.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Catalog metadata column end already exists.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Catalog FieldIndex sync_uid created.
+------
+2015-07-30T13:57:28 INFO plone.app.event.setuphandlers Catalog metadata column sync_uid created.
+------
+2015-07-30T13:57:28 INFO GenericSetup.resourceregistry Javascript registry imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.types 'Plone Site' type info imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.types 'Folder' type info imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.types 'Collection' type info imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.portlets Portlets imported
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:28 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:29 INFO GenericSetup.resourceregistry Stylesheet registry imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.resourceregistry Javascript registry imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Discussion Item' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.catalog Catalog imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.workflow Workflow tool imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup. DiffTool settings imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup. DiffTool settings imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:29 INFO GenericSetup.propertiestool Properties tool imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.resourceregistry Stylesheet registry imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Plone Site' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Collection' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Document' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Folder' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Link' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'File' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Image' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'News Item' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.types 'Event' type info imported.
+------
+2015-07-30T13:57:29 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.portlets Portlets imported
+------
+2015-07-30T13:57:30 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:30 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:30 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:30 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:30 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:30 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:30 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:30 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.skins Skins tool imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:31 INFO GenericSetup.plone.app.theming.exportimport Theme barceloneta applied
+------
+2015-07-30T13:57:31 INFO GenericSetup.plone.app.theming.exportimport Theme enabled
+------
+2015-07-30T13:57:31 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:57:31 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:57:31 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:57:31 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:57:31 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:58:04 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:58:04 INFO GenericSetup.plone.app.viewletmanager Imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.types 'LRF' type info imported.
+------
+2015-07-30T13:58:04 INFO GenericSetup.types 'LIF' type info imported.
+------
+2015-07-30T13:58:04 INFO ProgressHandler Process started (6 objects to go)
+------
+2015-07-30T13:58:04 INFO ProgressHandler Process terminated. Duration: 0.00 seconds
+------
+2015-07-30T13:58:04 INFO ProgressHandler Process started (6 objects to go)
+------
+2015-07-30T13:58:04 INFO ProgressHandler Process terminated. Duration: 0.00 seconds
+------
+2015-07-30T13:58:04 INFO GenericSetup.catalog Catalog imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:58:12 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.actions Actions tool imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.types Types tool imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.types 'vehicle_card' type info imported.
+------
+2015-07-30T13:58:12 INFO GenericSetup.portlets Portlets imported
+------
+2015-07-30T13:58:17 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:58:17 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:58:17 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:58:17 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.toolset Toolset imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.componentregistry Adapters registered.
+------
+2015-07-30T13:58:17 INFO GenericSetup.componentregistry Utilities registered.
+------
+2015-07-30T13:58:17 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.controlpanel Control panel imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:58:17 INFO GenericSetup.rolemap Role / permission map imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.browserlayer Browser layers imported
+------
+2015-07-30T13:58:17 INFO GenericSetup.resourceregistry Stylesheet registry imported.
+------
+2015-07-30T13:58:17 INFO GenericSetup.resourceregistry Javascript registry imported.
+------
+2015-07-30T13:58:32 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/front-page/document_view
+------
+2015-07-30T13:58:35 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/front-page/document_view
+------
+2015-07-30T13:58:37 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/news/aggregator/summary_view
+------
+2015-07-30T13:58:39 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/events/aggregator/listing_view
+------
+2015-07-30T13:58:45 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/Members/@@member-search
+------
+2015-07-30T13:58:53 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/events/folder_contents
+------
+2015-07-30T13:59:02 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/front-page/document_view
+------
+2015-07-30T13:59:04 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/front-page/document_view
+------
+2015-07-30T13:59:12 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T13:59:12 INFO Z2 Shutting down
+------
+2015-07-30T14:00:00 INFO ZServer HTTP server started at Thu Jul 30 14:00:00 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T14:00:05 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T14:00:08 INFO Zope Ready to handle requests
+------
+2015-07-30T14:00:22 INFO plone.protect aborting transaction due to no CSRF protection on url http://localhost:8080/Plone/front-page/document_view
+------
+2015-07-30T14:03:03 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T14:03:03 INFO Z2 Shutting down
+------
+2015-07-30T14:11:21 INFO ZServer HTTP server started at Thu Jul 30 14:11:21 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T14:11:29 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T14:11:32 INFO Zope Ready to handle requests
+------
+2015-07-30T14:11:38 ERROR ZODB.Connection Couldn't load state for 0x2135
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:38 ERROR ZODB.Connection Couldn't load state for 0x20be
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:38 ERROR Zope.SiteErrorLog 1438258298.320.574277750299 http://localhost:8080/Plone/en/news/news-image/@@images/8a7c173b-f998-4c59-a23a-b3a7c2ad4a4c.jpeg/index_html
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 138, in publish
+  Module ZPublisher.mapply, line 77, in mapply
+  Module ZPublisher.Publish, line 48, in call_object
+  Module plone.namedfile.scaling, line 99, in index_html
+  Module plone.namedfile.utils, line 45, in set_headers
+  Module plone.namedfile.file, line 414, in getSize
+  Module plone.namedfile.file, line 406, in size
+  Module ZODB.Connection, line 860, in setstate
+  Module ZODB.Connection, line 922, in _setstate
+  Module ZODB.blob, line 644, in loadBlob
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:38 ERROR Zope.SiteErrorLog 1438258298.320.811508724246 http://localhost:8080/Plone/en/news/first-news/@@images/8a42dabb-3d42-4184-8d02-568010c199aa.jpeg/index_html
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 138, in publish
+  Module ZPublisher.mapply, line 77, in mapply
+  Module ZPublisher.Publish, line 48, in call_object
+  Module plone.namedfile.scaling, line 99, in index_html
+  Module plone.namedfile.utils, line 45, in set_headers
+  Module plone.namedfile.file, line 414, in getSize
+  Module plone.namedfile.file, line 406, in size
+  Module ZODB.Connection, line 860, in setstate
+  Module ZODB.Connection, line 922, in _setstate
+  Module ZODB.blob, line 644, in loadBlob
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:39 ERROR ZODB.Connection Couldn't load state for 0x17e9
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:39 ERROR Zope.SiteErrorLog 1438258299.550.841272834467 http://localhost:8080/Plone/home.jpg/@@display-file
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 138, in publish
+  Module ZPublisher.mapply, line 77, in mapply
+  Module ZPublisher.Publish, line 48, in call_object
+  Module plone.namedfile.browser, line 45, in __call__
+  Module plone.namedfile.utils, line 62, in stream_data
+  Module ZODB.Connection, line 860, in setstate
+  Module ZODB.Connection, line 922, in _setstate
+  Module ZODB.blob, line 644, in loadBlob
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR ZODB.Connection Couldn't load state for 0x20f0
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR Zope.SiteErrorLog 1438258300.00.814046666702 http://localhost:8080/Plone/en/news/second-news/@@images/1ef0b2db-0826-47ac-855a-dd03e43e0fdc.jpeg/index_html
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 138, in publish
+  Module ZPublisher.mapply, line 77, in mapply
+  Module ZPublisher.Publish, line 48, in call_object
+  Module plone.namedfile.scaling, line 99, in index_html
+  Module plone.namedfile.utils, line 45, in set_headers
+  Module plone.namedfile.file, line 414, in getSize
+  Module plone.namedfile.file, line 406, in size
+  Module ZODB.Connection, line 860, in setstate
+  Module ZODB.Connection, line 922, in _setstate
+  Module ZODB.blob, line 644, in loadBlob
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR ZODB.Connection Couldn't load state for 0x2c1e
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR Zope.SiteErrorLog 1438258300.090.623784697524 http://localhost:8080/Plone/images/rsz_logotip-ess-eng.jpg/@@display-file
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 138, in publish
+  Module ZPublisher.mapply, line 77, in mapply
+  Module ZPublisher.Publish, line 48, in call_object
+  Module plone.namedfile.browser, line 45, in __call__
+  Module plone.namedfile.utils, line 62, in stream_data
+  Module ZODB.Connection, line 860, in setstate
+  Module ZODB.Connection, line 922, in _setstate
+  Module ZODB.blob, line 644, in loadBlob
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR ZODB.Connection Couldn't load state for 0x2c8a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR Zope.SiteErrorLog 1438258300.670.300452186193 http://localhost:8080/Plone/images/rsz_slohrfund_logo_01.jpg/@@display-file
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 138, in publish
+  Module ZPublisher.mapply, line 77, in mapply
+  Module ZPublisher.Publish, line 48, in call_object
+  Module plone.namedfile.browser, line 45, in __call__
+  Module plone.namedfile.utils, line 62, in stream_data
+  Module ZODB.Connection, line 860, in setstate
+  Module ZODB.Connection, line 922, in _setstate
+  Module ZODB.blob, line 644, in loadBlob
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:40 ERROR ZODB.Connection Couldn't load state for 0x2c7a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:50 ERROR ZODB.Connection Couldn't load state for 0x20f0
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:50 ERROR ZODB.Connection Couldn't load state for 0x2135
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:50 ERROR ZODB.Connection Couldn't load state for 0x2c7a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:50 ERROR ZODB.Connection Couldn't load state for 0x2c8a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:50 ERROR ZODB.Connection Couldn't load state for 0x20be
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:50 ERROR ZODB.Connection Couldn't load state for 0x2c1e
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:54 ERROR ZODB.Connection Couldn't load state for 0x2207
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:54 ERROR ZODB.Connection Couldn't load state for 0x2135
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:54 ERROR ZODB.Connection Couldn't load state for 0x2c1e
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:54 ERROR ZODB.Connection Couldn't load state for 0x20be
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:55 ERROR ZODB.Connection Couldn't load state for 0x20f0
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:55 ERROR ZODB.Connection Couldn't load state for 0x220a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:55 ERROR ZODB.Connection Couldn't load state for 0x2c8a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:55 ERROR ZODB.Connection Couldn't load state for 0x2c7a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:56 ERROR ZODB.Connection Couldn't load state for 0x2135
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:56 ERROR ZODB.Connection Couldn't load state for 0x20f0
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:56 ERROR ZODB.Connection Couldn't load state for 0x2c7a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:56 ERROR ZODB.Connection Couldn't load state for 0x2c8a
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:57 ERROR ZODB.Connection Couldn't load state for 0x20be
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:11:57 ERROR ZODB.Connection Couldn't load state for 0x2c1e
+Traceback (most recent call last):
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 860, in setstate
+    self._setstate(obj)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/Connection.py", line 922, in _setstate
+    obj._p_blob_committed = self._storage.loadBlob(obj._p_oid, serial)
+  File "/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg/ZODB/blob.py", line 644, in loadBlob
+    raise POSKeyError("No blob file", oid, serial)
+POSKeyError: 'No blob file'
+------
+2015-07-30T14:12:48 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T14:12:48 INFO Z2 Shutting down
+------
+2015-07-30T14:13:07 INFO ZServer HTTP server started at Thu Jul 30 14:13:07 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T14:13:09 WARNING ZODB.blob (9371) Blob dir /home/urska/Plone/zinstance/var/blobstorage/ has insecure mode setting
+------
+2015-07-30T14:13:15 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T14:13:17 INFO Zope Ready to handle requests
+------
+2015-07-30T14:13:43 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T14:13:43 INFO Z2 Shutting down
+------
+2015-07-30T15:18:38 INFO ZServer HTTP server started at Thu Jul 30 15:18:38 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T15:19:00 WARNING ZODB.blob (10993) Blob dir /home/urska/Plone/zinstance/var/blobstorage/ has insecure mode setting
+------
+2015-07-30T15:19:23 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T15:19:30 INFO Zope Ready to handle requests
+------
+2015-07-30T15:19:52 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T15:19:52 INFO Z2 Shutting down
+------
+2015-07-30T17:52:05 INFO ZServer HTTP server started at Thu Jul 30 17:52:05 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T17:52:37 WARNING ZODB.blob (14133) Blob dir /home/urska/Plone/zinstance/var/blobstorage/ has insecure mode setting
+------
+2015-07-30T17:53:00 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T17:53:07 INFO Zope Ready to handle requests
+------
+2015-07-30T17:53:09 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T17:53:09 INFO Z2 Shutting down
+------
+2015-07-30T19:27:12 INFO ZServer HTTP server started at Thu Jul 30 19:27:12 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T19:27:28 WARNING ZODB.blob (16540) Blob dir /home/urska/Plone/zinstance/var/blobstorage/ has insecure mode setting
+------
+2015-07-30T19:27:49 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T19:27:54 INFO Zope Ready to handle requests
+------
+2015-07-30T19:28:37 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T19:28:37 INFO Z2 Shutting down
+------
+2015-07-30T19:33:54 INFO ZServer HTTP server started at Thu Jul 30 19:33:54 2015
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2015-07-30T19:33:55 WARNING ZODB.blob (16667) Blob dir /home/urska/Plone/zinstance/var/blobstorage/ has insecure mode setting
+------
+2015-07-30T19:33:58 INFO Plone OpenID system packages not installed, OpenID support not available
+------
+2015-07-30T19:33:59 INFO Zope Ready to handle requests
+------
+2015-07-30T19:34:23 INFO SignalHandler Caught signal SIGINT
+------
+2015-07-30T19:34:23 INFO Z2 Shutting down

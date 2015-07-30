@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+"""Installer for the {{{ package.dottedname }}} package."""
+
+from setuptools import find_packages
+from setuptools import setup
+
+
+long_description = (
+    open('README.rst').read()
+    + '\n' +
+    'Contributors\n'
+    '============\n'
+    + '\n' +
+    open('CONTRIBUTORS.rst').read()
+    + '\n' +
+    open('CHANGES.rst').read()
+    + '\n')
+
+
+setup(
+    name='{{{ package.dottedname }}}',
+    version='0.1',
+    description="{{{ package.description }}}",
+    long_description=long_description,
+    # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
+        "Environment :: Web Environment",
+        "Framework :: Plone",
+        "Framework :: Plone :: {{{ plone.version }}}",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+    ],
+    keywords='Python Plone',
+    author='{{{ author.name }}}',
+    author_email='{{{ author.email }}}',
+    url='http://pypi.python.org/pypi/{{{ package.dottedname }}}',
+    license='GPL',
+    packages=find_packages('src', exclude=['ez_setup']),
+    namespace_packages=[{{{ package.namespace_packages }}}],
+    package_dir={'': 'src'},
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+        'plone.api',
+        'setuptools',
+        'z3c.jbot',
+{{% if package.type == 'Theme' %}}
+        'plone.app.theming',
+        'plone.app.themingplugins',
+{{% endif %}}
+{{% if package.type == 'Dexterity' %}}
+        'plone.app.dexterity',
+{{% endif %}}
+    ],
+    extras_require={
+        'test': [
+            'plone.app.testing',
+            'plone.app.contenttypes',
+            'plone.app.robotframework[debug]',
+        ],
+    },
+    entry_points="""
+    [z3c.autoinclude.plugin]
+    target = plone
+    """,
+)

@@ -1,0 +1,14 @@
+#!/home/urska/Plone/zinstance/bin/python2.7
+
+import sys
+sys.path[0:0] = [
+  '/home/urska/Plone/buildout-cache/eggs/plone.recipe.unifiedinstaller-4.3.1-py2.7.egg',
+  '/home/urska/Plone/buildout-cache/eggs/zc.recipe.egg-1.3.2-py2.7.egg',
+  '/home/urska/Plone/zinstance/lib/python2.7/site-packages',
+  '/home/urska/Plone/buildout-cache/eggs/setuptools-12.2-py2.7.egg',
+  ]
+
+import plone.recipe.unifiedinstaller.ctl
+
+if __name__ == '__main__':
+    sys.exit(plone.recipe.unifiedinstaller.ctl.main(server=None, clients=['instance'], location=r'/home/urska/Plone/zinstance', binDirectory=r'/home/urska/Plone/zinstance/bin', fileStorage=r'/home/urska/Plone/zinstance/var/filestorage/Data.fs'))

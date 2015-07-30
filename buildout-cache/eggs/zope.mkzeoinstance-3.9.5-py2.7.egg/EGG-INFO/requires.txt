@@ -1,0 +1,2 @@
+setuptools
+ZODB3 >= 3.9.4

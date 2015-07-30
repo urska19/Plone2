@@ -1,0 +1,154 @@
+Metadata-Version: 1.1
+Name: Products.DateRecurringIndex
+Version: 2.1
+Summary: Zope 2 date index with support for recurring events.
+Home-page: https://github.com/collective/Products.DateRecurringIndex
+Author: BlueDynamics Alliance
+Author-email: dev@bluedynamics.com
+License: BSD
+Description: ===========================
+        Products.DateRecurringIndex
+        ===========================
+        
+        A Zope 2 catalog index with support for indexing of recurring events, following
+        the icalendar standard. It is a drop-in replacement for the Zope2 DateIndex and
+        will produce the same results for non-recurring dates.
+        
+        The DateRecurringIndex accepts following parameters:
+        
+        id
+            Required. The name of the field or object attribute to be indexed.
+        
+        recurdef
+            Required. The name of the object attribute, which returns the icalendar
+            rrule (recurrence rule) string.
+        
+        until
+            Optional. The name of the objects attribute, which returns the date, until
+            the recurrence should happen. The recurrence definition can also contain an
+            UNTIL component. If both are defined, the recurrence calculation stops 
+            whenever the first until-date is met. If not given at all, there is a
+            MAXCOUNT ceiling constant, defined in plone.event.recurrence, which defines
+            the maximum number of occurences.
+        
+        
+        Datetime.DateTime vs. datetime.datetime
+        =======================================
+        
+        Inside Zope2 everybody uses DateTime.DateTime or iow the Zope-DateTime. At time
+        of writing Zope-DateTime (around 1998) there was no good date/time
+        implementation in python. But these days  we have a better implementation.
+        Even if the pythons datetime implementation has its problems, together with pytz
+        for timezone handling it is very mature.
+        
+        So, why is it covered here? Just because dst-handling over recurring events works
+        only if the start and until values are non-naive python datetimes. Just keep it
+        in mind when using this index: If you use recurring dates and you want
+        dst-adjust make sure your implementation returns a python datetime. And also
+        keep in mind: If youre i.e. in Austria with CET timezone, add a recurring date:
+        it will look fine to you, every day at 11:00am, doesnt matter if DST or not,
+        your event happens. If you go international and your event is shown in a
+        different timezone - or in the same in a country without DST at all - it might
+        differ and is not always at the the time.
+        
+        
+        Changelog
+        =========
+        
+        2.1 (2014-03-02)
+        ----------------
+        
+        - Fix the manage template declaration and avoid the deprecation warnings on
+          Zope startup.
+          [thet]
+        
+        
+        2.0.1 (2013-04-24)
+        ------------------
+        
+        - Licence and contributors updates.
+          [jensens]
+        
+        
+        2.0 (2012-10-12)
+        ----------------
+        
+        - Use tuple to store self._unindex (reverse index) values, instead of an
+          IISet, allowing for proper sorting, intended to fix:
+          https://github.com/collective/Products.DateRecurringIndex/issues/1
+          For proper sorting, existing installations may wish to reindex any
+          indexes installed in their catalog using DateRecurringIndex.
+          [seanupton]
+        
+        2.0b3 (2012-03-02)
+        ------------------
+        
+        - Fixed broken manage template.
+          [romanofski]
+        
+        - Added template to browse index contents.
+          [romanofski]
+        
+        - Repackaging: Fixing MANIFEST.in and adding missing files.
+          [thet]
+        
+        2.0b2 (2012-02-25)
+        ------------------
+        
+        - Repackaging: Adding a MANIFEST.in file.
+          [thet]
+        
+        2.0b1 (2012-02-24)
+        ------------------
+        
+        - Refactoring to support recurrence calculations based on icalendar recurrence
+          rules via plone.event.
+          [thet]
+        
+        
+        1.0 (2009-04-10)
+        ----------------
+        
+        - Initial release
+          [jensens]
+        
+        
+        =======
+        License
+        =======
+        
+        Copyright (c) 2008-2012, BlueDynamics Alliance, Austria and contributors.
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
+        * Neither the name of the BlueDynamics Alliance nor the
+          names of its contributors may be used to endorse or promote products
+          derived from this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY *BLUEDYNAMICS ALLIANCE AND CONTRIBUTORS* **AS IS** 
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+        ARE DISCLAIMED. IN NO EVENT SHALL *BLUEDYNAMICS ALLIANCE AND CONTRIBUTORS* BE 
+        LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+        AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Keywords: zope zope2 index catalog date recurring
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

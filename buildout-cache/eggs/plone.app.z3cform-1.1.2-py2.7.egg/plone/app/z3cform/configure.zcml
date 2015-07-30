@@ -1,0 +1,197 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="plone">
+
+  <include package="plone.z3cform" />
+  <include package="plone.app.widgets" />
+  <include package=".wysiwyg" />
+
+  <!-- Configuration installation profile -->
+
+  <include file="profiles.zcml" />
+
+  <!-- Set up default templates -->
+
+  <browser:page
+      name="ploneform-macros"
+      for="*"
+      layer=".interfaces.IPloneFormLayer"
+      class=".templates.Macros"
+      template="templates/macros.pt"
+      allowed_interface="zope.interface.common.mapping.IItemMapping"
+      permission="zope.Public"
+      />
+  <browser:page
+      name="ploneform-render-widget"
+      for="z3c.form.interfaces.IWidget"
+      layer="plone.app.z3cform.interfaces.IPloneFormLayer"
+      class=".templates.RenderWidget"
+      permission="zope.Public"
+      />
+  <browser:page
+      name="ploneform-render-widget"
+      for="zope.contentprovider.interfaces.IContentProvider"
+      layer="plone.app.z3cform.interfaces.IPloneFormLayer"
+      class=".templates.RenderContentProvider"
+      permission="zope.Public"
+      />
+  <browser:page
+      name="ploneform-render-widget"
+      for="z3c.form.interfaces.ISingleCheckBoxWidget"
+      layer="plone.app.z3cform.interfaces.IPloneFormLayer"
+      class=".templates.RenderSingleCheckboxWidget"
+      permission="zope.Public"
+      />
+
+  <adapter factory=".templates.layout_factory" />
+  <adapter factory=".templates.form_factory" />
+
+  <!-- Make the default widget for sequence-of-text-lines a textlines
+       widget; the default is too confusing
+    -->
+
+  <adapter
+      factory="plone.z3cform.textlines.textlines.TextLinesFieldWidgetFactory"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema.interfaces.IList
+           zope.schema.interfaces.ITextLine
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+  <adapter
+      factory="plone.z3cform.textlines.textlines.TextLinesFieldWidgetFactory"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema.interfaces.ITuple
+           zope.schema.interfaces.ITextLine
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+  <adapter
+      factory="plone.z3cform.textlines.textlines.TextLinesFieldWidgetFactory"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema.interfaces.IAbstractSet
+           zope.schema.interfaces.ITextLine
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+
+  <adapter
+      factory="plone.z3cform.textlines.textlines.TextLinesFieldWidgetFactory"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema.interfaces.IList
+           zope.schema.interfaces.IASCIILine
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+  <adapter
+      factory="plone.z3cform.textlines.textlines.TextLinesFieldWidgetFactory"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema.interfaces.ITuple
+           zope.schema.interfaces.IASCIILine
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+  <adapter
+      factory="plone.z3cform.textlines.textlines.TextLinesFieldWidgetFactory"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema.interfaces.IAbstractSet
+           zope.schema.interfaces.IASCIILine
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+
+  <adapter
+      factory="z3c.form.browser.checkbox.SingleCheckBoxFieldWidget"
+      for="zope.schema.interfaces.IBool
+           plone.app.z3cform.interfaces.IPloneFormLayer"
+      />
+
+  <z3c:widgetTemplate
+      mode="input"
+      widget="z3c.form.interfaces.IMultiWidget"
+      layer=".interfaces.IPloneFormLayer"
+      template="templates/multi_input.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="input"
+      widget="z3c.form.interfaces.IObjectWidget"
+      layer=".interfaces.IPloneFormLayer"
+      template="templates/object_input.pt"
+      />
+
+  <browser:page
+      name="z3cform_validate_field"
+      for="*"
+      class=".inline_validation.InlineValidationView"
+      permission="zope.Public"
+      />
+
+  <adapter
+      factory=".object.SubformAdapter"
+      for="zope.interface.Interface
+           plone.app.z3cform.interfaces.IPloneFormLayer
+           zope.interface.Interface
+           zope.interface.Interface
+           z3c.form.interfaces.IObjectWidget
+           zope.interface.Interface
+           zope.interface.Interface" />
+
+  <!-- Use a custom actions manager that knows how to do CSRF token authentication. -->
+  <adapter factory=".csrf.AuthenticatedButtonActions" />
+
+  <adapter factory=".converters.DatetimeWidgetConverter" />
+  <adapter factory=".converters.DateWidgetConverter" />
+  <adapter factory=".converters.SelectWidgetConverter" />
+  <adapter factory=".converters.SequenceSelectWidgetConverter" />
+  <adapter factory=".converters.AjaxSelectWidgetConverter" />
+  <adapter factory=".converters.QueryStringDataConverter" />
+  <adapter factory=".converters.RelationChoiceRelatedItemsWidgetConverter" />
+  <adapter factory=".converters.RelatedItemsDataConverter" />
+
+  <!-- widget registration stuff -->
+  <class class=".widget.DateWidget">
+    <require permission="zope.Public"
+             interface=".interfaces.IDateWidget" />
+  </class>
+  <class class="zope.schema._field.Date">
+    <implements interface=".interfaces.IDateField"/>
+  </class>
+  <adapter
+      factory=".widget.DateFieldWidget"
+      for=".interfaces.IDateField
+           plone.app.z3cform.interfaces.IPloneFormLayer" />
+
+  <class class=".widget.DatetimeWidget">
+    <require permission="zope.Public"
+             interface=".interfaces.IDatetimeWidget" />
+  </class>
+  <class class="zope.schema._field.Datetime">
+    <implements interface=".interfaces.IDatetimeField"/>
+  </class>
+
+  <adapter factory=".widget.DatetimeFieldWidget"
+           for=".interfaces.IDatetimeField
+                plone.app.z3cform.interfaces.IPloneFormLayer" />
+
+  <adapter factory=".widget.RelatedItemsFieldWidget"
+           for="z3c.relationfield.interfaces.IRelationChoice
+                plone.app.z3cform.interfaces.IPloneFormLayer" />
+
+  <adapter factory=".widget.RelatedItemsFieldWidget"
+           for="z3c.relationfield.interfaces.IRelationList
+                plone.app.z3cform.interfaces.IPloneFormLayer" />
+
+  <adapter factory=".widget.RelatedItemsFieldWidget"
+           for="zope.schema.interfaces.IChoice
+                plone.app.vocabularies.catalog.CatalogSource
+                plone.app.z3cform.interfaces.IPloneFormLayer" />
+
+  <adapter factory=".widget.QueryStringFieldWidget"
+           for="zope.schema.interfaces.IList
+                zope.schema.interfaces.IDict
+                plone.app.z3cform.interfaces.IPloneFormLayer"/>
+
+  <adapter factory=".widget.RichTextFieldWidget"
+           for="plone.app.textfield.interfaces.IRichText
+                plone.app.z3cform.interfaces.IPloneFormLayer"/>
+
+</configure>

@@ -1,0 +1,81 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# plone.z3cform.
+# Jian Aijun <jianaijun@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: plone.z3cform\n"
+"POT-Creation-Date: 2012-09-16 22:09+0000\n"
+"PO-Revision-Date: 2011-07-08 17:34+0800\n"
+"Last-Translator: Jian Aijun <jianaijun@gmail.com>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh_CN\n"
+"Language-Name: Chinese (Simplified)\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone.z3cform\n"
+
+#: ../crud/crud.py:309
+msgid "Add"
+msgstr "“添加"
+
+#: ../crud/crud.py:235
+msgid "Apply changes"
+msgstr "应用更改"
+
+#: ../fieldsets/extensible.py:55
+msgid "Default"
+msgstr "默认"
+
+#: ../crud/crud.py:274
+msgid "Delete"
+msgstr "删除"
+
+#: ../crud/crud.py:199
+msgid "Edit"
+msgstr "编辑"
+
+#: ../crud/crud.py:334
+msgid "Item added successfully."
+msgstr "条目已添加成功。"
+
+#: ../crud/crud.py:241
+msgid "No changes made."
+msgstr "未做任何更改。"
+
+#: ../crud/crud.py:294
+msgid "Please select items to delete."
+msgstr "请选择要删除的条目。"
+
+#: ../crud/crud.py:240
+msgid "Some of your changes could not be applied."
+msgstr "您的某些更改可能不会应用。”"
+
+#: ../crud/crud.py:278
+msgid "Successfully deleted items."
+msgstr "已成功删除条目。"
+
+#: ../crud/crud.py:239
+msgid "Successfully updated"
+msgstr "已成功更新"
+
+#: ../crud/crud.py:288
+msgid "Unable to remove one or more items."
+msgstr "无法删除一个或多个条目。"
+
+#. Default: "(Required)"
+#: ../templates/macros.pt:56
+msgid "label_required"
+msgstr "（必需）"
+
+#: ../crud/crud.py:160
+msgid "select"
+msgstr "选择"
+
+#. Default: "Required"
+#: ../templates/macros.pt:56
+msgid "title_required"
+msgstr "必需"
+

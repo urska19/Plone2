@@ -1,0 +1,195 @@
+Metadata-Version: 1.1
+Name: grokcore.site
+Version: 1.6.1
+Summary: Grok-like configuration for Zope local site and utilities
+Home-page: http://grok.zope.org
+Author: Grok Team
+Author-email: grok-dev@zope.org
+License: ZPL
+Download-URL: http://pypi.python.org/pypi/grokcore.site
+Description: 
+        This package provides support to write local site and utilities for
+        Zope directly in Python (without ZCML).
+        
+        .. contents::
+        
+        
+        Setting up ``grokcore.site``
+        ============================
+        
+        This package is essentially set up like the `grokcore.component`_
+        package, please refer to its documentation for details.  The only
+        additional ZCML line you will need is::
+        
+          <include package="grokcore.site" />
+        
+        Put this somewhere near the top of your root ZCML file but below the
+        line where you include ``grokcore.component``'s configuration.
+        
+        
+        Examples
+        ========
+        
+        Global utilities are already managed by `grokcore.component`_.
+        
+        Here a simple example of a local utility::
+        
+          from zope.interface import implements, Interface
+          import grokcore.site
+        
+          class IKangaroo(Interface):
+        
+              def jump():
+                 """Make all kangaroos jump somewhere.
+                 """
+        
+          class KangarooUtility(grokcore.site.LocalUtility):
+              implements(IKangaroo)
+        
+              def jump(self):
+                  pass
+        
+        
+        Now, we can register our utility to a local site. That will create
+        automatically, and register that utility when we create that site::
+        
+        
+           class Jungle(grokcore.site.Site):
+        
+               grokcore.site.local_utility(KangarooUtility, IKangaroo)
+        
+        
+        If you don't add the last line, you will still have your site, but
+        nothing to make jump your kangaroo. Then, you will be able to add
+        manually by hand after (if you want).
+        
+        
+        API Overview
+        ============
+        
+        Base classes
+        ------------
+        
+        ``Site``
+           Base class for your site.
+        
+        ``LocalUtility``
+           Base class for a ZODB-persitent local utility.
+        
+        
+        Directives
+        ----------
+        
+        ``local_utility(factory, provides=None, name=u'', setup=None, public=False, name_in_container=None``)
+           Directive used on a site to register a local utility at the
+           creation time:
+        
+           ``factory``
+              Would be the component to register (required parameter),
+        
+           ``provides``
+              Would be the interface used to query the local utility (required
+              parameter),
+        
+           ``name``
+              Would be the name used to query the local utility,
+        
+           ``setup``
+              Would be a function taking parameter. If defined it will be
+              called after the utility is created with it as first and unique
+              parameter.
+        
+           ``public``
+              If true, the utility will be created in the site container
+              itself, not in the site manager, and public will be able to
+              access it directly.
+        
+           ``name_in_container``
+              Would be used as id for the utility in container itwill be
+              created. If not defined it will ask NameChooser to pick a name
+              for it.
+        
+        In addition, the ``grokcore.site`` package exposes the
+        `grokcore.component`_ API.
+        
+        .. _grokcore.component: http://pypi.python.org/pypi/grokcore.component
+        
+        Changes
+        =======
+        
+        1.6.1 (2012-05-02)
+        ------------------
+        
+        - Exposed ApplicationInitializedEvent and IApplicationInitializedEvent.
+        
+        - Added the missing import for the exposed IApplication interface.
+        
+        1.6 (2012-05-01)
+        ----------------
+        
+        - Moved the directive `site` from Grok to this package.
+        
+        - Moved the component `Application` and all the related utilities from Grok
+          to this package.
+        
+        1.5 (2011-01-03)
+        ----------------
+        
+        - Moved IApplication and getApplication from the Grok package into
+          this one.
+        
+        1.4 (2010-11-01)
+        ----------------
+        
+        - Upped versions requirements for martian and grokcore.component.
+        
+        1.3 (2010-10-18)
+        ----------------
+        
+        - Made package comply to repository policy.
+        
+        - Update functional tests to only use zope.app.appsetup instead
+          of zope.app.testing.
+        
+        - Update functional tests not to require zope.app.zcmlfiles
+          anymore.
+        
+        1.2 (2009-12-20)
+        ----------------
+        
+        * Migrated imports from zope.app.component to zope.site.
+        
+        1.1 (2009-09-18)
+        ----------------
+        
+        * Updated dependencies (added missing ones and added separate test
+          dependencies).
+        
+        * A local utility now implements IAttributeAnnotatable.
+        
+        * Update code documentation from Grok itself.
+        
+        * Use 1.0b2 versions.cfg in Grok's release info instead of a local
+          copy; a local copy for all grokcore packages is just too hard to
+          maintain.
+        
+        
+        1.0.1 (2009-06-30)
+        ------------------
+        
+        * Reupload to pypi with a correct version of Python which doesn't have
+          a distutils bug.
+        
+        1.0 (2009-06-29)
+        ----------------
+        
+        * Created ``grokcore.site`` by factoring local site based components,
+          grokkers and directives out of Grok.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Framework :: Zope3

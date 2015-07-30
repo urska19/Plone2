@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone.schema">
+
+    <include package="z3c.form" file="meta.zcml" />
+    <include package="z3c.form" />
+
+    <adapter factory=".uri.URIFieldWidget" />
+    <adapter factory=".email.EmailFieldWidget" />
+
+    <z3c:widgetTemplate
+      mode="display"
+      widget=".uri.IURIWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="templates/uri_display.pt"
+      />
+
+    <z3c:widgetTemplate
+      mode="display"
+      widget=".email.IEmailWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="templates/email_display.pt"
+      />
+
+</configure>

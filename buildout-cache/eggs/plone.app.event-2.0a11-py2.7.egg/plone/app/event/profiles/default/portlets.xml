@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+
+ <portlet
+   addview="portlets.Calendar"
+   title="Calendar portlet"
+   description="A portlet which can render a calendar."
+   i18n:attributes="title;
+                    description"
+   >
+   <for interface="plone.app.portlets.interfaces.IColumn" />
+   <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
+ <portlet
+   addview="portlets.Events"
+   title="Events"
+   description="A portlet which can render a listing of recent events"
+   i18n:attributes="title;
+                    description"
+   >
+   <for interface="plone.app.portlets.interfaces.IColumn" />
+   <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
+ <!-- EXAMPLE ASSIGNMENTS
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.Calendar"
+     name="calendar"
+     />
+ <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.Events"
+     name="events"
+     />
+  -->
+
+</portlets>

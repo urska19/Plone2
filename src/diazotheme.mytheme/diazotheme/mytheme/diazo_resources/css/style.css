@@ -1,0 +1,182 @@
+/*
+Theme Name: Dkn Business
+Author: Eleazar Dan S. Biscaro
+Aurthor url: http://danbiscaro.com
+Template url: http://dkntemplates.com
+Version: 1 
+*/
+
+/*** Reset ***/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { background: transparent; border: 0; font-size: 100%; margin: 0; outline: 0; padding: 0; vertical-align: baseline; }
+ol,ul { list-style: none; }
+blockquote,q { quotes: none; }
+blockquote:before,blockquote:after,q:before,q:after { content: ''; content: none; }
+:focus { outline: 0; }
+img { vertical-align: bottom; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/*** Clearfix ***/
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: "."; clear: both; height: 0; }
+.clear { clear: both; }
+
+/*** Positioning and Alignment ***/
+.fl { float: left; }
+.fr { float: right; }
+.txt-left { text-align: left; }
+.txt-right { text-align: right; }
+.txt-center { text-align: center; }
+
+img.left { float: left; margin-right: 10px; }
+
+/*** General Settings ***/
+body { background: #495968 url(../images/bg-body.jpg) repeat-x; color: #4a4747; font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
+h1,h2,h3,h4,h5,h6 { font-weight: normal; margin-bottom: 15px; }
+h1 { color: #4a4747; font-family: Georgia, serif; font-size: 18px; }
+h2 { color: #4a4747; font-family: Georgia, serif; font-size: 14px; }
+p { margin: 0 0 15px 0; }
+a { color: #4aa407; font-style: italic; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header, footer, section, aside, nav, article { display: block; }
+
+#wrapper { 
+	background: #ffffff; 
+	margin: 15px auto; 
+	padding: 10px; 
+	width: 940px; 
+	
+	/* Rounded Corner */
+	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px; 
+	-khtml-border-radius: 6px;
+}
+
+/*** Header ***/
+#header {
+	background: #161d27 url(../images/bg-header.jpg) repeat-x;
+	height: 110px;
+	margin-bottom: 5px;
+}
+
+/*** Logo ***/
+#logo { 
+	float: left;
+	margin: 35px 0px 0px 17px;
+}
+#logo h1 {
+	color: #e6e5e5;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	margin: 0px;
+}
+#logo h1 a {
+	color: #e6e5e5;
+	font-style: normal;
+}
+#logo p {
+	color: #deff42;
+	margin: 0px;
+}
+
+/*** Nav ***/
+#nav {
+	float: right;
+	margin-top: 58px;
+}
+#nav li {
+	display: inline;
+	margin-right: 35px;
+}
+#nav li a {
+	color: #e6e5e5;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+}
+#nav li a:hover,
+#nav li.active a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/*** Banner ***/
+#banner {
+	height: 200px;
+	margin-bottom: 15px;
+	position: relative;
+}
+#banner h1 {
+	color: #e6e5e5;
+	font-family: Georgia, serif;
+	font-size: 36px;
+	font-style: italic;
+	left: 30px;
+	position: absolute;
+	top: 68px;
+}
+#banner h1 span {
+	display: block;
+	margin-left: 30px;
+}
+
+/*** Main Body ***/
+#main-body {
+
+}
+
+/*** Sidebar ***/
+#sidebar  {
+	float: left;
+	width: 240px;
+}
+
+#sidebar article { margin-bottom: 15px; }
+
+/*** Content ***/
+#content {
+	border-left: 1px solid #909090;
+	float: right;
+	min-height: 300px;
+	padding-left: 15px;
+	width: 670px;
+}
+
+#content article {
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+#content .column {
+	width: 300px;
+}
+
+/*** Footer ***/
+#footer {
+	background: url(../images/bg-footer.jpg) repeat-x;
+	color: #ffffff;
+	height: 36px;
+	line-height: 36px;
+	margin-top: 15px;
+	overflow: hidden;
+}
+#footer span {
+	padding: 0px 15px;
+}
+#footer a {
+	color: #ffffff;
+	font-style: normal;
+}
+
+.author { 
+	color: #ffffff; 
+	text-align: center; 
+}
+.author a { 
+	color: #ffffff; 
+	font-style: normal;
+	font-weight: bold; 
+}

@@ -1,0 +1,7 @@
+setuptools
+plone.app.referenceablebehavior
+
+[test]
+plone.app.testing
+plone.app.contenttypes
+plone.app.dexterity [relations]

@@ -1,0 +1,19 @@
+setuptools
+ZODB3
+zope.event
+grokcore.component >= 2.1
+martian >= 0.13
+zope.annotation
+zope.component
+zope.container
+zope.interface
+zope.lifecycleevent
+zope.site
+
+[test]
+zope.app.appsetup
+zope.component
+zope.configuration
+zope.location
+zope.testing
+grokcore.content

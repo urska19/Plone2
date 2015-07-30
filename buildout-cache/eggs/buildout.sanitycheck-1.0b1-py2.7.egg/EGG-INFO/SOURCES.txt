@@ -1,0 +1,15 @@
+.gitignore
+README.rst
+setup.cfg
+setup.py
+buildout/__init__.py
+buildout.sanitycheck.egg-info/PKG-INFO
+buildout.sanitycheck.egg-info/SOURCES.txt
+buildout.sanitycheck.egg-info/dependency_links.txt
+buildout.sanitycheck.egg-info/entry_points.txt
+buildout.sanitycheck.egg-info/namespace_packages.txt
+buildout.sanitycheck.egg-info/not-zip-safe
+buildout.sanitycheck.egg-info/requires.txt
+buildout.sanitycheck.egg-info/top_level.txt
+buildout/sanitycheck/__init__.py
+docs/HISTORY.txt

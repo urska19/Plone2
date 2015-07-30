@@ -1,0 +1,19 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:meta="http://namespaces.zope.org/meta"
+   xmlns:grok="http://namespaces.zope.org/grok">
+
+  <include package="grokcore.component" file="meta.zcml" />
+  <include package="grokcore.security" file="meta.zcml" />
+  <include package="zope.browserpage" file="meta.zcml" />
+
+  <meta:directives namespace="http://namespaces.zope.org/grok">
+    <meta:directive
+        name="ignoreTemplates"
+        schema=".zcml.IIgnoreTemplatesDirective"
+        handler=".zcml.ignoreTemplates"
+        />
+  </meta:directives>
+
+  <grok:grok package=".meta" />
+</configure>

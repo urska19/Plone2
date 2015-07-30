@@ -1,0 +1,30 @@
+;-*-Doctest-*-
+=======================
+Translocating Migrators
+=======================
+
+Translocating migrators place the new object in a different location
+from the old object::
+
+    >>> portal = layer['portal']
+    >>> from plone.app.testing.helpers import applyProfile
+    >>> applyProfile(portal, 'Products.contentmigration:testing')
+    >>> from Products.CMFPlone.utils import _createObjectByType  
+    >>> foo = _createObjectByType(
+    ...     'Folder', portal, id='foo', title='Foo')
+    >>> bar = _createObjectByType(
+    ...     'CMF Document', portal, id='bar', title='Bar')
+
+    >>> from Products.contentmigration.translocate import TranslocatingInplaceCMFItemMigrator
+    >>> class FooMigrator(TranslocatingInplaceCMFItemMigrator):
+    ...     dst_portal_type = 'Document'
+    ...     def getDestinationParent(self): return foo
+    >>> migrator = FooMigrator(bar)
+    >>> migrator.migrate()
+    >>> portal.bar
+    Traceback (most recent call last):
+    ...
+    AttributeError: bar
+    >>> at_bar = portal.foo.bar
+    >>> at_bar.portal_type, at_bar.getId(), at_bar.Title()
+    ('Document', 'bar', 'Bar')

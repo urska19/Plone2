@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+
+    <include package="plone.app.portlets" />
+         
+         <plone:portlet
+        name="lsm.MyNewsPortlet"
+        interface=".misc.IMyNewsPortlet"
+        assignment=".misc.MyNewsPortletAssignment"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".misc.MyNewsPortletRenderer"
+        addview=".misc.MyNewsPortletAdd"
+        editview="plone.app.portlets.portlets.news.EditForm" 
+        />
+
+</configure>

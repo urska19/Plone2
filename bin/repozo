@@ -1,0 +1,18 @@
+#!/home/urska/Plone/zinstance/bin/python2.7
+
+import sys
+sys.path[0:0] = [
+  '/home/urska/Plone/buildout-cache/eggs/ZODB3-3.10.5-py2.7-linux-x86_64.egg',
+  '/home/urska/Plone/buildout-cache/eggs/zope.interface-3.6.7-py2.7-linux-x86_64.egg',
+  '/home/urska/Plone/buildout-cache/eggs/zope.event-3.5.2-py2.7.egg',
+  '/home/urska/Plone/buildout-cache/eggs/zdaemon-2.0.7-py2.7.egg',
+  '/home/urska/Plone/buildout-cache/eggs/ZConfig-2.9.1-py2.7.egg',
+  '/home/urska/Plone/buildout-cache/eggs/zc.lockfile-1.0.2-py2.7.egg',
+  '/home/urska/Plone/buildout-cache/eggs/transaction-1.1.1-py2.7.egg',
+  '/home/urska/Plone/buildout-cache/eggs/setuptools-12.2-py2.7.egg',
+  ]
+
+import ZODB.scripts.repozo
+
+if __name__ == '__main__':
+    sys.exit(ZODB.scripts.repozo.main())

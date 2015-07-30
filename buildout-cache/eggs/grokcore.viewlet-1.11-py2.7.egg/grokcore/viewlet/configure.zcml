@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok">
+
+  <include package="zope.browserpage" />
+  <include package="zope.contentprovider" />
+  <include package="zope.viewlet" />
+  <include package="grokcore.view" />
+
+</configure>

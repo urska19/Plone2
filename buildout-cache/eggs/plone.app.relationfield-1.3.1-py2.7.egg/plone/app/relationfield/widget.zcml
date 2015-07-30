@@ -1,0 +1,46 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone.app.relationfield">
+
+  <!-- Widget setup -->
+
+  <adapter factory=".widget.RelationDataManager" />
+  <adapter factory=".widget.RelationDictDataManager" />
+  <adapter factory=".widget.RelationListDataManager" />
+  <adapter factory=".widget.RelationListDictDataManager" />
+
+  <utility component=".source.CMFContentSearchSource"
+           name="plone.formwidget.relations.cmfcontentsearch"
+           provides="zope.schema.interfaces.IVocabularyFactory"
+           />
+
+  <configure zcml:condition="not-installed plone.app.widgets">
+    <adapter factory="plone.formwidget.contenttree.ContentTreeFieldWidget"
+             for="z3c.relationfield.interfaces.IRelationChoice
+                  z3c.form.interfaces.IFormLayer"
+             zcml:condition="installed plone.formwidget.contenttree"
+             />
+
+    <adapter factory="plone.formwidget.contenttree.MultiContentTreeFieldWidget"
+             for="z3c.relationfield.interfaces.IRelationList
+                  z3c.form.interfaces.IFormLayer"
+             zcml:condition="installed plone.formwidget.contenttree"
+             />
+  </configure>
+
+  <configure zcml:condition="installed plone.app.widgets">
+    <adapter factory="plone.app.widgets.dx.RelatedItemsFieldWidget"
+             for="z3c.relationfield.interfaces.IRelationChoice
+                 z3c.form.interfaces.IFormLayer"
+             zcml:condition="not-have plone-5"
+             />
+    <adapter factory="plone.app.widgets.dx.RelatedItemsFieldWidget"
+             for="z3c.relationfield.interfaces.IRelationList
+                  z3c.form.interfaces.IFormLayer"
+             zcml:condition="not-have plone-5"
+             />
+  </configure>
+
+</configure>

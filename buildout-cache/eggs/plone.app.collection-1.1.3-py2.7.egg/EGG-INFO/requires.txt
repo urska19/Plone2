@@ -1,0 +1,26 @@
+setuptools
+plone.app.contentlisting
+plone.app.form
+plone.app.portlets
+plone.app.querystring>=1.2.2
+plone.app.vocabularies
+plone.app.widgets
+plone.portlet.collection
+plone.portlets
+Products.Archetypes>=1.10.4.dev0
+Products.CMFCore
+Products.CMFPlone
+Products.CMFQuickInstallerTool
+Products.validation
+transaction
+zope.component
+zope.configuration
+zope.formlib
+zope.i18nmessageid
+zope.interface
+zope.schema
+Zope2
+
+[test]
+plone.app.testing [robot]
+Products.ATContentTypes [test]

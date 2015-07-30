@@ -1,0 +1,9 @@
+setuptools
+Products.CMFCore
+Products.GenericSetup
+Products.MimetypesRegistry
+Products.PortalTransforms
+
+[test]
+plone.app.contenttypes
+plone.app.testing

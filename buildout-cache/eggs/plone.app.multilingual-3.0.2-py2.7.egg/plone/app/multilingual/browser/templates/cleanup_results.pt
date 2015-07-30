@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/prefs_main_template/macros/master"
+    i18n:domain="plone.app.multilingual">
+
+<body>
+
+<metal:prefs fill-slot="prefs_configlet_content">
+
+<div id="results">
+
+<div class="resultInfo">
+    <h2 i18n:translate=""
+        tal:content="view/stepinfo">
+        After migration relation cleanup
+    </h2>
+
+    <span i18n:translate="label_total_relations">
+        Number of relations touched:
+    </span>
+    <span tal:content="view/total">Number of objects</span>
+</div>
+<div tal:condition="view/bad">
+    <span i18n:translate="label_bad_relations">
+        Unfortunately a number of relations could not be translated and
+        are lost!
+        here is some debug information:
+    </span>
+    <span tal:repeat="one_bad view/bad" tal:content="one_bad">
+        Bad relation
+    </span>
+</div>
+</div>
+</metal:prefs>
+</body>
+</html>

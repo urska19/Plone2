@@ -1,0 +1,25 @@
+
+Testing the plugging in of a template language
+
+  >>> from grokcore.view.ftests.static.overridetemplates_overridestatic.original.original import Cave
+  >>> from zope.publisher.browser import TestRequest
+  >>> from zope import component
+
+  >>> cave = Cave()
+  >>> request = TestRequest()
+
+The template on the base view should return the url of the resource:
+
+  >>> view = component.getMultiAdapter((cave, request), name='caveview')
+  >>> print view()
+  Cave view
+  http://127.0.0.1/@@/grokcore.view.ftests.static.overridetemplates_overridestatic.original/resource.css
+
+
+The template on the inheriting view should return the url of the resource of the base view:
+
+  >>> view = component.getMultiAdapter((cave, request), name='palaceview')
+  >>> print view()
+  Palace view
+  http://127.0.0.1/@@/grokcore.view.ftests.static.overridetemplates_overridestatic.override/resource.css
+

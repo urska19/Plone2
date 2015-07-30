@@ -1,0 +1,9 @@
+setuptools
+mr.bob
+
+[test]
+nose
+nose-selecttests
+scripttest
+six
+unittest2

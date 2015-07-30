@@ -1,0 +1,15 @@
+
+      [console_scripts]
+      develop = mr.developer.develop:develop
+      [zc.buildout.extension]
+      default = mr.developer.extension:extension
+      [mr.developer.workingcopytypes]
+      svn = mr.developer.svn:SVNWorkingCopy
+      git = mr.developer.git:GitWorkingCopy
+      gitsvn = mr.developer.gitsvn:GitSVNWorkingCopy
+      hg = mr.developer.mercurial:MercurialWorkingCopy
+      bzr = mr.developer.bazaar:BazaarWorkingCopy
+      fs = mr.developer.filesystem:FilesystemWorkingCopy
+      cvs = mr.developer.cvs:CVSWorkingCopy
+      darcs = mr.developer.darcs:DarcsWorkingCopy
+      

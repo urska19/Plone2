@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/prefs_main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<metal:content-core fill-slot="prefs_configlet_main">
+    <metal:content-core define-macro="prefs_configlet_main">
+      <a href=""
+         id="setup-link"
+         tal:attributes="href string:$portal_url/plone_control_panel"
+         i18n:translate="">
+          Site Setup
+      </a>
+    
+      <span tal:replace="structure context/@@authenticator/authenticator"/>
+      <div class="pat-resourceregistry" tal:attributes="data-pat-resourceregistry view/config" />
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+    

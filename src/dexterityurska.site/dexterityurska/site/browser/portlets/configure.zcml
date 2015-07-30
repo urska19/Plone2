@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+
+    <include package="plone.app.portlets" />
+
+        <plone:portlet
+        name="lsm.GreyStaticPortlet"
+        interface=".misc.IGreyStaticPortlet"
+         assignment=".misc.GreyStaticAssignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".misc.GreyStaticRenderer"
+         addview=".misc.GreyStaticAddForm"
+         editview="plone.portlet.static.static.EditForm"
+         />
+
+</configure>

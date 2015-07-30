@@ -1,0 +1,9 @@
+setuptools
+zope.interface
+zope.component
+zope.schema
+
+[test]
+plone.registry
+zope.dottedname
+plone.testing [zca]

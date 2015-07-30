@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone.app.multilingual">
+<body>
+
+<div id="view_language" tal:content="context/language">
+</div>
+
+<tal:block repeat="widget view/widgets/values">
+    <div class="field"  id=""
+         tal:attributes="id python:widget.__name__; rel python:widget.__name__">
+        <label tal:content="widget/label" />
+        <br />
+        <div class="value" tal:content="structure widget/render" />
+    </div>
+</tal:block>
+
+<fieldset tal:repeat="group view/groups"
+          tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
+    <legend tal:content="group/label" />
+    <tal:block repeat="widget group/widgets/values">
+    <div class="field" rel="" id="" tal:attributes="id python:widget.__name__; rel python:widget.__name__" tal:condition="python:widget.__name__!='IDublinCore.language'">
+        <label tal:content="widget/label" />
+        <br />
+        <div tal:content="structure widget/render" />
+    </div>
+  </tal:block>
+</fieldset>
+
+</body>
+</html>

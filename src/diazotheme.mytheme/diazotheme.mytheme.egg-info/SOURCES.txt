@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+diazotheme/__init__.py
+diazotheme.mytheme.egg-info/PKG-INFO
+diazotheme.mytheme.egg-info/SOURCES.txt
+diazotheme.mytheme.egg-info/dependency_links.txt
+diazotheme.mytheme.egg-info/entry_points.txt
+diazotheme.mytheme.egg-info/namespace_packages.txt
+diazotheme.mytheme.egg-info/not-zip-safe
+diazotheme.mytheme.egg-info/requires.txt
+diazotheme.mytheme.egg-info/top_level.txt
+diazotheme/mytheme/__init__.py
+diazotheme/mytheme/interfaces.py

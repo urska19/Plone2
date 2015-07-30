@@ -1,0 +1,65 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone.app.event">
+
+  <i18n:registerTranslations directory="locales" />
+
+  <!-- external dependencies -->
+  <include package="plone.browserlayer" />
+  <include package="plone.event" />
+  <include package="plone.formwidget.recurrence" />
+  <include package="plone.app.portlets" />
+  <include package="plone.app.registry" />
+  <include package="plone.app.z3cform" />
+
+  <!-- internal dependencies -->
+  <include file="permissions.zcml" />
+  <include package=".dx" />
+  <include package=".browser" />
+  <include package=".portlets" />
+  <include package=".ical" />
+  <include file="recurrence.zcml" />
+  <include package=".upgrades" />
+  <include package=".bbb" zcml:condition="not-have plone-5" />
+
+  <utility
+      component=".vocabularies.SynchronizationStrategies"
+      name="plone.app.event.SynchronizationStrategies"
+      />
+
+  <genericsetup:registerProfile
+      name="default"
+      directory="profiles/default"
+      title="plone.app.event"
+      description="plone.app.event framework registration."
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="testing"
+      title="plone.app.event testing"
+      directory="profiles/testing"
+      description="Testing profile for plone.app.event"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="plone.app.event-catalog"
+      handler="plone.app.event.setuphandlers.setup_catalog"
+      title="plone.app.event catalog setup"
+      description="registers indices and metadata columns for plone.app.event">
+    <depends name="plone.app.registry" />
+  </genericsetup:importStep>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="plone.app.event"
+      provides="Products.CMFPlone.interfaces.INonInstallable" />
+
+</configure>

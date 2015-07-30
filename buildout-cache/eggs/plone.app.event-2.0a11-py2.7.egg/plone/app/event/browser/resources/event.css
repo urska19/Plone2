@@ -1,0 +1,310 @@
+/* content type icons */
+/* let this be set by plonetheme.sunburst in the future and make use of the
+ * contenttypes-sprite. */
+/*.icons-on .contenttype-event,*/
+.icons-on .contenttype-plone-app-event-dx-event {
+    background: url("event_icon.png") no-repeat scroll 0 4px transparent;
+}
+/*.icons-on .contenttype-event,*/
+.icons-on .contenttype-plone-app-event-dx-event {
+    line-height: 2em;
+    display: inline-block;
+    *display: block;
+    padding-left: 20px !important;
+}
+
+.event.summary {
+    float: right;
+    clear: right; /* if there are more right-floating elements, clear them, so
+                   * they are displayed among each other */
+    margin 1em 0 1em 1em;
+}
+
+/* event listing styles */
+
+
+/* BEGIN COMMON EVENT STYLES */
+
+article.vevent {
+    background-color: #EAEAEA;
+    border-radius: 1em 1em 1em 1em;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.vevent div.cal_date {
+    float:left;
+    vertical-align:top;
+    margin: 0 1.5em 0.5em 0;
+    padding:0.7em 0.7em 0.5em;
+    background-color:white;
+    border:none;
+    border-radius:0.5em;
+    box-shadow: 0.5em 0.5em 0.4em black;
+    min-width:4.4em;
+}
+.vevent span.cal_wkday {
+    display:block;
+    font-size:2.3em;
+    font-weight:bold;
+    border-bottom:2px solid black;
+    padding-bottom:0.3em;
+}
+.vevent span.cal_day {
+    font-size:1.7em;
+    display:inline-block;
+    padding-top:0.3em;
+}
+.vevent span.cal_month {
+    font-size:1.3em;
+    line-height:1.3em;
+    display:inline-block;
+}
+
+.vevent div.cal_info { margin-left:8em; }
+article.vevent .documentByLine {
+    background: none repeat scroll 0 0 transparent;
+    color: black !important;
+    font-size: 1em !important;
+    font-weight: bold;
+    padding: 0;
+}
+
+/* horizontal event metadata */
+#content .vevent ul.metadata { margin: 0.8em 0; }
+#content .vevent ul.horizontal { padding: 0; }
+#content .vevent ul.horizontal li {
+    display: inline-block;
+    line-height: 1.5em;
+    list-style-image: none;
+    list-style-type: none;
+}
+.vevent .horizontal.metadata li:after { content: " \2014 "; }
+.vevent .horizontal.metadata li:last-child:after { content: ""; }
+.vevent .horizontal.metadata .category span:after { content: ","; }
+.vevent .horizontal.metadata .category span:last-child:after { content: ""; }
+
+.vevent .timezone {
+    display:block;
+    margin-top:0.5em;
+    padding:0.2em 0;
+    background-color:#ffe;
+    color:#354;
+    width:100%;
+}
+
+.vevent .timerange, .vevent .timezone {
+    font-size:85%;
+    line-height:1em;
+    white-space:nowrap;
+}
+
+.vevent .datedisplay {
+    line-height:1.5em;
+    margin-bottom:0.2em;
+    font-weight:bold;
+    font-size:100%;
+}
+
+.vevent abbr.dtstart {
+    font-weight:bold;
+}
+/* END COMMON EVENT STYLES */
+
+
+/* BEGIN EVENT LISTING STYLES */
+#content .event_listing nav ul {
+    margin-left:0;
+    list-style-type:none;
+}
+#content .event_listing nav ul li {
+    display:inline-block;
+    padding: 0 0.75em;
+    line-height: 2em;
+    margin:0;
+}
+#content .event_listing nav ul li:last-of-type { margin-right:0; }
+
+.event_listing nav > ul,
+.event_listing nav {
+    background-color: #DDDDDD;
+    min-height:2em;
+}
+.event_listing nav {
+    border: 0.3em solid #DDDDDD;
+    border-bottom:none;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+.event_listing ul.mode_selector {
+    display: block;
+    margin-left: 0;
+    float:left;
+}
+.event_listing ul.sub_nav {
+    display: block;
+    margin-left: 0;
+    float:right;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+}
+#content .event_listing nav ul li a {
+    border:none;
+    display: inline-block;
+}
+.event_listing ul.mode_selector li:hover,
+.event_listing ul.mode_selector li.selected {
+    background: white;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    color: Black;
+}
+.event_listing ul.mode_selector li.selected {
+    font-weight: bold;
+}
+#content .event_listing p { margin:0; }
+
+.event_listing div.location { display: inline-block; }
+/* END EVENT LISTING STYLES */
+
+
+
+/* BEGIN PORTLET CALENDAR */
+.portletCalendar {
+    width: auto;
+    margin: 1px 0 1em 0;
+}
+
+.portletCalendar dt {
+    background-color: #eee;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6em;
+    border-bottom: none;
+}
+
+.portletCalendar dd {
+    margin: 0;
+    padding: 0;
+}
+
+.portletCalendar dt a.calendarPrevious {
+    float: left;
+    padding: 0 1em;
+    margin: 0 -.5em;
+}
+
+.portletCalendar dt a.calendarNext {
+    float: right;
+    padding: 0 1em;
+    margin: 0 -.5em;
+}
+
+.portletCalendar a, .portletCalendar a:focus,
+.portletCalendar a, .portletCalendar a:hover,
+.ploneCalendar a {
+    text-decoration: none;
+    border-bottom: none !important;
+}
+
+.ploneCalendar {
+    border-spacing: 0;
+    width:100%;
+}
+
+.ploneCalendar td {
+    background-color: transparent;
+    width: 14%;
+    text-align: center;
+    padding: 2px;
+    border: 2px solid #eee;
+    background-color: #eee;
+}
+
+.ploneCalendar .weekdays th {
+    background-color: #eee;
+    text-align: center;
+    padding: 2px;
+}
+
+.ploneCalendar .event {
+    background-color: #eee;
+}
+
+.ploneCalendar .todayevent {
+    background-color: #eee;
+    border: 2px solid #205C90;
+}
+
+.ploneCalendar .todaynoevent {
+    border: 2px solid #205C90;
+}
+
+/* additional to sunburst */
+.ploneCalendar td.today {
+    background-color: white;
+    border-color: #205C90;
+}
+.ploneCalendar td:hover { background-color: white; }
+.ploneCalendar td a {
+    display:inline-block;
+    width:100%;
+    height:100%;
+}
+
+/* grey out prev/next month incl. links and background */
+.ploneCalendar td.cal_prev_month,
+.ploneCalendar td.cal_next_month {
+    opacity:0.4;
+}
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.pae_calendar_tooltip {
+    display:none;
+    background-color:white;
+    border:1px solid black;
+    border-radius:0.3em;
+    box-shadow: 0.1em 0.1em 0.1em black;
+    font-size:80%;
+    padding:10px;
+    margin:10px;
+    max-width: 30em;
+    z-index: 10;
+}
+.pae_calendar_tooltip a {
+    color:black;
+    display:block;
+    width:100%;
+}
+.pae_calendar_tooltip a:hover { color:blue; }
+.pae_calendar_tooltip a .title { font-weight:bold; }
+
+/* END PORTLET CALENDAR */
+
+
+/* EDIT FORM STYLES */
+
+/* DX fields */
+#formfield-form-widgets-IEventBasic-start,
+#formfield-form-widgets-IEventBasic-end,
+#formfield-form-widgets-IEventBasic-whole_day,
+#formfield-form-widgets-IEventBasic-open_end,
+/* AT fields */
+#archetypes-fieldname-startDate,
+#archetypes-fieldname-endDate,
+#archetypes-fieldname-wholeDay,
+#archetypes-fieldname-openEnd,
+ {
+    clear:none;
+    float:left;
+    margin-right: 2em;
+    vertical-align: top;
+}
+#formfield-form-widgets-IEventBasic-whole_day,
+#archetypes-fieldname-wholeDay {
+    clear:left;
+}
+#formfield-form-widgets-IEventRecurrence-recurrence,
+#archetypes-fieldname-recurrence {
+    clear:left;
+}

@@ -1,0 +1,71 @@
+setuptools
+Acquisition
+DateTime
+Products.CMFCore
+Products.CMFPlone
+Products.DateRecurringIndex
+Products.GenericSetup
+Products.ZCatalog
+Products.statusmessages
+Zope2
+collective.elephantvocabulary
+icalendar > 3.0
+plone.app.contentlisting
+plone.app.dexterity
+plone.app.layout
+plone.app.portlets >= 2.5.1
+plone.app.querystring
+plone.app.registry
+plone.app.textfield
+plone.app.vocabularies >= 2.1.15.dev0
+plone.app.z3cform
+plone.autoform>=1.4
+plone.behavior
+plone.browserlayer
+plone.dexterity
+plone.event>=1.0
+plone.folder
+plone.formwidget.recurrence [z3cform] >= 1.2.4
+plone.indexer
+plone.memoize
+plone.namedfile
+plone.portlets
+plone.registry
+plone.supermodel
+plone.uuid
+plone.z3cform
+pytz
+transaction
+z3c.form >= 3.2.1.dev0
+zope.annotation
+zope.component
+zope.container
+zope.contentprovider
+zope.event
+zope.globalrequest
+zope.i18n
+zope.i18nmessageid
+zope.interface
+zope.lifecycleevent
+zope.publisher
+zope.schema
+
+[dexterity]
+
+[plone43]
+plone.app.widgets [dexterity] >= 1.7.0
+
+[plone50]
+plone.app.z3cform >= 1.1.0.dev0
+
+[test]
+mock
+plone.app.contenttypes >= 1.2a3
+plone.app.robotframework
+plone.app.testing [robot]
+plone.testing
+robotsuite
+transaction
+unittest2
+zExceptions
+zope.event

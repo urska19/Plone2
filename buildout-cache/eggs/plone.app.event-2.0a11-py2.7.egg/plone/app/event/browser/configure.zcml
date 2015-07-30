@@ -1,0 +1,113 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone.app.event">
+
+    <browser:resourceDirectory
+        name="plone.app.event"
+        directory="resources"
+        permission="zope.Public"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <!-- Event listing -->
+    <browser:page
+        for="plone.event.interfaces.IEvent"
+        name="event_listing"
+        class=".event_listing.EventEventListing"
+        template="event_listing.pt"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+    <browser:page
+        for="*"
+        name="event_listing"
+        class=".event_listing.EventListing"
+        template="event_listing.pt"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+    <browser:page
+        for="*"
+        name="event_listing_ical"
+        class=".event_listing.EventListingIcal"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <!-- Event view -->
+    <browser:page
+        for="plone.event.interfaces.IEvent"
+        name="event_view"
+        class=".event_view.EventView"
+        template="event_view.pt"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <browser:page
+        for="plone.event.interfaces.IOccurrence"
+        name="event_view"
+        class=".event_view.EventView"
+        template="event_view.pt"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <browser:defaultView
+        for="plone.event.interfaces.IOccurrence"
+        name="event_view"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <browser:page
+        for="plone.event.interfaces.IEvent"
+        name="event_summary"
+        class=".event_summary.EventSummaryView"
+        template="event_summary.pt"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <browser:page
+        for="plone.event.interfaces.IOccurrence"
+        name="event_summary"
+        class=".event_summary.EventSummaryView"
+        template="event_summary.pt"
+        permission="zope2.View"
+        layer="..interfaces.IBrowserLayer"
+        />
+
+    <configure
+        zcml:condition="installed plone.app.contenttypes"
+        package="plone.app.contenttypes.behaviors">
+      <browser:viewlet
+          name="contentleadimage"
+          for="plone.event.interfaces.IOccurrence"
+          class="plone.app.event.browser.leadimage_viewlet.LeadImageViewlet"
+          manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+          template="leadimage.pt"
+          permission="zope2.View"
+          />
+    </configure>
+
+    <adapter
+        name="formatted_date"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        for="zope.interface.Interface
+             zope.publisher.interfaces.browser.IBrowserRequest
+             zope.publisher.interfaces.browser.IBrowserView"
+        factory=".formatted_date.FormattedDateProvider"
+        />
+
+    <adapter
+        name="formatted_date"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        for="zope.interface.Interface
+             zope.publisher.interfaces.browser.IBrowserRequest
+             plone.portlets.interfaces.IPortletRenderer"
+        factory=".formatted_date.FormattedStartDateProvider"
+        />
+
+</configure>
