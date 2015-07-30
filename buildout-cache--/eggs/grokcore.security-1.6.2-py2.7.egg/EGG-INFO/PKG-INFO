@@ -1,0 +1,227 @@
+Metadata-Version: 1.1
+Name: grokcore.security
+Version: 1.6.2
+Summary: Grok-like configuration for Zope security components
+Home-page: http://grok.zope.org
+Author: Grok Team
+Author-email: grok-dev@zope.org
+License: ZPL
+Download-URL: http://pypi.python.org/pypi/grokcore.security
+Description: This package provides basic elements for defining Zope permissions and
+        security checkers without ZCML.
+        
+        .. contents::
+        
+        Setting up ``grokcore.security``
+        ================================
+        
+        This package is essentially set up like the `grokcore.component`_
+        package, please refer to its documentation for details.  The
+        additional ZCML lines you will need are::
+        
+          <include package="grokcore.security" file="meta.zcml" />
+          <include package="grokcore.security" />
+        
+        Put this somewhere near the top of your root ZCML file but below the
+        line where you include ``grokcore.component``'s configuration.
+        
+        
+        Defining permissions
+        ====================
+        
+        In `grokcore.component`_, various components are defined (and
+        automatically registered) by subclassing from certain baseclasses.
+        The same applies to defining permissions with ``grokcore.security`` as
+        well::
+        
+          import grokcore.security
+        
+          class EditContent(grokcore.security.Permission):
+              grokcore.security.name('mypkg.EditContent')
+        
+        This defines a permission with the ID ``mypkg.EditContent``.  You must
+        always specify this ID explicitly.  In addition, you can also give the
+        permission a human-readable title and description.  This is useful
+        when your application provides lists of permissions somewhere and you
+        don't want to bother users with deciphering the dotted IDs::
+        
+          import grokcore.security
+        
+          class EditContent(grokcore.security.Permission):
+              grokcore.security.name('mypkg.EditContent')
+              grokcore.security.title('Edit content')
+              grokcore.security.description('Anyone who has this permission may '
+                                            'modify content in the application.')
+        
+        
+        Defining checkers for components
+        ================================
+        
+        ``grokcore.security`` provides some means for defining checkers for
+        components:
+        
+        * ``grokcore.security.require(permission)`` which can be used either
+          as a class-level directive to set a permission for a whole
+          component, or as a decorator to set a permission for a function or
+          method.
+        
+        * ``protect_getattr`` and ``protect_setattr``, available from
+          ``grokcore.security.util``, which take a class, an attribute name
+          and a permission as arguments and define Zope security checkers for
+          getting or setting a particular attribute on instance of said class.
+        
+        With these, you can build grokkers for components that need security
+        declarations.  For instance, the `grokcore.view`_ package uses them to
+        define a grokker that makes security declarations for views::
+        
+          class ViewSecurityGrokker(martian.ClassGrokker):
+              martian.component(grokcore.view.View)
+              martian.directive(grokcore.security.require, name='permission')
+        
+              def execute(self, factory, config, permission, **kw):
+                  for method_name in zope.publisher.interfaces.browser.IBrowserPage:
+                      config.action(
+                          discriminator=('protectName', factory, method_name),
+                          callable=grokcore.security.util.protect_getattr,
+                          args=(factory, method_name, permission),
+                          )
+                  return True
+        
+        With such a grokker, it is possible to protect views like so::
+        
+          class Edit(grokcore.view.View):
+              grokcore.security.require(EditContent)
+        
+        Note how we can simply pass a permission class to the ``require``
+        directive.  Alternatively, you can pass the permission ID::
+        
+          class Edit(grokcore.view.View):
+              grokcore.security.require('mypkg.EditContent')
+        
+        If you wanted to be able to define permissions for individual class
+        methods rather than the whole class, you would simply base your
+        grokker on ``martian.MethodGrokker`` rather than ``ClassGrokker``.
+        The actual mechanics of defining a checker are the same.
+        
+        Please note that ``grokcore.security`` does not yet provide directives
+        that allow you to specify permissions for simple attribute access
+        (read and write).
+        
+        
+        API overview
+        ============
+        
+        ``Permission``
+            Base class for defining permissions.  Use the ``name`` directive
+            to define the mandatory permission ID.  Optionally use the
+            ``title`` and ``description`` directives to give the permission
+            human-readable information.
+        
+        ``Public``
+            Special permission that can be referred to whenever a component
+            should not be protected by a permission at all (public access).
+        
+        ``require(permission_class_or_id)``
+            declares that the use of a particular component (when used as a
+            class-level directive) or a method (when used as a method
+            decorator) requires a certain permission.  The argument can either
+            be a permission class (subclass of ``Permission``) or a permission
+            ID.
+        
+        In addition, the ``grokcore.security`` package exposes the
+        `grokcore.component`_ API.
+        
+        
+        .. _grokcore.component: http://pypi.python.org/pypi/grokcore.component
+        .. _grokcore.view: http://pypi.python.org/pypi/grokcore.view
+        
+        Changes
+        =======
+        
+        1.6.2 (2012-05-07)
+        ------------------
+        
+        - Properly declare zope.dottedname as a dependency.
+        
+        1.6.1 (2012-05-02)
+        ------------------
+        
+        - Fix the package to properly work if the extra ``role`` is not
+          specified.
+        
+        1.6 (2012-05-01)
+        ----------------
+        
+        - The Permission and Role components moved from the grok package to the
+          grokcore.security package where it belongs.
+        
+        - The permissions() directive moved from the grok package to
+          grokcore.security where it belongs.
+        
+        1.5 (2010-11-01)
+        ----------------
+        
+        - Upped the requirements for martian and grokcore.component.
+        
+        - Made package comply to zope.org repository policy.
+        
+        1.4 (2009-12-13)
+        ----------------
+        
+        * **note** Backed out the version requirements for
+          grokcore.component-2.0 and martian-0.12. These requirements
+          stood in the way of further development especially towards
+          grok-1.1 based on the ZTK. The 1.3 version should probably
+          have been called 2.0 like with grokcore.component.
+        
+        * Ported setup.py dependency fixes from trunk.
+        
+        * Use zope.security instead of zope.app.security.
+        
+        1.3 (2009-09-16)
+        ----------------
+        
+        * Use the grok.zope.org/releaseinfo information instead of our own
+          copy of ``versions.cfg``, for easier maintenance.
+        
+        * Depend on grokcore.component 2.0 and the 0.12 Martian - this changes
+          inheritance issues but doesn't appear to affect grokcore.security
+          itself.
+        
+        1.2 (2009-09-14)
+        ----------------
+        
+        * Changed the default permissions from grok.View to zope.View. There seems no
+          particular reason not to use the standard zope.View permission defined
+          in zope.app.security.
+        
+          NOTE: YOU MUST STILL ASSIGN THIS PERMISSION TO USERS IN YOUR
+          site.zcml FILE. OTHERWISE YOU DO NOT HAVE ACCESS TO ANY VIEWS.
+        
+        * Made sure to include zope.app.security configuration as well, as that
+          package defines the zope.View permission. Note that in the future this will
+          change to zope.security.
+        
+        * Bring versions.cfg in line with grok 1.0 release candidate
+          versions.cfg.
+        
+        
+        1.1 (2009-07-03)
+        ----------------
+        
+        * Changed the default permissions from zope.Public to grok.View.
+        
+          NOTE: YOU MUST ASSIGN THIS PERMISSION TO USERS IN YOUR
+          site.zcml FILE. OTHERWISE YOU DO NOT HAVE ACCESS TO ANY VIEWS.
+        
+        1.0 (2008-08-03)
+        ----------------
+        
+        * Created ``grokcore.security`` in July 2008 by factoring
+          security-related components, grokkers and directives out of Grok.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Framework :: Zope3

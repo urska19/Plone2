@@ -1,0 +1,180 @@
+Metadata-Version: 1.1
+Name: sourcecodegen
+Version: 0.6.14
+Summary: A Python source-code generator based on the ``compiler.ast`` abstract syntax tree.
+Home-page: UNKNOWN
+Author: Malthe Borch
+Author-email: mborch@gmail.com
+License: BSD-like (http://repoze.org/license.html)
+Description: Overview
+        ========
+        
+        This package provides a module-level source-code generator which
+        operates on the AST from the built-in ``compiler.ast`` module.
+        
+        Note that this AST is not compatible with the new ``ast`` module in
+        Python 2.6.
+        
+        Usage
+        -----
+        
+        The generator works on AST parse trees.
+        
+          >>> from compiler import parse
+          >>> tree = parse("""\
+          ...     print 'Hello, world!'
+          ... """)
+        
+        We can now generate Python-code equivalent to the original using the
+        source-code generator.
+          
+          >>> from sourcecodegen import ModuleSourceCodeGenerator
+          >>> generator = ModuleSourceCodeGenerator(tree)
+          >>> print generator.getSourceCode()
+          print 'Hello, world!'
+        
+        Author
+        ------
+        
+        Malthe Borch <mborch@gmail.com>
+        
+        
+        Changelog
+        =========
+        
+        0.6.14 (released 19/05/2011)
+        
+        - Fixed issue where an ``ast.Sliceobj`` outside the context of
+          subscripts (this is an odd construct which is unfortunately
+          understood by Python's legacy AST compiler, but not possible to
+          reproduce from source code).
+        
+          The issue affects at least Zope's ``RestrictedPython`` package.
+          [malthe]
+        
+        - Fixed issue where a function with a docstring and a function body
+          would get incorrect indentation.
+          [malthe]
+        
+        0.6.13 (released 28/02/2011)
+        
+        - Added support for function docstrings.
+          [malthe]
+        
+        0.6.12 (released 12/01/2010)
+        
+        - Add repoze license text in LICENSE.txt with permission of author.
+          http://lists.repoze.org/pipermail/repoze-dev/2010-January/002554.html
+          [jinty]
+        
+        0.6.11 (released 15/07/2009)
+        
+        - Added support for ternary operator (Python 2.5+). [malthe]
+        
+        0.6.10 (released 6/07/2009)
+        
+        - Fixed order of node and expression for augmented assignment. [malthe]
+        
+        0.6.9 (released 19/05/2009)
+        
+        - Fixed issue where variable keyword-arguments would sometimes not be
+          handled correctly. [malthe]
+        
+        - Fixed issue where identity operator would not be handled
+          correctly. [malthe]
+        
+        0.6.8 (released 18/05/2009)
+        
+         - Fixed issue where the delete operator would not be treated as a
+           statement. [malthe]
+        
+        0.6.7 (released 22/04/2009)
+        
+         - Fixed issue where star and double-star arguments would be printed
+           without the '*' and '**' prefix. [malthe]
+        
+        0.6.6 (released 17/04/2009)
+        
+         - Fixed issue where multiple discarded elements in a statement would
+           get wrong indentation. [malthe]
+        
+        0.6.5 (released 19/02/2009)
+        
+         - Fixed issue where a module docstring would cause an undesired
+           indentaion. [malthe]
+        
+        0.6.4 (released 24/01/2009)
+        
+         - Added convenience method to generate code. [malthe]
+        
+        0.6.3 (released 18/12/2008)
+        
+         - Allow proper operation under Python 2.4 (try/finally
+           fixes). [chrism]
+        
+        0.6.2 (released 14/12/2008)
+        
+         - Fixed issue where lambda blocks would be incorrectly indented;
+           also, function bodies are now always properly cleared. [malthe]
+        
+        0.6.1 (released 13/12/2008)
+        
+         - Fixed issue where generators would not be prioritized in certain
+           cases. [malthe]
+        
+        0.6 (released 13/12/2008)
+        
+         - Operator precedence is now taken into account such that we can
+           avoid unnecessary use of parentheses. This is done not only for
+           aesthetic reasons, but more importantly to avoid running into
+           parser errors due to Python's nesting limitation. [malthe]
+        
+        0.5 (released 28/11/2008)
+        
+         - Added `yield` and unary operators. [malthe]
+        
+        0.4 (released 28/11/2008)
+        
+         - Make sure all binary operators get parentheses around them; we may
+           be able to improve upon this in the future (for
+           legibility-reasons). [malthe]
+        
+        0.3 (released 27/11/2008)
+        
+         - Added logical operators. [malthe]
+        
+         - Fixed tuple unpacking issues. [malthe]
+        
+         - Added for-loop. [malthe]
+        
+        0.2 (released 27/11/2008)
+        
+         - Fixed issue with tuples and parentheses. [malthe]
+        
+         - Fixed issue with multiple assignments. [malthe]
+        
+         - Added support for `not` operator. [malthe]
+        
+         - Fixed issue where default arguments would be written incorrectly if
+           no non-keyword arguments were present. [malthe]
+        
+         - Fixed issue where statements would not be cleared properly. [malthe]
+        
+         - Assignments are statements and should terminate. [malthe]
+        
+        0.1 (released 26/11/2008)
+        
+         - Initial release.
+        
+Keywords: python source-code generation ast
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7

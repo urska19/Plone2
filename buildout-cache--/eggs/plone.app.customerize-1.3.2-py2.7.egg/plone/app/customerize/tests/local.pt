@@ -1,0 +1,2 @@
+<tal:block define="dummy python:request.response.setHeader('Content-Type', 'text/plain')" />
+a local view

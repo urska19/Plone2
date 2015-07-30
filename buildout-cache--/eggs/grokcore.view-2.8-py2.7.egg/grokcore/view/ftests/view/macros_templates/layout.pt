@@ -1,0 +1,7 @@
+<html metal:define-macro="main">
+<body>
+<h1>GROK MACRO!</h1>
+<div metal:define-slot="slot">
+</div>
+</body>
+</html>

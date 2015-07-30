@@ -1,0 +1,68 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:grok="http://namespaces.zope.org/grok"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="grokcore.view"
+   package="grokcore.view">
+
+  <include package="zope.component" file="meta.zcml" />
+  <include package="zope.security" file="meta.zcml" />
+  <include package="zope.securitypolicy" file="meta.zcml" />
+  <include package="zope.principalregistry" file="meta.zcml" />
+  <include package="zope.publisher" file="meta.zcml" />
+  <include package="zope.app.publication" file="meta.zcml" />
+  <include package="grokcore.view" file="meta.zcml" />
+
+  <include package="zope.security" />
+  <include package="zope.securitypolicy" />
+  <include package="zope.principalregistry" />
+  <include package="zope.login" />
+  <include package="zope.password" />
+  <include package="zope.site" />
+  <include package="zope.container" />
+  <include package="zope.publisher" />
+  <include package="zope.traversing" />
+  <include package="zope.traversing.browser" />
+  <include package="zope.annotation" />
+  <include package="zope.app.appsetup" />
+  <include package="zope.app.publication" />
+
+  <include package="grokcore.view" />
+
+  <!-- We define our test permission here (don't have grok.Role) -->
+  <permission id="bone.gold" title="Gold Bone" />
+  <role id="grok.BoneOwner" title="Bone Owner" />
+  <grant role="grok.BoneOwner" permission="bone.gold" />
+
+  <grok:grok package="grokcore.view.ftests" />
+
+  <securityPolicy
+      component="zope.securitypolicy.zopepolicy.ZopeSecurityPolicy"
+      />
+
+  <browser:defaultView
+      for="grokcore.component.interfaces.IContext"
+      name="index"
+      />
+
+  <unauthenticatedPrincipal
+      id="zope.anybody"
+      title="Unauthenticated User"
+      />
+  <grant
+      permission="zope.View"
+      principal="zope.anybody"
+      />
+
+  <principal
+      id="zope.mgr"
+      title="Manager"
+      login="mgr"
+      password="mgrpw"
+      />
+
+  <role id="zope.Manager" title="Site Manager" />
+  <grantAll role="zope.Manager" />
+  <grant role="zope.Manager" principal="zope.mgr" />
+
+</configure>

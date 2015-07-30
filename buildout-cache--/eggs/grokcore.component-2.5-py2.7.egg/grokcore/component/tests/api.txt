@@ -1,0 +1,17 @@
+The grokcore.component API
+==========================
+
+The grokcore.component API is described by the
+``grokcore.component.interfaces.IGrokcoreComponentAPI`` interface.
+When you do
+
+  >>> from grokcore.component import *
+
+only those objects described in that API interface are imported into
+your local namespace.  In other words, if we take the list of things
+that have been imported and subtract the things that have been defined
+in the API interface, we'll end with pretty much nothing:
+
+  >>> from grokcore.component.interfaces import IGrokcoreComponentAPI
+  >>> sorted(set(locals()) - set(IGrokcoreComponentAPI))
+  ['IGrokcoreComponentAPI', '__builtins__', '__file__']

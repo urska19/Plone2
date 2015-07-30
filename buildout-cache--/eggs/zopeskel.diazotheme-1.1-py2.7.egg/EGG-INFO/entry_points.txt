@@ -1,0 +1,5 @@
+
+      # -*- Entry points: -*-
+      [paste.paster_create_template]
+      diazotheme = zopeskel.diazotheme.diazotheme:DiazoTheme
+      

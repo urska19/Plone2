@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: plone.schema
+Version: 1.0a1
+Summary: UNKNOWN
+Home-page: https://github.com/plone/plone.schema
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: BSD
+Description: Plone specific extensions and fields for zope schematas.
+        
+        1.0a1 (2014-04-17)
+        ------------------
+        
+        - Initial release.
+          [ianderso,davisagli,frapell]
+        
+Keywords: plone schema
+Platform: UNKNOWN
+Classifier: Framework :: Zope2
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: BSD License

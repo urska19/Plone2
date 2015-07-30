@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: archetypes.multilingual
+Version: 3.0
+Summary: Multilingual support for archetypes.
+Home-page: https://github.com/plone/archetypes.multilingual
+Author: awello
+Author-email: awello@gmail.com
+License: GPL
+Description: Introduction
+        ============
+        
+        This egg adds plone.app.multilingual support to Archetypes.
+        
+        For more information, please visit:
+        
+            https://github.com/plone/plone.app.multilingual
+        
+        Changelog
+        =========
+        
+        3.0 (2015-03-26)
+        ----------------
+        
+        - Adapt archetypes.multilingual to work on Plone 5
+          [bloodbare]
+        
+        
+        1.3dev - Unreleased
+        -------------------
+        
+        - Remove archetypes.testcase test dependency.
+          [timo]
+        
+        - Remove PloneLanguageTool dependency.
+          [timo]
+        
+        
+        1.2 - 2013-09-24
+        ----------------
+        
+        - Add french translations
+        
+        1.0 - 2013-04-16
+        ----------------
+        
+        - Correct js url on portal_factory babel view [ramon]
+        - Show selector if num languages is large [pysailor]
+        
+        1.0rc1 - 2013-01-26
+        -------------------
+        
+        - Update .po files and .pot
+        - Fix some failing tests
+        - Bumped version to match the others [sneridagh]
+        
+        1.0b3 - 2012-10-04
+        ------------------
+        
+        - Added tests [sneridagh]
+        - Solved bugs on subscribers [ramon]
+        - Tuned AT babel view [ramon]
+        - Monkey language field [ramon]
+        
+        1.0a1 - 2012-04-03
+        ------------------
+        
+        - Added needed babel view template [sneridagh]
+        - Language independent field implementation [jcbrand]
+        - ILanguage implementation [awello]
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python

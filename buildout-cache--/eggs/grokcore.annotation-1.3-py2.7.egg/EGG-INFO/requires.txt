@@ -1,0 +1,12 @@
+ZODB3
+grokcore.component >= 2.5dev
+martian
+setuptools
+zope.annotation
+zope.component
+zope.container
+zope.interface
+
+[test]
+zope.configuration
+zope.testing

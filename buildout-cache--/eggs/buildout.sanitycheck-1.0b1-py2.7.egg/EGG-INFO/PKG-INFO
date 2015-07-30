@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: buildout.sanitycheck
+Version: 1.0b1
+Summary: Sanity checks for buildout environment.
+Home-page: http://svn.plone.org/svn/collective/
+Author: Steve McMahon
+Author-email: steve@dcn.org
+License: GPLv2
+Description: Introduction
+        ============
+        
+        ``buildout.sanitycheck`` performs sanity checks on the buildout
+        environment, cancelling the buildout if continuing might
+        be unwise.
+        
+        Checks performed:
+        
+        * Make sure buildout is not being run as superuser.
+        
+        Changelog
+        =========
+        
+        1.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Buildout :: Extension
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)

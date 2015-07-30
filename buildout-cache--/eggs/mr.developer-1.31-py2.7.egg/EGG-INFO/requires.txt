@@ -1,0 +1,6 @@
+setuptools
+zc.buildout
+
+[test]
+mock
+mr.developer.addon

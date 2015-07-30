@@ -1,0 +1,23 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:grok="http://namespaces.zope.org/grok">
+
+  <include package="zope.contentprovider" />
+  <include package="zope.browserpage" />
+  <include package="zope.browserresource" />
+
+  <!-- ZPT support -->
+  <grok:grok package=".templatereg" />
+
+  <!-- Configure the ignore patterns for template association -->
+  <grok:ignoreTemplates pattern="~$" />
+  <grok:ignoreTemplates pattern="^\." />
+
+  <!-- Ignore chameleon extra files -->
+  <!-- XXX: this should move to megrok.chameleon -->
+  <grok:ignoreTemplates pattern="\.cpt\.py$" />
+  <grok:ignoreTemplates pattern="\.cpt\.pyc$" />
+  <grok:ignoreTemplates pattern="\.cpt\.pyo$" />
+  <grok:ignoreTemplates pattern="\.cpt\.cache$" />
+
+</configure>

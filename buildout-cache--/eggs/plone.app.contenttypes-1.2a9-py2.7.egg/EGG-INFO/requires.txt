@@ -1,0 +1,24 @@
+setuptools
+Products.CMFPlone
+plone.app.contentmenu
+plone.app.event >= 2.0a4
+plone.app.dexterity >= 2.0.7
+plone.app.querystring >= 1.2.2
+plone.dexterity >= 2.2.1
+plone.app.relationfield
+plone.namedfile [blobs]
+plone.app.versioningbehavior
+plone.app.lockingbehavior
+pytz
+plone.app.z3cform>=1.1.0.dev0
+
+[atrefs]
+plone.app.referenceablebehavior
+
+[test]
+archetypes.schemaextender
+lxml
+plone.app.robotframework [debug, reload] > 0.9.8
+plone.app.testing [robot] >= 4.2.4
+Products.ATContentTypes
+Products.contentmigration >= 2.1.8.dev0

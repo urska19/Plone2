@@ -1,0 +1,56 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:cache="http://namespaces.zope.org/cache"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plone.app.imaging">
+
+  <five:registerPackage package="." initialize=".initialize"/>
+
+  <class class="Products.Archetypes.Field.ImageField">
+    <implements interface="Products.Archetypes.interfaces.IImageField" />
+  </class>
+
+  <class class="Products.Archetypes.atapi.BaseObject">
+    <implements interface="plone.app.imaging.interfaces.IBaseObject" />
+  </class>
+
+  <adapter
+      factory=".traverse.ImageTraverser" />
+
+  <adapter
+      factory=".traverse.DefaultImageScaleHandler" />
+
+  <adapter
+      for="Products.Archetypes.interfaces.IImageField"
+      factory=".scaling.ImageScaleFactory" />
+
+  <permission
+      id="plone.app.controlpanel.Imaging"
+      title="Plone Site Setup: Imaging" />
+
+  <browser:page
+      for="Products.Archetypes.interfaces.IBaseObject"
+      name="images"
+      class=".scaling.ImageScaling"
+      allowed_interface=".interfaces.IImageScaling"
+      permission="zope2.View" />
+
+  <include package="z3c.caching" file="meta.zcml" />
+  <cache:ruleset
+      for=".interfaces.IStableImageScale"
+      ruleset="plone.stableResource"
+      />
+
+  <genericsetup:registerProfile
+    name="default"
+    title="plone.app.imaging"
+    directory="profiles/default"
+    description="backward compatible profile. does not do anything"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+</configure>

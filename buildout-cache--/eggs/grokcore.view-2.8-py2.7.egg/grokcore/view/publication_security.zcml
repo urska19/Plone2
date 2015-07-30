@@ -1,0 +1,21 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:grok="http://namespaces.zope.org/grok">
+
+  <include package="zope.app.publication" />
+  <include package="zope.app.publication" file="meta.zcml" />
+
+  <!-- this overrides Zope 3's publication factories because they have
+       the same name; we also need to change the priority because of
+       the ZCML discriminator -->
+
+  <publisher
+      name="BROWSER"
+      factory=".publication.GrokBrowserFactory"
+      methods="GET POST HEAD"
+      mimetypes="*"
+      priority="11"
+      />
+
+  <grok:grok package=".publication" />
+</configure>

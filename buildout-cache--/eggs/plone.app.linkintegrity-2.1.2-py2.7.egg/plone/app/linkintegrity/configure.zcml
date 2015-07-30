@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+    <includeDependencies package="." />
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <adapter
+        for="zope.publisher.interfaces.browser.IBrowserRequest"
+        provides=".interfaces.ILinkIntegrityInfo"
+        factory=".info.LinkIntegrityInfo" />
+
+    <class class="OFS.Image.Image">
+        <implements interface=".interfaces.IOFSImage" />
+    </class>
+
+    <include package=".browser" />
+
+    <include package=".at"
+             zcml:condition="installed Products.Archetypes" />
+
+    <include package=".dx"
+             zcml:condition="installed plone.dexterity" />
+
+</configure>

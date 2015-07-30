@@ -1,0 +1,15 @@
+setuptools
+zope.browsermenu
+zope.component
+zope.interface
+Products.CMFCore
+Products.GenericSetup
+Acquisition
+ExtensionClass
+Zope2
+
+[test]
+plone.app.contentmenu
+zope.publisher
+plone.app.testing >= 4.2.5
+Products.Archetypes

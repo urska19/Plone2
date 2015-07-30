@@ -1,0 +1,74 @@
+#trans-selector {
+    text-align: center;
+}
+
+#babel-edit #trans-selector {
+    margin-top: 3px;
+    min-height: 26px;
+}
+
+#babel-edit #frame-content {
+    line-height: 1.5em;
+    margin: 1em 0;
+    padding: 0 1em 1em;
+    width: auto;
+}
+
+#babel-edit #lang-select {
+    float: right;
+    margin-right: 20px;
+}
+
+#babel-edit .field, #babel-edit #frame-content .field  {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+#babel-edit .selected, #babel-edit #frame-content .selected{
+    background-color: #99B0C4;
+    color: #0A0909;
+}
+
+#babel-edit .selected .formHelp {
+    color: white;
+}
+
+#babel-edit .richtext-field {
+    background-color: white;
+    color: black;
+}
+
+#babel-edit .languageindependent {
+    opacity: 0.2;
+}
+
+.overml {
+    position: relative;
+    float: right;
+}
+
+#view_language {
+    display: none;
+}
+
+.translator-widget {
+    position: relative;
+    float: right;
+    background: url('++resource++plone.app.multilingual.images/gtranslate.png');
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.currentLanguage {
+    font-weight: bold;
+}
+/* Specific rule needed to fix a js error (position null in a field) */
+#archetypes-fieldname-contributors{
+    display:block;
+}
+
+a.contentmenuflags img {
+    margin-bottom: 2pt;
+}
+
+.icon-plone-contentmenu-multilingual:before { content: '\e81A'; } /* '' */

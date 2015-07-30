@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:cmf="http://namespaces.zope.org/cmf">
+
+    <include package="Products.ATContentTypes" />
+    <include package="plone.app.multilingual" />
+    <include package="plone.app.dexterity" />
+    <include package="collective.monkeypatcher" />
+
+    <i18n:registerTranslations directory="locales" />
+
+    <include file="profile.zcml" />
+    <include package=".browser"/>
+
+    <class class="Products.Archetypes.atapi.BaseObject">
+        <implements interface=".interfaces.IArchetypesTranslatable" />
+    </class>
+
+    <adapter
+        for="Products.ATContentTypes.interfaces.IATContentType"
+        provides="Products.CMFPlone.interfaces.ILanguage"
+        factory=".language.ATLanguage" />
+
+    <monkey:patch
+        class="Products.Archetypes.Widget.LanguageWidget"
+        original="isVisible"
+        replacement=".monkey.isVisible" />
+
+    <cmf:registerDirectory
+        name="skins"
+        directory="skins"
+        recursive="True" />
+
+</configure>

@@ -1,0 +1,319 @@
+Metadata-Version: 1.1
+Name: bobtemplates.plone
+Version: 0.9
+Summary: Templates for Plone projects.
+Home-page: https://github.com/plone/bobtemplates.plone
+Author: Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: Introduction
+        ============
+        
+        .. image:: https://secure.travis-ci.org/plone/bobtemplates.plone.png?branch=master
+            :target: http://travis-ci.org/plone/bobtemplates.plone
+        
+        .. image:: https://pypip.in/d/bobtemplates.plone/badge.png
+            :target: https://pypi.python.org/pypi/bobtemplates.plone/
+            :alt: Downloads
+        
+        .. image:: https://pypip.in/v/bobtemplates.plone/badge.png
+            :target: https://pypi.python.org/pypi/bobtemplates.plone/
+            :alt: Latest Version
+        
+        .. image:: https://pypip.in/egg/bobtemplates.plone/badge.png
+            :target: https://pypi.python.org/pypi/bobtemplates.plone/
+            :alt: Egg Status
+        
+        .. image:: https://pypip.in/license/bobtemplates.plone/badge.png
+            :target: https://pypi.python.org/pypi/bobtemplates.plone/
+            :alt: License
+        
+        ``bobtemplates.plone`` provides a `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_ template to generate packages for Plone projects.
+        
+        To create a package like ``collective.myaddon``::
+        
+            $ mrbob -O collective.myaddon bobtemplates:plone_addon
+        
+        You can also create a package with nested namespace::
+        
+            $ mrbob -O collective.foo.myaddon bobtemplates:plone_addon
+        
+        
+        Options
+        =======
+        
+        On creating a package you can choose from the following options. The default value is in [square brackets]:
+        
+        Package Type? [Basic]
+            Options are Basic, Dexterity and Theme.
+        
+        Author's name
+            Should be something like 'John Smith'.
+        
+        Author's email
+            Should be something like 'john@plone.org'.
+        
+        Author's github username
+            Should be something like 'john'.
+        
+        Package description [An add-on for Plone]
+            One-liner describing what this package does. Should be something like 'Plone add-on that ...'.
+        
+        Plone version [4.3.4]
+            Which Plone version would you like to use?
+        
+        Add example view? [True]
+            Do you want to register a browser view 'demoview' as an example?
+        
+        
+        Features
+        ========
+        
+        Package created with ``bobtemplates.plone`` use the current best-practices when creating an addon.
+        
+        Buildout
+            The package is contained in a buildout that allows you to build Plone with the new package installed for testing-purposes.
+        
+        Tests
+            The package comes with a test setup and some `tests <http://docs.plone.org/external/plone.app.testing/docs/source/index.html>`_ for installing the package. It also contains a `robot-test <http://docs.plone.org/external/plone.app.robotframework/docs/source/index.html>`_ that tests logging in. The buildout also contains a config to allow testing the package on `travis <http://travis-ci.org/>`_ that sends `notifications <http://about.travis-ci.org/docs/user/notifications>`_ by email to the package autor.
+        
+        Profile
+            The package contains a `Generic Setup Profile <http://docs.plone.org/develop/addons/components/genericsetup.html>`_ that installs a browserlayer.
+        
+        Locales
+            The package registers a directory for locales.
+        
+        Template-Overrides
+            The package registers the folder ``browser/overrides`` as a directory where you can drop template-overrides using `z3c.jbot <https://pypi.python.org/pypi/z3c.jbot>`_.
+        
+        Setuphandler
+            The package contains a `setuphandlers.py <http://docs.plone.org/develop/addons/components/genericsetup.html?highlight=setuphandler#custom-installer-code-setuphandlers-py>`_ where you can add code that is executed on installing the package.
+        
+        
+        Compatibility
+        =============
+        
+        Addons created with ``bobtemplates.plone`` are tested to work in Plone 4.3.x and Plone 5.
+        They should also work with older versions but that was not tested.
+        
+        
+        Installation
+        ============
+        
+        Use in a buildout
+        -----------------
+        
+        ::
+        
+            [buildout]
+            parts += mrbob
+        
+            [mrbob]
+            recipe = zc.recipe.egg
+            eggs =
+                mr.bob
+                bobtemplates.plone
+        
+        
+        This creates a mrbob-executeable in your bin-directory.
+        Call it from the ``src``-directory of your Plone project like this.::
+        
+            $ ../bin/mrbob -O collective.foo bobtemplates:plone_addon
+        
+        
+        Installation in a virtualenv
+        ----------------------------
+        
+        You can also install ``bobtemplates.plone`` in a virtualenv.::
+        
+            $ pip install mr.bob
+        
+            $ pip install bobtemplates.plone
+        
+        Now you can use it like this::
+        
+            $ mrbob -O collective.foo bobtemplates:plone_addon
+        
+        See `mr.bob <http://mrbob.readthedocs.org/en/latest/>`_ documentation for further information.
+        
+        Contributors
+        ============
+        
+        This package is based on `bobtemplates.niteoweb <https://github.com/niteoweb/bobtemplates.niteoweb>`_ and `bobtemplates.ecreall <https://github.com/cedricmessiant/bobtemplates.ecreall>`_
+        
+        - Philip Bauer [pbauer]
+        - Cédric Messiant [cedricmessiant]
+        - Vincent Fretin [vincentfretin]
+        - Thomas Desvenain [thomasdesvenain]
+        - Domen Kožar [iElectric]
+        - Nejc Zupan [zupo]
+        - Patrick Gerken [do3cc]
+        - Timo Stollenwerk [timo]
+        
+        Changelog
+        =========
+        
+        0.9 (2015-03-24)
+        ----------------
+        
+        - Add Theme package type with simple bootstrap-based theme.
+          [timo]
+        
+        - Add Dexterity package type.
+          [timo]
+        
+        - Remove example view.
+          [timo]
+        
+        - Remove question for keywords.
+          [timo]
+        
+        - Remove question for locales.
+          [timo]
+        
+        - Remove questions for version and license.
+          [timo]
+        
+        - Remove questions for profile, setuphandler, and testing.
+          [timo]
+        
+        - Unify buildout configuration in buildout.cfg
+          [timo]
+        
+        - Fix bootstrap command in travis.yml.
+          [timo]
+        
+        
+        0.8 (2015-02-06)
+        ----------------
+        
+        - Add includeDependencies. This fixes #23.
+          [timo]
+        
+        
+        0.7 (2015-02-05)
+        ----------------
+        
+        - Use latest buildout-bootstrap.py.
+          [timo]
+        
+        - Fix failing nosetests.
+          [timo]
+        
+        - Add test that creates an add_on and runs all its tests and code analysis.
+          [timo]
+        
+        - Run tests on travis.
+          [timo]
+        
+        - Run code analysis on travis. Build fails on PEP8 violations.
+          [timo]
+        
+        - Add code analysis.
+          [timo]
+        
+        - Remove z2.InstallProducts. Not needed any longer.
+          [timo]
+        
+        - Use testing best practices and follow common naming conventions.
+          [timo]
+        
+        - Remove testing profile. Global testing state is considered an anti-pattern.
+          [timo]
+        
+        - Add example robot test.
+          [timo]
+        
+        - Add travis and pypip.in badges.
+          [timo]
+        
+        - Run code analysis on the generated addon as well within the tests to make
+          sure we always ship 100% PEP8 compliant code.
+          [timo]
+        
+        - Add REMOTE_LIBRARY_BUNDLE_FIXTURE to acceptance test fixture.
+          [timo]
+        
+        
+        0.6 (2015-01-17)
+        ----------------
+        
+        - Use PLONE_APP_CONTENTTYPES_FIXTURE for tests on when using Plone 5.
+          [pbauer]
+        
+        
+        0.5 (2015-01-17)
+        ----------------
+        
+        - Remove useless base-classes for tests. Use 'layer = xxx' instead.
+          [pbauer]
+        
+        - Fix some minor code-analysis issues.
+          [pbauer]
+        
+        - Added .editorconfig file.
+          [ale-rt]
+        
+        
+        0.4 (2014-12-08)
+        ----------------
+        
+        - Remove grok.
+          [pbauer]
+        
+        - Fix missed removals when testing was deselected.
+          [pbauer]
+        
+        - Only use jbot when there is a profile and a browser layer.
+          [pbauer]
+        
+        - Get username and email from git.
+          [do3cc]
+        
+        
+        0.3 (2014-12-07)
+        ----------------
+        
+        - Pinn robotframework to 2.8.4 to fix package-tests.
+          [pbauer]
+        
+        - Add browserlayer to demoview to allow multiple addons.
+          [pbauer]
+        
+        - Fix creation of nested packages (wrong __init__.py).
+          [pbauer]
+        
+        
+        0.2 (2014-12-07)
+        ----------------
+        
+        - Fix documentation
+          [pbauer]
+        
+        
+        0.1 (2014-12-07)
+        ----------------
+        
+        - Get namespace, name and type from target-dir.
+          [pbauer]
+        
+        - Remove obsolete plone_addon_nested. Auto-nest package in after-render hook.
+          [pbauer]
+        
+        - Add many new features. Most of them are optional.
+          [pbauer]
+        
+        - Initial import based on bobtemplates.ecreall by
+          cedricmessiant, vincentfretin and thomasdesvenain.
+          [pbauer]
+        
+        
+Keywords: web plone zope skeleton project
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Utilities

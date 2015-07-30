@@ -1,0 +1,575 @@
+======================
+plone.recipe.zeoserver
+======================
+
+This is the doctest for plone.recipe.zeoserver. It ensures the template
+works fine. It is based on zc.buildout testing module::
+
+    >>> from zc.buildout.testing import *
+    >>> from os.path import join
+    >>> import sys, os
+
+    >>> WINDOWS = sys.platform == 'win32'
+
+Let's create a minimum buildout that uses the current
+plone.recipe.zeoserver::
+
+    >>> simplest = '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... ''' % globals()
+    >>> write('buildout.cfg', simplest)
+
+Let's run it::
+
+    >>> print system(join('bin', 'buildout'))
+    Installing zeo.
+    ...
+    Generated script '...zeo'.
+    Generated script '...zeopack'.
+    ...
+
+We should have a basic zeo.conf::
+
+    >>> zeo = os.path.join(sample_buildout, 'parts', 'zeo')
+    >>> conf = open(os.path.join(zeo, 'etc', 'zeo.conf')).read()
+    >>> print conf.replace('\\', '/')
+    %define INSTANCE .../sample-buildout/parts/zeo
+    <BLANKLINE>
+    <zeo>
+      address 8100
+      read-only false
+      invalidation-queue-size 100
+      pid-filename .../sample-buildout/var/zeo.pid
+    </zeo>
+    <BLANKLINE>
+    <filestorage 1>
+      path .../sample-buildout/var/filestorage/Data.fs
+      blob-dir .../sample-buildout/var/blobstorage
+    </filestorage>
+    <BLANKLINE>
+    <eventlog>
+      level info
+      <logfile>
+        path .../sample-buildout/var/log/zeo.log
+        format %(asctime)s %(message)s
+      </logfile>
+    </eventlog>
+    <BLANKLINE>
+    <runner>
+      program $INSTANCE/bin/runzeo
+      socket-name .../sample-buildout/var/zeo.zdsock
+      daemon true
+      forever false
+      backoff-limit 10
+      exit-codes 0, 2
+      directory $INSTANCE
+      default-to-interactive true
+    <BLANKLINE>
+    <BLANKLINE>
+      # This logfile should match the one in the zeo.conf file.
+      # It is used by zdctl's logtail command, zdrun/zdctl doesn't write it.
+      logfile .../sample-buildout/var/log/zeo.log
+    </runner>
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+
+
+Zope Replication Services
+=========================
+
+Now, let's create a simple buildout to create a primary replication::
+
+    >>> primaryzrs = '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver[zrs]
+    ... replicate-to = 127.0.0.1:5000
+    ... ''' % globals()
+    >>> write('buildout.cfg', primaryzrs)
+    >>> print system(join('bin', 'buildout'))
+    ...
+    Uninstalling zeo.
+    Installing zeo.
+    ...
+
+We should have primary zrs config in zeo.conf::
+
+    >>> zeo = os.path.join(sample_buildout, 'parts', 'zeo')
+    >>> print open(os.path.join(zeo, 'etc', 'zeo.conf')).read()
+    %define INSTANCE ...
+    ...
+    %import zc.zrs
+    <BLANKLINE>
+    <zrs 1>
+     replicate-to 127.0.0.1:5000
+    ...
+    <filestorage 1>
+    ...
+    <BLANKLINE>
+
+And for a secondary::
+
+    >>> primaryzrs = '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver[zrs]
+    ... replicate-from = 127.0.0.1:5000
+    ... ''' % globals()
+    >>> write('buildout.cfg', primaryzrs)
+    >>> print system(join('bin', 'buildout'))
+    ...
+    Uninstalling zeo.
+    Installing zeo.
+    ...
+
+We should have primary zrs config in zeo.conf::
+
+    >>> zeo = os.path.join(sample_buildout, 'parts', 'zeo')
+    >>> print open(os.path.join(zeo, 'etc', 'zeo.conf')).read()
+    %define INSTANCE ...
+    ...
+    %import zc.zrs
+    <BLANKLINE>
+    <zrs 1>
+     replicate-from 127.0.0.1:5000
+    ...
+    <filestorage 1>
+    ...
+    <BLANKLINE>
+
+
+Custom Zeo log
+==============
+
+`zeo-log-custom` is a new option that allows you to create
+a custom zeo log section. For example, let's say you want
+to use `rotatezlogs`::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-log-custom =
+    ...     %%import iw.rotatezlogs
+    ...     <rotatelogfile>
+    ...         path %(sample_buildout)s/var/log/zeo.log
+    ...         max-bytes 1MB
+    ...         backup-count 5
+    ...     </rotatelogfile>
+    ...
+    ... ''' % globals())
+
+Let's run it::
+
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    Installing zeo...
+
+We should have a zeo.conf with a rotatezlog::
+
+    >>> zeo = os.path.join(sample_buildout, 'parts', 'zeo')
+    >>> print open(os.path.join(zeo, 'etc', 'zeo.conf')).read()
+     %define INSTANCE ...
+    ...
+    <eventlog>
+      level info
+      %import iw.rotatezlogs
+      <rotatelogfile>
+        path ...zeo.log
+        max-bytes 1MB
+        backup-count 5
+      </rotatelogfile>
+    </eventlog>
+    ...
+    <BLANKLINE>
+
+ZEO log level
+=============
+
+Using `zeo-log-level` option, it is possible to set the ZEO log level.
+By default the log level will be `info`.  Let's change the log level
+as `error`::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-log-level = error
+    ...
+    ... ''' % globals())
+
+Let's run it::
+
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    Installing zeo...
+
+We should have a zeo.conf with a log level set to `error`::
+
+    >>> zeo = os.path.join(sample_buildout, 'parts', 'zeo')
+    >>> print open(os.path.join(zeo, 'etc', 'zeo.conf')).read()
+     %define INSTANCE ...
+    ...
+    <eventlog>
+      level error
+    ...
+    <BLANKLINE>
+
+Custom Zeopack
+==============
+
+The generated zeopack script has to identify the ZEO server address from
+the `zeo-address` parameter in the zeo buildout section. This parameter
+may be just a port, a host and port combination, or a filesystem path to
+a Unix file socket. The generated script must contain correct values in
+either case.
+
+When just a port is given, the `zeopack` script will assume the host is
+the localhost address 127.0.0.1:
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-address = 8001
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    Installing zeo...
+
+Now check the values for `host`, `port` and `unix`::
+
+    >>> zeopack_path = os.path.join(sample_buildout, 'bin', 'zeopack')
+    >>> if WINDOWS:
+    ...     zeopack_path += '-script.py'
+    >>> zeopack = open(zeopack_path, 'r').read()
+    >>> 'host = "127.0.0.1"' in zeopack
+    True
+    >>> 'port = "8001"' in zeopack
+    True
+    >>> 'unix = None' in zeopack
+    True
+
+When a host:port combination is provided, the recipe must split it correctly::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-address = 192.168.0.11:8001
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    Installing zeo...
+
+Now check the values for `host`, `port` and `unix`::
+
+    >>> zeopack_path = os.path.join(sample_buildout, 'bin', 'zeopack')
+    >>> if WINDOWS:
+    ...     zeopack_path += '-script.py'
+    >>> zeopack = open(zeopack_path, 'r').read()
+    >>> 'host = "192.168.0.11"' in zeopack
+    True
+    >>> 'port = "8001"' in zeopack
+    True
+    >>> 'unix = None' in zeopack
+    True
+
+When storage-number is provided, the script will assume as default::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... storage-number = 9
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    Installing zeo...
+
+Now check the values for `storage`::
+
+    >>> zeopack_path = os.path.join(sample_buildout, 'bin', 'zeopack')
+    >>> if WINDOWS:
+    ...     zeopack_path += '-script.py'
+    >>> zeopack = open(zeopack_path, 'r').read()
+    >>> 'storage = "9"' in zeopack
+    True
+
+If the `zeo-address`-parameter is a string it is assumed to be the path
+to a Unix socket file::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-address = /path/to/zeo.socket
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    Installing zeo...
+
+Now check the values for `host`, `port` and `unix`::
+
+    >>> zeopack_path = os.path.join(sample_buildout, 'bin', 'zeopack')
+    >>> if WINDOWS:
+    ...     zeopack_path += '-script.py'
+    >>> zeopack = open(zeopack_path, 'r').read()
+    >>> 'host = None' in zeopack
+    True
+    >>> 'port = None' in zeopack
+    True
+    >>> 'unix = "/path/to/zeo.socket"' in zeopack
+    True
+
+The recipe supports specifying a custom script name for the zeopack script::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeopack-script-name = custom-zeopack-name
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    ...
+    Generated script '...custom-zeopack-name'...
+
+Confirm that for multiple zeoserver instances, there are two different files
+created for different script names::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo zeo2
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeopack-script-name = first-zeopack
+    ... pack-user = firstuser
+    ...
+    ... [zeo2]
+    ... recipe = plone.recipe.zeoserver
+    ... zeopack-script-name = second-zeopack
+    ... pack-user = seconduser
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    ...
+    Generated script '...first-zeopack'.
+    ...
+    Generated script '...second-zeopack'...
+
+Check the files are actually different by comparing different settings. The given usernames should
+be different and correspond as the buildout specified::
+
+    >>> zeopack_scripts = ('first-zeopack', 'second-zeopack')
+    >>> zeopack_paths = [os.path.join(sample_buildout, 'bin', script) for script in zeopack_scripts]
+    >>> if WINDOWS:
+    ...     zeopack_paths =  [zeopack + '-script.py' for zeopack in zeopacks]
+    >>> zeopacks = [open(zeopack_path, 'r').read() for zeopack_path in zeopack_paths]
+
+    >>> 'username = "firstuser"' in zeopacks[0]
+    True
+    >>> 'username = "seconduser"' in zeopacks[0]
+    False
+    >>> 'username = "firstuser"' in zeopacks[1]
+    False
+    >>> 'username = "seconduser"' in zeopacks[1]
+    True
+
+Restore the original simple configuration::
+
+    >>> write('buildout.cfg', simplest)
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo2.
+    Uninstalling zeo...
+
+Repozo
+======
+
+The recipe supports specifying a custom script name for the zeopack script::
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... repozo-script-name = custom-repozo-name
+    ...
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    ...
+    Uninstalling zeo.
+    ...
+    Generated script '...custom-repozo-name'...
+
+Relative paths in scripts
+=========================
+
+The recipe supports the generation of scripts with relative paths.
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... relative-paths = true
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-address = /path/to/zeo.socket
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    Uninstalling zeo.
+    Installing zeo.
+    ...
+
+Our generated script now has a reference to the relative path.
+
+    >>> zeo_path = join('bin', 'zeo')
+    >>> if WINDOWS:
+    ...     zeo_path += '-script.py'
+    >>> open(zeo_path).read()
+    '...base = os.path.dirname(os.path.abspath(os.path.realpath(__file__)))...'
+
+Extra paths in scripts
+======================
+
+The recipe support extra paths.
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-address = /path/to/zeo.socket
+    ... extra-paths = /path/to/test-1.0.egg
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    Uninstalling zeo.
+    Installing zeo.
+    ...
+
+The generated scripts should have the extra path.
+
+    >>> if WINDOWS:
+    ...     suffix = '-script.py'
+    ... else:
+    ...     suffix = ''
+
+    >>> extra = '/path/to/test-1.0.egg'
+    >>> if WINDOWS:
+    ...     extra = '\\\\path\\\\to\\\\test-1.0.egg'
+
+    >>> parts_bin = join('parts', 'zeo', 'bin')
+
+    >>> extra in open(join('bin', 'zeo' + suffix)).read()
+    True
+
+    >>> if not WINDOWS:
+    ...     extra in open(join(parts_bin, 'runzeo' + suffix)).read()
+    ... else:
+    ...     print True
+    True
+
+    >>> if not WINDOWS:
+    ...     extra in open(join(parts_bin, 'zeoctl' + suffix)).read()
+    ... else:
+    ...     print True
+    True
+
+Initialization in main script
+=============================
+
+The recipe support initialization.
+
+    >>> write('buildout.cfg',
+    ... '''
+    ... [buildout]
+    ... parts = zeo
+    ... find-links = %(sample_buildout)s/eggs
+    ...
+    ... [zeo]
+    ... recipe = plone.recipe.zeoserver
+    ... zeo-address = /path/to/zeo.socket
+    ... initialization =
+    ...    foo = 1
+    ... ''' % globals())
+    >>> print system(join('bin', 'buildout')),
+    Uninstalling zeo.
+    Installing zeo.
+    ...
+
+The main script should have the initialization.
+
+    >>> if WINDOWS:
+    ...     suffix = '-script.py'
+    ... else:
+    ...     suffix = ''
+
+    >>> 'foo = 1' in open(join('bin', 'zeo' + suffix)).read()
+    True
+

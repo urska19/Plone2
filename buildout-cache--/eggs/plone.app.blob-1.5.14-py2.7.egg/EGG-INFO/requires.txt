@@ -1,0 +1,13 @@
+Products.MimetypesRegistry
+ZODB3 >=3.8.1
+archetypes.schemaextender >=1.6
+plone.app.imaging >1.0b9
+plone.scale
+setuptools
+zope.proxy >=3.4
+
+[test]
+Products.contentmigration
+collective.monkeypatcher
+plone.app.imaging
+plone.app.testing

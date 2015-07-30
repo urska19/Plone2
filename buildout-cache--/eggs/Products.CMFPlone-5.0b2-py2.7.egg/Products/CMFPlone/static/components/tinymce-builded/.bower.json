@@ -1,0 +1,26 @@
+{
+  "name": "tinymce-builded",
+  "version": "4.1.9",
+  "homepage": "https://github.com/artursmirnov/tinymce_builded",
+  "authors": [
+    "Artur Smirnov <mail@artursmirnov.com>"
+  ],
+  "description": "Builded version of TinyMCE rich editor",
+  "keywords": [
+    "tinymce",
+    "wysiwyg",
+    "rich",
+    "editor",
+    "builded"
+  ],
+  "license": "GNU / Lesser GPL",
+  "_release": "4.1.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.1.9",
+    "commit": "89ba78d92c99825886cbc4bb39fd245183951c40"
+  },
+  "_source": "git://github.com/artursmirnov/tinymce_builded.git",
+  "_target": "4.1.9",
+  "_originalSource": "tinymce-builded"
+}

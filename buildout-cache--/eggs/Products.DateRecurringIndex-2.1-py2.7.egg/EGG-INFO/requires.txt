@@ -1,0 +1,10 @@
+setuptools
+ZODB3
+Zope2
+plone.event
+zope.interface
+zope.schema
+
+[test]
+pytz
+plone.testing

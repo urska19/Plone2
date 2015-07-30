@@ -1,0 +1,34 @@
+Acquisition
+DateTime
+plone.app.content
+plone.app.portlets
+plone.app.viewletmanager >=1.2
+plone.i18n
+plone.memoize
+plone.portlets
+plone.registry
+Products.CMFCore
+Products.CMFDynamicViewFTI
+Products.CMFEditions >=1.2.2
+Products.CMFPlone >=4.3
+setuptools
+zope.component
+zope.deprecation
+zope.dottedname
+zope.i18n
+zope.interface
+zope.publisher
+zope.schema
+zope.viewlet
+Zope2
+
+[test]
+plone.app.contenttypes
+plone.app.intid
+plone.app.relationfield
+plone.app.testing
+plone.dexterity
+plone.locking
+plone.testing
+z3c.relationfield
+zope.annotation

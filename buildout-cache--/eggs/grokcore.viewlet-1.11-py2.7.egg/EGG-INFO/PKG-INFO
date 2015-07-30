@@ -1,0 +1,258 @@
+Metadata-Version: 1.1
+Name: grokcore.viewlet
+Version: 1.11
+Summary: Grok-like configuration for zope viewlets
+Home-page: http://grok.zope.org
+Author: Grok Team
+Author-email: grok-dev@zope.org
+License: ZPL
+Download-URL: http://cheeseshop.python.org/pypi/grokcore.viewlet
+Description: This package provides support to write and register Zope Viewlets
+        directly in Python (without ZCML). It's designed to be used with
+        `grokcore.view`_ which let you write and register Zope Views.
+        
+        .. contents::
+        
+        Setting up ``grokcore.viewlet``
+        ===============================
+        
+        This package is set up like the `grokcore.component`_
+        package. Please refer to its documentation for more details. The
+        additional ZCML lines you will need are::
+        
+          <include package="grokcore.viewlet" file="meta.zcml" />
+          <include package="grokcore.viewlet" />
+        
+        Put the first line somewhere near the top of your root ZCML file.
+        
+        Examples
+        ========
+        
+        First we need a view to call our viewlet manager::
+        
+           from grokcore import viewlet
+        
+           class Index(viewlet.View):
+               pass
+        
+           index = viewlet.Page Template("""
+           <body>
+           <head>Test</head>
+           <body>
+           <div tail:content="structure provider:content">
+           </div>
+           </body>
+           """)
+        
+        After that we could define only a manager which display something::
+        
+           class Content(viewlet.ViewletManager):
+               viewlet.View(Index)
+        
+               def render(self):
+                   return u'<h1>Hello World</h1>'
+        
+        
+        Or a completely different example::
+        
+           class AdvancedContent(viewlet.ViewletManager):
+               viewlet.name('content')
+               viewlet.view(Index)
+        
+        And some viewlets for that one::
+        
+           class StaticData(viewlet.Viewlet):
+               viewlet.view(Index)
+               viewlet.viewletmanager(AdvancedContent)
+        
+               def render(self):
+                   return u'<p> Data from %s</p>' self.context.id
+        
+        Or::
+        
+           class SecretData(viewlet.Viewlet):
+               viewlet.view(Index)
+               viewlet.viewletmanager(AdvancedContent)
+               viewlet.require('agent.secret')
+        
+           secretdata = viewlet.PageTemplate("""
+           <p>Nothing to see here.</p>
+           """)
+        
+        The way templates are binded to components works exactly the way than
+        in `grokcore.view`_, for more information refer to its
+        documentation.
+        
+        API Overview
+        ============
+        
+        Base classes
+        ------------
+        
+        ``ViewletManager``
+          Define a new viewlet manager. You can either provide a render
+          method, a template, which can or not use registered viewlets.
+        
+          If you define a template, ``view`` is added as a reference to the
+          current view for which the manager is rendering in the template's
+          namespace. It is available as well as an attribute on the manager
+          object.
+        
+        ``Viewlet``
+          Define a new viewlet. You can either provide a template or a render
+          method on it. Like in views, you can define an update method to
+          process needed data.
+        
+          Like for manager, ``view`` is added to the template namespace if
+          used. ``viewletmanager`` is defined as well as a reference to the
+          manager in the template's namespace and as an attribute on the
+          viewlet object.
+        
+        Directives
+        ----------
+        
+        You can use directives from `grokcore.view`_ to register your
+        viewlet or viewlet manager: ``name``, ``context``, ``layer`` and
+        ``require`` (for security on a viewlet).
+        
+        To that is added:
+        
+        ``view``
+           Select for which view is registered a viewlet or a viewlet manager.
+        
+        ``viewletmanager``
+           Select for which viewlet manager is registered a viewlet.
+        
+        ``order``
+           Define a rendering order for viewlets in a viewlet manager. This
+           should be a number, the smaller order render first, bigger last.
+        
+        
+        Additionally, the ``grokcore.viewlet`` package exposes the
+        `grokcore.component`_, `grokcore.security`_ and `grokcore.view`_ APIs.
+        
+        .. _grokcore.component: http://pypi.python.org/pypi/grokcore.component
+        .. _grokcore.viewlet: http://pypi.python.org/pypi/grokcore.viewlet
+        .. _grokcore.security: http://pypi.python.org/pypi/grokcore.security
+        .. _grokcore.view: http://pypi.python.org/pypi/grokcore.view
+        
+        Changes
+        =======
+        
+        1.11 (2012-09-04)
+        -----------------
+        
+        - Make the ``has_render()`` and ``has_no_render()`` symmetrical to those
+          in grokcore.view, grokcore.layout and grokcore.formlib, where a
+          ``render.base_method`` attribute is checked.
+        
+        1.10.1 (2012-05-02)
+        -------------------
+        
+        - Do not require the role extra from grokcore.security.
+        
+        1.10 (2012-05-02)
+        -----------------
+        
+        - Use the component registration api from grokcore.component.
+        
+        - Update how the static resources are found on a ``ViewletManager``
+          and a ``Viewlet``, following the new name ``__static_name__`` set by
+          the template association.
+        
+        1.9 (2011-06-28)
+        ----------------
+        
+        - Introduce the `available()` method on viewlet component. The viewlet
+          manager will filter out unavailable viewlet by calling this method. The
+          `available()` method is called *after* the viewlet's `update()` is called,
+          but *before* the `render()` is called.
+        
+        1.8 (2010-12-16)
+        ----------------
+        
+        - Update to use TemplateGrokker from grokcore.view to associate
+          viewlet and viewletmanager templates.
+        
+        1.7 (2010-11-03)
+        ----------------
+        
+        - The computed default value for the viewletmanager directive is now defined
+          in the directiv itself, not as a separate function that needs to be passed
+          along.
+        
+        1.6 (2010-11-01)
+        ----------------
+        
+        * Upped version requirements for martian, grokcore.component, and grokcore.view.
+        
+        * Move the order directive to grokcore.component.
+        
+        * Move the view directive to grokcore.view.
+        
+        1.5 (2010-10-18)
+        ----------------
+        
+        * Make package comply to zope.org repository policy.
+        
+        * Update functional tests to use Browser implementation of zope.app.wsgi
+          instead of zope.app.testing.
+        
+        * Reduce dependencies (zope.app.pagetemplate no longer necessary).
+        
+        1.4.1 (2010-02-28)
+        ------------------
+        
+        * Dropped the dependency on ``zope.app.zcmlfiles``.
+        
+        * Cleaned the code to remove unused imports and ensure the pep8 syntax.
+        
+        * Updated tests to have a return value consistency. The
+          grokcore.viewlet viewlet manager implementation requires viewlets to
+          return unicode strings. Now, viewlets return unicode strings in the
+          test packages.
+        
+        1.4 (2010-02-19)
+        ----------------
+        
+        * Define test requires.
+        
+        1.3 (2009-09-17)
+        ----------------
+        
+        * Reverted the use of grokcore.view.CodeView. We now require
+          ``grokcore.view`` 1.12.1 or newer. As of ``grokcore.view`` 1.12, the
+          CodeView/View separation has been undone.
+        
+        1.2 (2009-09-16)
+        ----------------
+        
+        * Remove the reference to the grok.View permission that is no longer in
+          grokcore.security 1.2
+        
+        * Use the grok.zope.org/releaseinfo information instead of our own
+          copy of ``versions.cfg``, for easier maintenance.
+        
+        
+        1.1 (2009-07-20)
+        ----------------
+        
+        * Adapted tests to new grokcore.view release: switched from View to CodeView.
+        
+        * Add grok.View permissions to functional tests (requires grokcore.security
+          1.1)
+        
+        1.0 (2008-11-15)
+        ----------------
+        
+        * Created ``grokcore.viewlet`` in November 2008 by factoring
+          ``zope.viewlet``-based components, grokkers and directives out of
+          Grok.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Framework :: Zope3

@@ -1,0 +1,17 @@
+Products.CMFPlone
+diazo>=1.0.3
+docutils
+five.globalrequest
+lxml>=2.2.4
+plone.app.registry>=1.0a2
+plone.resource>=1.0b5
+plone.resourceeditor>=2.0.0.dev
+plone.subrequest
+plone.transformchain
+repoze.xmliter>=0.3
+roman
+setuptools
+zope.traversing
+
+[test]
+plone.app.testing

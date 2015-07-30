@@ -1,0 +1,69 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="plone.app.referenceablebehavior">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <!-- register translations -->
+    <i18n:registerTranslations directory="locales" />
+
+    <include package="plone.behavior" file="meta.zcml" />
+    <include file="profiles.zcml" />
+
+    <plone:behavior
+        title="Referenceable"
+        description="Adds the ability to be referenced by others content elements"
+        provides=".referenceable.IReferenceable"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <!-- Install uid_catalog related components -->
+
+    <adapter factory=".uidcatalog.UID" name="UID" />
+    <adapter
+        for=".referenceable.IReferenceable
+             Products.Archetypes.interfaces.referenceengine.IUIDCatalog"
+        factory="plone.indexer.wrapper.IndexableObjectWrapper"
+        provides="plone.indexer.interfaces.IIndexableObject"
+        />
+
+    <subscriber
+        for=".referenceable.IReferenceable
+             zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".uidcatalog.added_handler"
+        />
+    <subscriber
+        for=".referenceable.IReferenceable
+             zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".uidcatalog.modified_handler"
+        />
+    <subscriber
+        for=".referenceable.IReferenceable
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".uidcatalog.moved_handler"
+        />
+    <subscriber
+        for=".referenceable.IReferenceable
+             zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+        handler=".uidcatalog.removed_handler"
+        />
+
+    <subscriber
+        for=".referenceable.IReferenceable
+             OFS.interfaces.IObjectWillBeRemovedEvent"
+        handler=".subscribers.deleteReferences"
+        />
+
+
+    <!-- Archetypes IReferenceable implementation -->
+    <adapter factory=".referenceable.ATReferenceable" />
+
+
+    <adapter factory=".referenceable.uuid_for_adapter"
+             provides="plone.uuid.interfaces.IUUID" />
+
+
+</configure>

@@ -1,0 +1,124 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/prefs_main_template/macros/master"
+    i18n:domain="plone.app.multilingual">
+
+<body>
+
+<div metal:fill-slot="prefs_configlet_content">
+
+<script type="text/javascript">
+(function($) {
+
+    $().ready(function() {
+        $('.formControls input #resetrelations').click(function (event) {
+          event.preventDefault();
+          $.get('@@migration-view-after', function(data) {
+            $('.results').html(data)
+          });
+        });
+        $('.formControls input #move').click(function (event) {
+          event.preventDefault();
+          $.get('@@relocateContentByLanguage', function(data) {
+            $('.results').html(data)
+          });
+        });
+    });
+
+})(jQuery);
+</script>
+
+  <div id="region-content" class="documentEditable">
+
+    <div id="edit-bar" i18n:domain="plone.app.multilingual">
+        <ul class="contentViews" id="content-views">
+          <li>
+            <a href=""
+               tal:attributes="href string:${portal_url}/@@language-controlpanel"
+               i18n:translate="label_general">General</a>
+          </li>
+          <li>
+            <a href=""
+               tal:attributes="href string:${portal_url}/@@multilingual-map"
+               i18n:translate="label_translation_map">Translation Map</a>
+          </li>
+          <li class="selected">
+            <a href=""
+              tal:attributes="href string:${portal_url}/@@lp-migration-after"
+              i18n:translate="label_cleanup">Cleanup actions</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="contentActions">
+      &#160;
+    </div>
+
+    <div class="documentContent" id="content">
+      <a name="documentContent"></a>
+
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+        Portal status message
+        </div>
+
+        <div class="configlet">
+
+            <h1 class="documentFirstHeading"
+                i18n:domain="plone.app.multilingual"
+                i18n:translate="heading_migration_after">Products.LinguaPlone After Migration</h1>
+
+            <a href=""
+                class="link-parent"
+                tal:attributes="href string:${portal_url}/plone_control_panel"
+                i18n:translate="label_up_to_plone_setup">
+                    Up to Site Setup
+            </a>
+
+            <p i18n:translate="description_migrate_after"
+              i18n:domain="plone.app.multilingual">
+                It can happen that there are relations left that contain
+                LinguaPlone relations. By executing this step, the catalog
+                gets reset and rebuilt. It CAN happen that things go bad.
+                In that case relations get lost. It is therefor important that
+                you have a backup!
+            </p>
+
+            <form name="cleanup" tal:attributes="action request/URL" method="post">
+
+                <div class="formControls">
+                  <label>Catalog reload</label>
+                    <input
+                        id="resetrelations"
+                        type="submit"
+                        name="form.button.Cleanup"
+                        class="destructive"
+                        value="Cleanup"
+                        i18n:attributes="value" />
+
+                  <label>Move content to its corresponding language root folder</label>
+                    <input
+                        id="move"
+                        type="submit"
+                        name="form.button.Move"
+                        class="destructive"
+                        value="Move"
+                        i18n:attributes="value" />
+                </div>
+
+                <input tal:replace="structure context/@@authenticator/authenticator" />
+
+            </form>
+
+            <div class="results">
+              <!-- The migration results -->
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

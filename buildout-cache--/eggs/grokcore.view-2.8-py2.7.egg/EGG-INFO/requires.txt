@@ -1,0 +1,30 @@
+grokcore.component >= 2.5dev
+grokcore.security >= 1.5
+martian >= 0.13
+setuptools
+zope.browserpage
+zope.browserresource >= 3.9.0
+zope.component
+zope.contentprovider
+zope.interface
+zope.pagetemplate
+zope.ptresource >= 3.9.0
+zope.publisher
+zope.security
+zope.traversing
+
+[security_publication]
+zope.app.publication
+
+[test]
+zope.app.appsetup
+zope.app.publication
+zope.app.wsgi
+zope.configuration
+zope.container
+zope.login
+zope.password
+zope.principalregistry
+zope.securitypolicy
+zope.site
+zope.testing

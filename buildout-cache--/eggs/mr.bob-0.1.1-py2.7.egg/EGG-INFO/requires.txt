@@ -1,0 +1,13 @@
+setuptools
+six>=1.2.0
+Jinja2>=2.5.0
+
+[development]
+zest.releaser
+Sphinx
+
+[test]
+nose
+coverage<3.6dev
+flake8>2.0
+mock

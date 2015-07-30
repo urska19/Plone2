@@ -1,0 +1,27 @@
+Acquisition
+DateTime
+five.formlib
+plone.app.vocabularies
+plone.locking
+Products.CMFCore
+Products.CMFDefault
+setuptools
+zope.browser
+zope.component
+zope.event
+zope.formlib >= 4.0
+zope.i18n
+zope.i18nmessageid
+zope.interface
+zope.lifecycleevent
+zope.schema
+zope.site
+Zope2 >= 2.12.3
+
+[test]
+plone.app.content
+plone.app.testing
+plone.memoize
+zope.annotation
+zope.publisher
+zope.testing

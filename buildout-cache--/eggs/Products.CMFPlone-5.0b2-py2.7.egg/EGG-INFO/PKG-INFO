@@ -1,0 +1,597 @@
+Metadata-Version: 1.1
+Name: Products.CMFPlone
+Version: 5.0b2
+Summary: The Plone Content Management System (core)
+Home-page: http://plone.org/
+Author: Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL version 2
+Description: About Plone
+        ===========
+        
+        Plone is a user friendly Content Management System running on top of Python,
+        Zope and the CMF.  
+        
+        It benefits from all features of Zope/CMF such as: RDBMS integration,
+        Python extensions, Object Oriented Database, Web configurable workflow,
+        pluggable membership and authentication, Undos, Form validation, amongst many
+        many other features. Available protocols: FTP, XMLRPC, HTTP and WEBDAV
+        Turn it into a distributed application system by installing ZEO.
+        
+        Plone shares some of the qualities of Livelink, Interwoven and Documentum. It
+        aims to be *the* open source out-of-the-box publishing system.
+        
+        Installing Plone
+        -----------------
+        
+        Plone is available on Microsoft Windows, Linux, OSX and BSD platforms.
+        
+        `Install Plone by downloading an installer from plone.org <http://plone.org/products>`_.
+        
+        What is Plone?
+        --------------
+        
+        Plone is a ready-to-run content management system that is built on the powerful
+        and free Zope application server. Plone is easy to set up, extremely flexible,
+        and provides you with a system for managing web content that is ideal for
+        project groups, communities, web sites, extranets and intranets.
+        
+        - *Plone is easy to install.* You can install Plone with a a click and run
+          installer, and have a content management system running on your computer in
+          just a few minutes.
+        
+        - *Plone is easy to use.* The Plone Team includes usability experts who have
+          made Plone easy and attractive for content managers to add, update, and
+          maintain content.
+        
+        - *Plone is international.* The Plone interface has more than 35 translations,
+          and tools exist for managing multilingual content.
+        
+        - *Plone is standard.* Plone carefully follows standards for usability and
+          accessibility. Plone pages are compliant with US Section 508, and the W3C's
+          AAA rating for accessibility.
+        
+        - *Plone is Open Source.* Plone is licensed under the GNU General Public
+          License, the same license used by Linux. This gives you the right to use
+          Plone without a license fee, and to improve upon the product.
+        
+        - *Plone is supported.* There are over three hundred developers in the Plone
+          Development Team around the world, and a multitude of companies that
+          specialize in Plone development and support.
+        
+        - *Plone is extensible.* There is a multitude of add-on products for Plone to
+          add new features and content types. In addition, Plone can be scripted using
+          web standard solutions and Open Source languages.
+        
+        - *Plone is technology neutral.* Plone can interoperate with most relational
+          database systems, open source and commercial, and runs on a vast array of
+          platforms, including Linux, Windows, Mac OS X, Solaris and BSD.
+        
+        Technical overview
+        ------------------
+        
+        Plone is a content management framework that works hand-in-hand and sits on top
+        of Zope, a widely-used Open Source web application server and development
+        system. To use Plone, you don't need to learn anything about Zope; to develop
+        new Plone content types, a small amount of Zope knowledge is helpful, and it is
+        covered in the `documentation`_.
+        
+        Zope itself is written in Python, an easy-to-learn, widely-used and supported
+        Open Source programming language. Python can be used to add new features to
+        Plone, and used to understand or make changes to the way that Zope and Plone
+        work.
+        
+        By default, Plone stores its contents in Zope's built in transactional object
+        database, the ZODB. There are products and techniques, however, to share
+        information with other sources, such as relational databases, LDAP, filesystem
+        files, etc.
+        
+        Plone runs on Windows, Linux, BSD, Mac OS X, and many other platforms;
+        double-click installers are available for Windows and Mac OS X, and RPM
+        packages are available for Linux. For full information, see the
+        `plone.org product page`_.
+        
+        .. _documentation: http://plone.org/documentation
+        .. _plone.org product page: http://plone.org/products/plone
+        
+        
+        .. This file should contain the changes for the last release only, which
+           will be included on the package's page on pypi. All older entries are
+           kept in HISTORY.txt
+        
+        Changelog
+        =========
+        
+        5.0b2 (2015-05-13)
+        ------------------
+        
+        - add ability to provide a css file for tinymce style formats
+          [vangheem]
+        
+        - fix plone-generate-gruntfile to compile each less resource
+          separately
+          [vangheem]
+        
+        - provide image alignment styles for tinymce images
+          [vangheem]
+        
+        - Respect TinyMCE control panel settings
+          [vangheem]
+        
+        - enable/disable versioning behavior with settings in Types control panel
+          [vangheem]
+        
+        - Make typesToList read metaTypesNotToList from new p.a.registry settings.
+          This fixes https://github.com/plone/Products.CMFPlone/issues/454.
+          [timo]
+        
+        - style tweaks to toolbar
+          [pbauer]
+        
+        - fix search form usability
+          [vangheem]
+        
+        - detect when changes are made to the legacy bundle through the interface
+          so resources are re-built when they need to be
+          [vangheem]
+        
+        - fix some legacy import wonkiness. Inserting multiple times, insert-before
+          and remove fixed
+          [vangheem]
+        
+        - make live search and search form give consistent results
+          [vangheem]
+        
+        - only show edit bar if user logged in
+          [vangheem]
+        
+        - fix error sending test email in Mail control panel
+          [tkimnguyen]
+        
+        - pat-modal pattern has been renamed to pat-plone-modal
+          [jcbrand]
+        
+        - Remove Products.CMFFormController dependency.
+          [timo]
+        
+        - Fix submission of tinymce control panel.
+          [davisagli]
+        
+        - Monkey patch SMTPMailer init method to pick up the mail settings from the
+          registry instead of from the MailHost itself.
+          [timo]
+        
+        - Add `resource_blacklist` attribute to resource registry importer, to
+          allow filtering of known bad legacy resource imports.  Filter js from
+          plone.app.jquery.
+          [alecm]
+        
+        - Fix broken "Installing a third party add-on" link
+          [cedricmessiant]
+        
+        - Fix folder contents button disappeared act
+          [vangheem]
+        
+        - Fix resource registry javascript build
+          [vangheem]
+        
+        - Move `plone.htmlhead.links` viewlet manager after `plone.scripts`,
+          because the former is sometimes used to include scripts that depend on
+          the latter.
+          [davisagli]
+        
+        - Change the order of the plonebar user menu and move the plone.personal_bar
+          viewlet to the last position due to accessibility issues on having it being
+          the first element.
+          [sneridagh]
+        
+        - We only support `utf-8` site-encoding at the moment
+          [tomgross]
+        
+        
+        5.0b1.post1 (2015-03-27)
+        ------------------------
+        
+        - Packaging fix, no code changes.
+          [esteele]
+        
+        
+        5.0b1 (2015-03-26)
+        ------------------
+        
+        - Add tests for configuring encoding of user registration or
+          forgotten password emails.
+          [davidjb]
+        
+        - Pass email encoding to forgotten password email template.
+          [davidjb]
+        
+        - Pass mail ``Content-Type`` to mailhost when sending forgotten password
+          emails.
+          [davidjb]
+        
+        - Move security control panel to CMFPlone. Fixes #216.
+          [jcerjak, timo]
+        
+        - Remove ``create_userfolder`` from addPloneSite factory, it is not used
+          anymore.
+          [jcerjak]
+        
+        - Read security settings from the registry instead of portal properties.
+          [jcerjak,timo]
+        
+        - Fix tests for plone.app.contenttypes unified view names, which uses
+          ``listing_view`` for Folder and Collection types.
+          [thet]
+        
+        - Remove ``selectable_views`` from ``properties.xml``, which isn't used
+          anywhere anymore.
+          [thet]
+        
+        - Remove the remaining ``Topic`` entry in ``default_page_types`` from
+          ``propertiestool.xml``. This setting is now done in
+          ``plone.app.contenttypes`` respectively ``Products.ATContentTypes``.
+          [thet]
+        
+        - Add __version__ attribute to __init__.py. This allows us to retrieve the
+          current Plone version with 'Products.CMFPlone.__version__'. Even though this
+          is no offical standard, many packages in the Python standard library provide
+          this.
+          [timo]
+        
+        - Replaced the legacy mark_special_links javascript with a
+          corresponding mockup pattern.
+          [fulv]
+        
+        - remove plone_javascript_variables.js as necessary values
+          are provided on body tag and pattern options
+          [vangheem]
+        
+        - fix bootstrap css bleeding into global namespaces
+          [vangheem]
+        
+        - add recurrence pattern
+          [vangheem]
+        
+        - add history support for folder contents
+          [vangheem]
+        
+        - Merge plone.app.search here
+          [vangheem]
+        
+        - Extended ulocalized_time for target_language
+          [agitator]
+        
+        - Caching for ``@@site-logo``.
+          [thet]
+        
+        - Support for portal site logos stored in the portal registry by uploading via
+          the site control panel. Add a ``@@site-logo`` view for downloading the logo.
+          [thet]
+        
+        - Fix the resource registry to save the automatically generated filepath to the
+          compiled resource on the bundle object after compilation. The filepath is
+          always in the '++plone++static/' namespace. This fix makes custom bundles
+          actually includable.
+          [thet]
+        
+        - Get icon from layout_view instead of plone_view.
+          [pbauer]
+        
+        - Fix contentViews (tabs) markup for Plone 5.
+          [davisagli]
+        
+        - Rename syndication-settings to syndication-controlpanel. Keep the old view registration for backwards compatibility.
+          [timo]
+        
+        - Added a link for the advanced 'Create a Plone site' screen to the Plone overview.
+          [jaroel]
+        
+        - Fixed the label for 'Example content' in the advanced 'Create a Plone site' screen.
+          [jaroel]
+        
+        - Move markup control panel to CMFPlone. Fixes #220.
+          [djay, thet]
+        
+        - Use jstz to set default portal_timezone in @@plone-addsite.
+          [instification]
+        
+        - Make inline validation of AT multiple selection widget work.
+          [gbastien]
+        
+        - Make sure compiling resources does not commit transaction prematurely.
+          [davisagli]
+        
+        - Adding the option to configure a bundle from the diazo manifest file.
+          [bloodbare]
+        
+        - Move the controlpanel overview from plone.app.controlpanel into this package
+          https://github.com/plone/Products.CMFPlone/issues/290
+          [khink]
+        
+        - PLIP 10359: Migrate usergroups controlpanel to ``z3c.form`` and move it from
+          plone.app.controlpanel to Products.CMFPlone. Fix and extend tests and add
+          robot tests.
+          [ferewuz]
+        
+        
+        5.0a3 (2014-11-01)
+        ------------------
+        
+        - folder_position script: make position and id optional.  Default
+          position to 'ordered' and id to None, which means: do nothing.
+          plone.folder 1.0.5 allows this, making it possible to simply reverse
+          the current sort order by using reverse=False.
+          [maurits]
+        
+        - Fix JS resource viewlet HTML syntax error.
+          [rpatterson]
+        
+        - Fix resource bundle expressions.  They weren't being checked at all and
+          reversed the condition if they had been.  Also move caching of the cooked
+          expressions out of the DB and into a RAM cache.
+          [rpatterson]
+        
+        - Fix endless resource dependency loop when dependeing on a bundle that also has
+          a dependency.
+          [rpatterson]
+        
+        - reduce deprecation warnings to use plone_layout and not plone_view for
+          certain method calls in order to make debugging of robottests easier:
+          w/o it shows 1000ds of extra lines in html report.
+          [jensens]
+        
+        - type controlpanel: Resolved problem with workflow selection form as it
+          was breaking if state title had non-ascii characters. see also
+          https://github.com/plone/plone.app.controlpanel/pull/26
+          [lewicki, jensens]
+        
+        - Minor overhaul of CatalogTool.py - no feature changes!
+          Optimizations and better readable code for indexer
+          ``allowedRolesAndUsers``: now using a set.
+          Change if/elif/else to oneliner boolean expression in ``is_folderish``
+          indexer.
+          Usage of AccessControl 3 style decorators for security declarations.
+          Minor reformattings to make code-analysis happy.
+          [jensens]
+        
+        - Removed some javascripts: fullscreenmode.js, dragdropreorder.js,
+          styleswitcher.js, select_all.js, collapsibleformfields.js
+        
+        - PLIP 13260: Migration cut, copy and paste into browser views.
+          [saily]
+        
+        - Abstract the search form and livesearch action URLs making it easier to
+          extend the search portlet with custom views or other actions.
+          [rpatterson]
+        
+        - Fix JavaScript to work with recent jQuery (>= 1.9) versions.
+          [thet]
+        
+        - Small scoping fix in locking js code
+          [do3cc]
+        
+        - PLIP 13260: Migrate author page to browser views/z3c.form (issue #78)
+          [bosim]
+        
+        - Integration of the new markup update and CSS for both Plone and Barceloneta
+          theme. This is the work done in the GSOC Barceloneta theme project.
+          [albertcasado, sneridagh]
+        
+        - Created new viewlet manager for holding main navigation for a more semantic
+          use of it. Move the global sections viewlet into it.
+          [albertcasado]
+        
+        - New toolbar markup based in ul li tags.
+          [albertcasado, bloodbare, sneridagh]
+        
+        - Update <div id="content"> in all templates with <article id="content">
+          [albertcasado]
+        
+        - PLIP 14261: New resource registries.
+          [bloodbare, vangheem, robgietema, et al]
+        
+        
+        5.0a2 (2014-04-20)
+        ------------------
+        
+        - Advertise the migration of content to dexterity after a successful
+          upgrade to Plone 5.
+          [pbauer]
+        
+        - Strip leading & trailing spaces from id and title in rename-form.
+          See https://dev.plone.org/ticket/12998, https://dev.plone.org/ticket/12989,
+          https://dev.plone.org/ticket/9370, https://dev.plone.org/ticket/8338
+          [pbauer]
+        
+        - Fix incorrect use of dict get method in CatalogTool.search, introduced
+          by PloneHotfix20131210 (issue 195)
+          [fulv]
+        
+        - Added timezone selection to add site page
+          [pysailor, yenzenz]
+        
+        - Added date date and time controlpanel (moved over from plone.app.event).
+          [yenzenz. thet]
+        
+        - Remove DL/DT/DD's from portal messages, portlet templates and others.
+          https://github.com/plone/Products.CMFPlone/issues/153
+          https://github.com/plone/Products.CMFPlone/issues/163
+          [khink]
+        
+        - PLIP 13260 remove templates and form scripts for
+          ``select_default_page`` and ``select_default_view`` because they got
+          migrated to browser views. Fix tests for that and remove legacy tests.
+          See: https://github.com/plone/Products.CMFPlone/issues/90
+          [saily]
+        
+        - PLIP 13260: Migration contact-info to ``z3c.form`` and make it highly
+          customizeable.
+          [timitos, saily]
+        
+        
+        5.0a1 (2014-03-02)
+        ------------------
+        
+        - remove quickinstall control panel form since a new one was moved to
+          plone.app.controlpanel
+          [vangheem]
+        
+        - Add 'warning' and 'error' status message types to the test_rendering
+          view.
+          [esteele]
+        
+        - Update the front-page links.
+          [esteele]
+        
+        - In plone-overview view, we can now see Plone sites which are contained into
+          Zope folder.
+          [bsuttor]
+        
+        - Make Plone tool read the exposeDCMetaTags from p.a.registry instead of
+          of the site properties.
+          [timo]
+        
+        - Hide plone.app.registry install profile in the add-ons control panel.
+          [esteele]
+        
+        - Removed spamProtect.py script, since it doesn't offer real protection.
+          [davisagli]
+        
+        - Moved the member search form to plone.app.users
+          [pabo3000]
+        
+        - PLIP #13705: Remove <base> tag.
+          [frapell]
+        
+        - merge hotfixes from 20131210
+          [vangheem]
+        
+        - handle plone.app.textfield RichTextValue objects in syndication. Should
+          fix syndication with plone.app.contenttypes.
+          [vangheem]
+        
+        - FolderFeed adapter now takes into account the limit property when displaying
+          the RSS feed just like the other adapters do
+          [ichim-david]
+        
+        - Remove the portal_calendar tool and the dependency on CMFCalendar.
+          [davisagli]
+        
+        - Remove the plone_deprecated skin layer.
+          [gforcada, davisagli]
+        
+        - Moved portal_factory and portal_metadata from Products.CMFPlone to
+          Products.ATContentTypes (PLIP #13770)
+          [ale-rt]
+        
+        - Remove the portal_interface tool.
+          [ale-rt]
+        
+        - Remove the portal_actionicons tool.
+          [davisagli]
+        
+        - Remove ownership_form and change_ownership script, which were not used.
+          [davisagli]
+        
+        - Convert author_feedback_template and accessibility_info to browser views.
+          [bloodbare]
+        
+        - Move calendar_macros and jscalendar to Products.Archetypes.
+          [bloodbare]
+        
+        - Remove plonetheme.classic from the package dependencies and the default
+          extension profile, since it will not ship with Plone 5.
+          [timo]
+        
+        - Move docs/CHANGES.txt to CHANGES.rst.
+          [timo]
+        
+        - Replace deprecated test assert statements.
+          [timo]
+        
+        - Add a dependency on plone.app.theming. Install by default.
+          [esteele]
+        
+        - Drop dependency on plonetheme.classic.
+          [esteele]
+        
+        - Remove old logo.jpg. Use logo.png from Sunburst.
+          [esteele]
+        
+        - Inline validation JavaScript for z3c.form only sends request when
+          field name can be obtained from DOM for a widget (#13741).
+          [seanupton]
+        
+        - Add use_uuid_as_userid site property.
+          Part of PLIP 13419.
+          [maurits]
+        
+        - Let set_own_login_name use the update(Own)LoginName method from PAS.
+          Part of PLIP 13419.
+          [maurits]
+        
+        - recently_modified and recently_published respects allow anonymous to view
+          about setting
+          [vangheem]
+        
+        - Return a 404 instead of "AttributeError: (dynamic view)" if a user attempts to
+          view a still-temporary PortalFactory item.
+          [esteele]
+        
+        - Ensure that initial_login is set to True when a user first logs in.
+          [taito]
+        
+        - Merged PLIP #12198: Depend on Chameleon (five.pt) as a faster page template
+          engine.
+          [davisagli]
+        
+        - make extensionprofiles selection part of 'advanced' in plone-addsite
+          [jaroel]
+        
+        - enable syndication on plone.app.contenttypes collection
+          [vangheem]
+        
+        - fix syndication settings to not write on read
+          [vangheem]
+        
+        - fix wrong download url for podcast syndication
+          [Rudd-O]
+        
+        - Merged PLIP #12344: Use Dexterity-based core content types.
+        
+          * Avoid including ATContentTypes and Archetypes as a dependency.
+          * Install the plone.app.contenttypes profile for new sites.
+        
+          [davisagli et al]
+        
+        - Merged PLIP #13270: Move presentation mode out of core.
+          If the feature is still desired, use the plone.app.s5slideshow add-on.
+          [davisagli]
+        
+        - Add "plone-5" ZCML feature. Add-ons can register
+          ZCML for Plone 5 only using zcml:condition="have plone-5"
+          [davisagli]
+        
+        - Plone's javascript is now developed as part of the Plone mockup
+          (http://github.com/plone/mockup) and is included as a compiled
+          bundle.
+          [davisagli]
+        
+        - Removed portal_interface tool (PLIP #13770)
+          [ale-rt]
+        
+        - Removed kss_field_decorator_view support
+          [maurits, jaroel]
+        
+Keywords: Plone CMF python Zope
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 5.0
+Classifier: Framework :: Zope2
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

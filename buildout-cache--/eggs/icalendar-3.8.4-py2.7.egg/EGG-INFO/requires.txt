@@ -1,0 +1,5 @@
+setuptools
+pytz
+
+[test]
+python-dateutil

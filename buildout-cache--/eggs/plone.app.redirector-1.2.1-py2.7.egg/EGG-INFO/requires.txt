@@ -1,0 +1,6 @@
+setuptools
+plone.memoize
+
+[test]
+plone.app.testing
+plone.app.contenttypes

@@ -1,0 +1,1204 @@
+Directives
+==========
+
+When grokking a class, the grokking procedure can be informed by
+directives, on a class, or a module. If a directive is absent, the
+system falls back to a default. Here we introduce a general way to
+define these directives, and how to use them to retrieve information
+for a class for use during the grokking procedure.
+
+A simple directive
+------------------
+
+We define a simple directive that sets a description::
+
+  >>> from martian import Directive, CLASS, ONCE
+  >>> class description(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...     default = u''
+
+The name of the directive is ``description``. We specify that the
+directive can only be used in the scope of a class. We also specify it
+can only be used a single time. Finally we define the default in case
+the directive is absent (the empty string).
+
+Now we look at the directive in action::
+
+  >>> class Foo(object):
+  ...    description(u"This is a description")
+
+After setting the description, we bind the directive and obtain a
+bound directive object.  This object has means for retrieving the data
+set by the directive, in particular the ``get`` method::
+
+  >>> description.bind().get(Foo)
+  u'This is a description'
+
+Directives in different namespaces get stored differently. We'll
+define a similar directive in another namespace::
+
+  >>> class description2(description):
+  ...     pass
+
+  >>> class Foo(object):
+  ...     description(u"Description1")
+  ...     description2(u"Description2")
+  >>> description.bind().get(Foo)
+  u'Description1'
+  >>> description2.bind().get(Foo)
+  u'Description2'
+
+If we check the value of a class without the directive, we see the
+default value for that directive, this case the empty unicode string::
+
+  >>> class Foo(object):
+  ...     pass
+  >>> description.bind().get(Foo)
+  u''
+
+In certain cases we need to set a value on a component as if the directive was
+actually used::
+
+  >>> description.set(Foo, u'value as set')
+  >>> description.bind().get(Foo)
+  u'value as set'
+
+Subclasses of the original class will inherit the properties set by the
+directive:
+
+  >>> class Foo(object):
+  ...     description('This is a foo.')
+  ...
+  >>> class Bar(Foo):
+  ...     pass
+  ...
+  >>> description.bind().get(Bar)
+  'This is a foo.'
+
+When we use the directive outside of class scope, we get an error
+message::
+
+  >>> description('Description')
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'description' directive can only be used on class level.
+
+In particular, we cannot use it in a module::
+
+  >>> class testmodule(FakeModule):
+  ...   fake_module = True
+  ...   description("Description")
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'description' directive can only be used on class level.
+
+We cannot use the directive twice in the class scope. If we do so, we
+get an error message as well::
+
+  >>> class Foo(object):
+  ...   description(u"Description1")
+  ...   description(u"Description2")
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'description' directive can only be called once per class.
+
+We cannot call the directive with no argument either::
+
+  >>> class Foo(object):
+  ...   description()
+  Traceback (most recent call last):
+    ...
+  TypeError: description takes exactly 1 argument (0 given)
+
+Class and module scope
+----------------------
+
+We define a ``layer`` directive that can be used in class and module
+scope both::
+
+  >>> from martian import CLASS_OR_MODULE
+  >>> class layer(Directive):
+  ...     scope = CLASS_OR_MODULE
+  ...     store = ONCE
+
+By default, the ``default`` property is None which is why we can omit
+specifying it here.
+
+This directive has been declared ``CLASS_OR_MODULE``, so you will
+always have to pass a module to the directive. Since we don't have a
+module yet we'll simply create a dummy, empty, fallback module::
+
+  >>> dummy = object()
+
+We can use this directive now on a class::
+
+  >>> class Foo(object):
+  ...   layer('Test')
+  >>> layer.bind().get(Foo, dummy)
+  'Test'
+
+The defaulting to ``None`` works::
+
+  >>> class Foo(object):
+  ...   pass
+  >>> layer.bind().get(Foo, dummy) is None
+  True
+
+We can also use it in a module::
+
+  >>> class testmodule(FakeModule):
+  ...    layer('Test2')
+  ...    class Foo(object):
+  ...       pass
+  >>> from martiantest.fake import testmodule
+
+When we now try to access ``layer`` on ``Foo``, we find the
+module-level default which we just set. We pass the module as the
+second argument to the ``get`` method to have it fall back on this::
+
+  >>> layer.bind().get(testmodule.Foo, testmodule)
+  'Test2'
+
+Let's look at a module where the directive is not used::
+
+  >>> class testmodule(FakeModule):
+  ...   class Foo(object):
+  ...      pass
+  >>> from martiantest.fake import testmodule
+
+In this case, the value cannot be found so the system falls back on
+the default, ``None``::
+
+  >>> layer.bind().get(testmodule.Foo, testmodule) is None
+  True
+
+
+
+
+Like with CLASS scope directive where values set are inherited by subclasses,
+values set on a class or module level are inherited too, even if the subclass
+is defined another module::
+
+  >>> class testmodule_a(FakeModule):
+  ...   layer('Value set on baseclass module')
+  ...   class FooA(object):
+  ...      pass
+  >>> from martiantest.fake import testmodule_a
+  >>>
+  >>> class testmodule_b(FakeModule):
+  ...   class FooB(testmodule_a.FooA):
+  ...      pass
+  >>> from martiantest.fake import testmodule_b
+
+On the baseclass::
+
+  >>> layer.bind().get(testmodule_a.FooA)
+  'Value set on baseclass module'
+
+Inherited by the subclass::
+
+  >>> layer.bind().get(testmodule_b.FooB)
+  'Value set on baseclass module'
+
+Whenever there's a directive set on the baseclass' module, it will take
+precedence like with "normal" inheritance::
+
+  >>> class testmodule_c(FakeModule):
+  ...   layer('Value set on subclass module')
+  ...   class FooC(testmodule_a.FooA):
+  ...      pass
+  >>> from martiantest.fake import testmodule_c
+
+  >>> layer.bind().get(testmodule_c.FooC)
+  'Value set on subclass module'
+
+
+
+
+Let's now look at this using a directive with CLASS scope only::
+
+  >>> class layer2(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+
+Inheritance in combination with module scope
+--------------------------------------------
+
+Let's look at how our layer directive can inherit in combination with
+directive use on module scope.
+
+First we define a module which defines a class that gets the ``Test``
+layer through the use of the layer directive on module scope::
+
+  >>> class inheritmodule1(FakeModule):
+  ...   layer('Test')
+  ...   class Foo(object):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule1
+
+Now we define another module that has a class that inherits from ``Foo``::
+
+  >>> class inheritmodule2(FakeModule):
+  ...   class Bar(inheritmodule1.Foo):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule2
+
+We will now see that ``Bar`` has inherited the layer ``Test``::
+
+  >>> layer.bind().get(inheritmodule2.Bar, inheritmodule2)
+  'Test'
+
+Let's try it with another level of inheritance::
+
+  >>> class inheritmodule3(FakeModule):
+  ...   class Baz(inheritmodule2.Bar):
+  ...       pass
+  >>> from martiantest.fake import inheritmodule3
+
+The layer should still be inherited::
+
+  >>> layer.bind().get(inheritmodule3.Baz, inheritmodule3)
+  'Test'
+
+Let's override now by having an explicit layer directive on the class
+that subclasses ``Foo``::
+
+  >>> class inheritmodule4(FakeModule):
+  ...   class OverrideFoo(inheritmodule1.Foo):
+  ...      layer('AnotherTest')
+  >>> from martiantest.fake import inheritmodule4
+
+  >>> layer.bind().get(inheritmodule4.OverrideFoo, inheritmodule4)
+  'AnotherTest'
+
+Let's override now by having an explicit layer directive on
+module-level instead::
+
+  >>> class inheritmodule5(FakeModule):
+  ...   layer('AnotherTest')
+  ...   class OverrideFoo(inheritmodule1.Foo):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule5
+
+  >>> layer.bind().get(inheritmodule5.OverrideFoo, inheritmodule5)
+  'AnotherTest'
+
+Inheritance with module scope also works for old-style classes::
+
+  >>> class oldstyle1(FakeModule):
+  ...    layer('one')
+  ...    class Base:
+  ...       pass
+  >>> from martiantest.fake import oldstyle1
+  >>> class oldstyle2(FakeModule):
+  ...    class Sub(oldstyle1.Base):
+  ...       pass
+  >>> from martiantest.fake import oldstyle2
+  >>> layer.bind().get(oldstyle2.Sub)
+  'one'
+
+Using a directive multiple times
+--------------------------------
+
+A directive can be configured to allow it to be called multiple times
+in the same scope::
+
+  >>> from martian import MultipleTimesDirective
+  >>> class multi(MultipleTimesDirective):
+  ...     scope = CLASS
+
+We can now use the directive multiple times without any errors::
+
+  >>> class Foo(object):
+  ...   multi(u"Once")
+  ...   multi(u"Twice")
+
+We can now retrieve the value and we'll get a list::
+
+  >>> multi.bind().get(Foo)
+  [u'Once', u'Twice']
+
+The default value for a MultipleTimesDirective is an empty list::
+
+  >>> class Bar(object):
+  ...   pass
+  >>> multi.bind().get(Bar)
+  []
+
+Whenever the directive is used on a sub class of a component, the values set by
+directives on the base classes are combined::
+
+  >>> class Qux(Foo):
+  ...     multi(u'Triple')
+  ...
+  >>> multi.bind().get(Qux)
+  [u'Once', u'Twice', u'Triple']
+
+You can also create a directive that ignores the values on the base classes::
+
+  >>> from martian import MULTIPLE_NOBASE
+  >>> class multi(Directive):
+  ...     scope = CLASS
+  ...     store = MULTIPLE_NOBASE
+
+  >>> class Foo(object):
+  ...     multi(u"Once")
+  ...     multi(u"Twice")
+  >>> multi.bind().get(Foo)
+  [u'Once', u'Twice']
+
+  >>> class Qux(Foo):
+  ...     multi(u'Triple')
+  ...     multi(u'More')
+  >>> multi.bind().get(Qux)
+  [u'Triple', u'More']
+
+Using a directive multiple times, as a dictionary
+-------------------------------------------------
+
+A directive can be configured to allow it to be called multiple times in the
+same scope. In this case the factory method should be overridden to return a
+key-value pair::
+
+  >>> from martian import DICT
+  >>> class multi(Directive):
+  ...     scope = CLASS
+  ...     store = DICT
+  ...     def factory(self, value):
+  ...         return value.lower(), value
+
+We can now use the directive multiple times without any errors::
+
+  >>> class Bar(object):
+  ...   multi(u"Once")
+  ...   multi(u"Twice")
+
+We can now retrieve the value and we'll get a to the items::
+
+  >>> d = multi.bind().get(Bar)
+  >>> print sorted(d.items())
+  [(u'once', u'Once'), (u'twice', u'Twice')]
+
+When the factory method does not return a key-value pair, an error is raised::
+
+  >>> class wrongmulti(Directive):
+  ...     scope = CLASS
+  ...     store = DICT
+  ...     def factory(self, value):
+  ...         return None
+
+  >>> class Baz(object):
+  ...   wrongmulti(u"Once")
+  Traceback (most recent call last):
+  ...
+  GrokImportError: The factory method for the 'wrongmulti' directive should
+  return a key-value pair.
+
+  >>> class wrongmulti2(Directive):
+  ...     scope = CLASS
+  ...     store = DICT
+  ...     def factory(self, value):
+  ...         return value, value, value
+
+  >>> class Baz(object):
+  ...   wrongmulti2(u"Once")
+  Traceback (most recent call last):
+  ...
+  GrokImportError: The factory method for the 'wrongmulti2' directive should
+  return a key-value pair.
+
+Like with MULTIPLE store, values set by directives using the DICT store are
+combined::
+
+  >>> class multi(Directive):
+  ...     scope = CLASS
+  ...     store = DICT
+  ...     def factory(self, value, andanother):
+  ...         return value, andanother
+  ...
+  >>> class Frepple(object):
+  ...   multi(1, 'AAA')
+  ...   multi(2, 'BBB')
+  ...
+  >>> class Fropple(Frepple):
+  ...   multi(1, 'CCC')
+  ...   multi(3, 'DDD')
+  ...   multi(4, 'EEE')
+
+  >>> d = multi.bind().get(Fropple)
+  >>> print sorted(d.items())
+  [(1, 'CCC'), (2, 'BBB'), (3, 'DDD'), (4, 'EEE')]
+
+Using MULTIPLE and DICT can also work on a module level, even though
+inheritance has no meaning there::
+
+  >>> from martian import MODULE
+  >>> class multi(MultipleTimesDirective):
+  ...     scope = MODULE
+  ...
+  >>> multi.__module__ = 'somethingelse'
+  >>> class module_with_directive(FakeModule):
+  ...     fake_module = True
+  ...
+  ...     multi('One')
+  ...     multi('Two')
+  ...
+  >>> from martiantest.fake import module_with_directive
+  >>> print multi.bind().get(module_with_directive)
+  ['One', 'Two']
+
+  >>> from martian import MODULE
+  >>> class multi(Directive):
+  ...     scope = MODULE
+  ...     store = DICT
+  ...     def factory(self, value, andanother):
+  ...         return value, andanother
+  ...
+  >>> multi.__module__ = 'somethingelse'
+  >>> class module_with_directive(FakeModule):
+  ...     fake_module = True
+  ...
+  ...     multi(1, 'One')
+  ...     multi(2, 'Two')
+  ...
+  >>> from martiantest.fake import module_with_directive
+  >>> d = multi.bind().get(module_with_directive)
+  >>> print sorted(d.items())
+  [(1, 'One'), (2, 'Two')]
+
+Directives on an interface
+--------------------------
+
+When you use ``zope.interface.Interface`` to define a new interface using
+the class statement, in fact a special interface instance is created, not a
+class. To let the directive store a value on an interface, we need to
+use a special storage (``martian.ONCE_IFACE``)::
+
+  >>> from martian import ONCE_IFACE
+  >>> class skin(Directive):
+  ...    scope = CLASS
+  ...    store = ONCE_IFACE
+
+Note that we still indicate the ``CLASS`` scope for this kind of
+directive. At some point we may introduce a special scope for
+directives on interfaces.
+
+Let's try the directive. We shouldn't get an error::
+
+  >>> class once_iface(FakeModule):
+  ...   from zope.interface import Interface
+  ...   class TestIface(Interface):
+  ...     skin('Foo')
+  >>> from martiantest.fake import once_iface
+
+We can now retrieve the value::
+
+  >>> skin.bind().get(once_iface.TestIface)
+  'Foo'
+
+Computed defaults
+-----------------
+
+Often instead of just supplying the system with a default, we want to
+compute the default in some way. The computation of the default can be defined
+in the directive class, by the ``get_default`` classmethod.
+
+We define the ``name`` directive, which if not present, will compute its value
+from the name of class, lower-cased.
+
+  >>> class name(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...
+  ...     @classmethod
+  ...     def get_default(cls, component, module=None, **data):
+  ...         return component.__name__.lower()
+  ...
+  >>> bound_name = name.bind()
+  >>>
+  >>> class Foo(object):
+  ...   name('bar')
+  ...
+  >>> bound_name.get(Foo)
+  'bar'
+
+  >>> class Foo2(object):
+  ...   pass
+  ...
+  >>> bound_name.get(Foo2)
+  'foo2'
+
+To override the default-default behaviour you can pass a function when binding
+the directive. In this case, we do not want the default behaviour of using the
+lower cased class name, but have it upper cased::
+
+  >>> def default_name_uppercase(component, module, **data):
+  ...     return component.__name__.upper()
+  ...
+  >>> bound_name = name.bind(get_default=default_name_uppercase)
+
+  >>> class Foo(object):
+  ...   name('bar')
+
+  >>> bound_name.get(Foo)
+  'bar'
+
+  >>> class Foo2(object):
+  ...   pass
+  >>> bound_name.get(Foo2)
+  'FOO2'
+
+Let's test this with a deeper inheritance hierarchy. Explicit
+directives should always trump computed defaults::
+
+  >>> class Subclass(Foo):
+  ...   pass
+  >>> bound_name.get(Subclass)
+  'bar'
+
+Now let's look at a hierarchy in which the explicit rule should
+apply::
+
+  >>> bound_name2 = name.bind()
+  >>> class Alpha(object):
+  ...    pass
+  >>> class Beta(Alpha):
+  ...    pass
+  >>> bound_name2.get(Alpha)
+  'alpha'
+  >>> bound_name2.get(Beta)
+  'beta'
+
+We will now define a default rule that only triggers for particular
+components in the inheritance chain, but returns ``UNKNOWN``
+otherwise. This can be useful if the default rule is dependent on
+outside information. In Grok for instance, the default rule for
+``grok.context`` will look for a class that implements ``IContext`` in
+the same module, and ``grok.templatedir`` will look for a directory
+with templates with a name based on the name of the module with
+``_templates`` appended.
+
+This rule returns a value only if the module name includes the number
+``1``, and will return ``UNKNOWN`` otherwise::
+
+  >>> import martian
+  >>> def default_name_lowercase3(component, module, **data):
+  ...     if '1' in module.__name__:
+  ...         return component.__name__.lower()
+  ...     return martian.UNKNOWN
+
+  >>> bound_name3 = name.bind(get_default=default_name_lowercase3)
+
+This won't trigger for this module, as it doesn't have the character
+``1`` in it::
+
+  >>> class testmodule(FakeModule):
+  ...    class Foo(object):
+  ...       pass
+  >>> from martiantest.fake import testmodule
+  >>> bound_name3.get(testmodule.Foo, testmodule) is martian.UNKNOWN
+  True
+
+Now we define a module which does have ``1`` in it, so the rule should
+be triggered::
+
+  >>> class testmodule1(FakeModule):
+  ...    class Foo(object):
+  ...       pass
+  >>> from martiantest.fake import testmodule1
+  >>> bound_name3.get(testmodule1.Foo, testmodule1)
+  'foo'
+
+This also works with inheritance::
+
+  >>> class testmodule2(FakeModule):
+  ...   class Bar(testmodule1.Foo):
+  ...      pass
+  >>> from martiantest.fake import testmodule2
+  >>> bound_name3.get(testmodule2.Bar, testmodule2)
+  'foo'
+
+Module-level explicit directives always trump computed defaults as
+well.  The ``layer`` directive is ``CLASS_OR_MODULE`` scope. Let's set
+up a hierarchy of modules and classes using ``layer`` to demonstrate
+this::
+
+  >>> class inheritmodule1(FakeModule):
+  ...   layer('Test')
+  ...   class Foo(object):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule1
+  >>> class inheritmodule2(FakeModule):
+  ...   class Bar(inheritmodule1.Foo):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule2
+
+We define a way to compute the default in which we compute a string
+based on the module name and the class name, so we can later check
+whether the right module and class was passed to compute the default::
+
+  >>> def immediate_get_default(component, module, **data):
+  ...   return "computed: %s %s" % (module.__name__, component.__name__)
+
+We don't expect the default rule to kick in as we can find an
+explicitly set value::
+
+  >>> layer.bind(get_default=immediate_get_default).get(inheritmodule2.Bar,
+  ...   inheritmodule2)
+  'Test'
+
+Let's now consider a case where we have inheritance without explicit
+use of the ``layer`` directive::
+
+  >>> class inheritmodule1(FakeModule):
+  ...   class Foo(object):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule1
+  >>> class inheritmodule2(FakeModule):
+  ...   class Bar(inheritmodule1.Foo):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule2
+
+We expect to receive the computed default for ``Bar``, as
+``immediate_get_default`` immediately returns a result for any
+component::
+
+  >>> layer.bind(get_default=immediate_get_default).get(inheritmodule2.Bar,
+  ...   inheritmodule2)
+  'computed: martiantest.fake.inheritmodule2 Bar'
+
+Let's try the default rule that triggers upon seeing ``1`` in the
+module name again, this time for the ``CLASS_OR_MODULE`` scope
+directive ``layer``::
+
+  >>> def picky_get_default(component, module, **data):
+  ...     if '1' in module.__name__:
+  ...         return "computed: %s %s" % (module.__name__, component.__name__)
+  ...     return martian.UNKNOWN
+
+Since only the ``Foo`` class is in a module with the character ``1``
+in it (``inheritmodule1``), we will get the result for ``Foo`` (and
+its module)::
+
+  >>> layer.bind(get_default=picky_get_default).get(inheritmodule2.Bar,
+  ...   inheritmodule2)
+  'computed: martiantest.fake.inheritmodule1 Foo'
+
+We will get the same result if we ask ``Foo`` directly::
+
+  >>> layer.bind(get_default=picky_get_default).get(inheritmodule1.Foo,
+  ...   inheritmodule1)
+  'computed: martiantest.fake.inheritmodule1 Foo'
+
+If we have a hierarchy that never has a module with the character
+``1`` in it, we will receive ``UNKNOWN`` (and the grokkker that uses
+this directive should raise an error)::
+
+  >>> class inheritmodule3(FakeModule):
+  ...   class Foo(object):
+  ...      pass
+  >>> from martiantest.fake import inheritmodule3
+  >>> layer.bind(get_default=picky_get_default).get(inheritmodule3.Foo,
+  ...   inheritmodule3) is martian.UNKNOWN
+  True
+
+Raising errors in a computed default
+------------------------------------
+
+Let's define a simple directive with a default rule that always raises
+a ``GrokError`` if the class name doesn't start with an upper case
+letter::
+
+  >>> from martian.error import GrokError
+  >>> class name(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...
+  ...     @classmethod
+  ...     def get_default(cls, component, module, **data):
+  ...         if component.__name__[0].isupper():
+  ...              return component.__name__
+  ...         raise GrokError(
+  ...              "Component %r has a name that doesn't start with upper "
+  ...              "case letter." % component, component)
+
+Let's test it::
+
+  >>> class A(object):
+  ...   pass
+  >>> class b(object):
+  ...   pass
+  >>> name.bind().get(A)
+  'A'
+  >>> name.bind().get(b)
+  Traceback (most recent call last):
+    ...
+  GrokError: Component <class 'b'> has a name that doesn't start with upper
+  case letter.
+
+Instead of raising ``GrokError`` we can also raise ``UnknownError`` in
+a computed default. This has the same meaning as returning
+``UNKNOWN``, except that the error information is recorded and the
+default rule is tried again on the base class in the mro chain. If the
+default rule has the error raised or ``UNKNOWN`` value returned in
+each step of the chain, the first ``UnknownError`` that was raised is
+converted into a ``GrokError``.
+
+This makes it possible for the default logic to raise specific errors
+for the most specific class if the implicit rule failed to apply on
+the class and any of its bases. This is used for instance in the
+implementation of the ``get_default`` rule for ``grok.context``.
+
+Let's test this behavior with a rule that raises an ``UnknownError``
+if there is no ``foo`` attribute on the class::
+
+  >>> from martian import UnknownError
+  >>> class name(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...
+  ...     @classmethod
+  ...     def get_default(cls, component, module, **data):
+  ...         if not component.__dict__.has_key('foo'):
+  ...             raise UnknownError(
+  ...                 "Foo cannot be found for class %s" % component.__name__,
+  ...                 component)
+  ...         return "Found for class %s" % component.__name__
+
+Let's try it on a simple class first::
+
+  >>> class Test:
+  ...   pass
+  >>> name.bind().get(Test)
+  Traceback (most recent call last):
+    ...
+  GrokError: Foo cannot be found for class Test
+
+Let's try it on a new style class::
+
+  >>> class Test(object):
+  ...   pass
+  >>> name.bind().get(Test)
+  Traceback (most recent call last):
+    ...
+  GrokError: Foo cannot be found for class Test
+
+Let's try it on a class where there is some inheritance::
+
+  >>> class Test1(object):
+  ...    pass
+  >>> class Test2(Test1):
+  ...    pass
+  >>> name.bind().get(Test2)
+  Traceback (most recent call last):
+    ...
+  GrokError: Foo cannot be found for class Test2
+
+As you can see the error message will apply to the most specific
+class, ``Test2``, even though of course the error will also occur for
+the base class, ``Test1``.
+
+Let's now demonstrate an inheritance scenario where the error does
+not occur, because the get_default rule will succeed at some point
+during the inheritance chain::
+
+  >>> class Test1(object):
+  ...    foo = 1
+  >>> class Test2(Test1):
+  ...    pass
+  >>> name.bind().get(Test2)
+  'Found for class Test1'
+
+Computed defaults for instances
+-------------------------------
+
+In some cases directives are used to retrieve values from instances instead of
+from their classes::
+
+  >>> class name(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  >>> class instancemodule(FakeModule):
+  ...   class Hoi(object):
+  ...     name('Test')
+  ...   class NoDirectiveOnThis(object):
+  ...     pass
+  ...   hoi = Hoi()
+  ...   no_directive_on_this = NoDirectiveOnThis()
+  >>> from martiantest.fake import instancemodule
+
+Let's try to use the directive::
+
+  >>> name.bind().get(instancemodule.hoi, instancemodule)
+  'Test'
+
+If no directive was used on the class, we will get ``None``, the
+default default value::
+
+  >>> (name.bind().get(instancemodule.no_directive_on_this, instancemodule) is
+  ...  None)
+  True
+
+Let's try it with a computed value now::
+
+  >>> def get_default(component, module, **data):
+  ...   return "The default"
+
+  >>> name.bind(get_default=get_default).get(instancemodule.no_directive_on_this)
+  'The default'
+
+Computed default for old-style classes
+--------------------------------------
+
+We should also test old-style classes with ``CLASS`` scope directives in
+combination with computed defaults::
+
+  >>> class layer2(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...     @classmethod
+  ...     def get_default(cls, component, module=None, **data):
+  ...         if '1' in module.__name__:
+  ...             return 'we found it'
+  ...         return martian.UNKNOWN
+  ...
+  >>> class oldstyle1(FakeModule):
+  ...    class Base:
+  ...       pass
+  >>> from martiantest.fake import oldstyle1
+  >>> class oldstyle2(FakeModule):
+  ...    class Sub(oldstyle1.Base):
+  ...       pass
+  >>> from martiantest.fake import oldstyle2
+  >>> layer2.bind().get(oldstyle2.Sub)
+  'we found it'
+
+And let's try it with a ``CLASS_OR_MODULE`` scope directive too::
+
+  >>> class layer3(Directive):
+  ...     scope = CLASS_OR_MODULE
+  ...     store = ONCE
+  ...     @classmethod
+  ...     def get_default(cls, component, module=None, **data):
+  ...         if '1' in module.__name__:
+  ...             return 'we found it'
+  ...         return martian.UNKNOWN
+  >>> layer3.bind().get(oldstyle2.Sub)
+  'we found it'
+
+A marker directive
+------------------
+
+Another type of directive is a marker directive. This directive takes
+no arguments at all, but when used it marks the context::
+
+  >>> from martian import MarkerDirective
+  >>> class mark(MarkerDirective):
+  ...     scope = CLASS
+
+  >>> class Foo(object):
+  ...     mark()
+
+Class ``Foo`` is now marked::
+
+  >>> mark.bind().get(Foo)
+  True
+
+When we have a class that isn't marked, we get the default value, ``False``::
+
+  >>> class Bar(object):
+  ...    pass
+  >>> mark.bind().get(Bar)
+  False
+
+If we pass in an argument, we get an error::
+
+  >>> class Bar(object):
+  ...   mark("An argument")
+  Traceback (most recent call last):
+    ...
+  TypeError: mark takes no arguments (1 given)
+
+
+Validation
+----------
+
+A directive can be supplied with a validation method. The validation method
+checks whether the value passed in is allowed. It should raise
+``GrokImportError`` if the value cannot be validated, together with a
+description of why not.
+
+First we define our own validation function. A validation function
+takes two arguments:
+
+* the name of the directive we're validating for
+
+* the value we need to validate
+
+The name can be used to format the exception properly.
+
+We'll define a validation method that only expects integer numbers::
+
+  >>> from martian.error import GrokImportError
+  >>> class number(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...     def validate(self, value):
+  ...         if type(value) is not int:
+  ...             raise GrokImportError(
+  ...                 "The '%s' directive can only be called with an integer." %
+  ...                 self.name)
+
+  >>> class Foo(object):
+  ...    number(3)
+
+  >>> class Foo(object):
+  ...    number("This shouldn't work")
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'number' directive can only be called with an integer.
+
+Some built-in validation functions
+----------------------------------
+
+Let's look at some built-in validation functions.
+
+The ``validateText`` function determines whether a string
+is unicode or plain ascii::
+
+  >>> from martian import validateText
+  >>> class title(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...     default = u''
+  ...     validate = validateText
+
+When we pass ascii text into the directive, there is no error::
+
+  >>> class Foo(object):
+  ...    title('Some ascii text')
+
+We can also pass in a unicode string without error::
+
+  >>> class Foo(object):
+  ...    title(u'Some unicode text')
+
+Let's now try it with something that's not text at all, such as a number.
+This fails::
+
+  >>> class Foo(object):
+  ...    title(123)
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'title' directive can only be called with unicode or ASCII.
+
+It's not allowed to call the direct with a non-ascii encoded string::
+
+  >>> class Foo(object):
+  ...   title(u'è'.encode('latin-1'))
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'title' directive can only be called with unicode or ASCII.
+
+ >>> class Foo(object):
+ ...   title(u'è'.encode('UTF-8'))
+ Traceback (most recent call last):
+   ...
+ GrokImportError: The 'title' directive can only be called with unicode or ASCII.
+
+The ``validateInterfaceOrClass`` function only accepts class or
+interface objects::
+
+  >>> from martian import validateInterfaceOrClass
+  >>> class klass(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...     validate = validateInterfaceOrClass
+
+It works with interfaces and classes::
+
+  >>> class Bar(object):
+  ...    pass
+  >>> class Foo(object):
+  ...    klass(Bar)
+
+  >>> from zope.interface import Interface
+  >>> class IBar(Interface):
+  ...    pass
+  >>> class Foo(object):
+  ...    klass(IBar)
+
+It won't work with other things::
+
+  >>> class Foo(object):
+  ...   klass(Bar())
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'klass' directive can only be called with a class or an interface.
+
+  >>> class Foo(object):
+  ...   klass(1)
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'klass' directive can only be called with a class or an interface.
+
+The ``validateInterface`` validator only accepts an interface::
+
+  >>> from martian import validateInterface
+  >>> class iface(Directive):
+  ...     scope = CLASS
+  ...     store = ONCE
+  ...     validate = validateInterface
+
+Let's try it::
+
+  >>> class Foo(object):
+  ...    iface(IBar)
+
+It won't work with classes or other things::
+
+  >>> class Foo(object):
+  ...   iface(Bar)
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'iface' directive can only be called with an interface.
+
+  >>> class Foo(object):
+  ...   iface(1)
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'iface' directive can only be called with an interface.
+
+The ``validateClass`` validator only accepts a class::
+
+  >>> from martian import validateClass
+  >>> class klass(Directive):
+  ...    scope = CLASS
+  ...    store = ONCE
+  ...    validate = validateClass
+
+  >>> class Foo(object):
+  ...    klass(Bar)
+
+But it won't work with an interface or other things::
+
+  >>> class Foo(object):
+  ...    klass(IBar)
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'klass' directive can only be called with a class.
+
+  >>> class Foo(object):
+  ...    klass(Bar())
+  Traceback (most recent call last):
+    ...
+  GrokImportError: The 'klass' directive can only be called with a class.
+
+Declaring base classes
+----------------------
+
+There's a special directive called ``martian.baseclass`` which lets
+you declare that a certain class is the base class for a series of
+other components.  This property should not be inherited by those
+components.  Consider the following base class:
+
+  >>> import martian
+  >>> class MyBase(object):
+  ...     martian.baseclass()
+
+As you would expect, the directive will correctly identify this class as a
+baseclass:
+
+  >>> martian.baseclass.bind().get(MyBase)
+  True
+
+But, if we create a subclass of this base class, the subclass won't inherit
+that property, unlike with a regular directive:
+
+  >>> class SubClass(MyBase):
+  ...     pass
+  ...
+  >>> martian.baseclass.bind().get(SubClass)
+  False
+
+Naturally, the directive will also report a false answer if the class doesn't
+inherit from a base class at all and hasn't been marked with the directive:
+
+  >>> class NoBase(object):
+  ...     pass
+  ...
+  >>> martian.baseclass.bind().get(NoBase)
+  False
+
+Base classes influence computed directives: a directive computation
+will not happen on a base class (or in base classes of it).
+
+Let's define a directive with the computed rule that it will look for
+an object ``Context`` in the module it finds itself in and return its
+``value`` attribute::
+
+  >>> class info(Directive):
+  ...    scope = CLASS
+  ...    store = ONCE
+  ...    @classmethod
+  ...    def get_default(cls, component, module, **data):
+  ...        context = getattr(module, 'Context', None)
+  ...        if context is None:
+  ...            return martian.UNKNOWN
+  ...        return context.value
+
+Let use this rule with an example where no baseclass is declared
+first::
+
+  >>> class basemodule(FakeModule):
+  ...    class Context(object):
+  ...       value = 1
+  ...    class A(object):
+  ...       pass
+  >>> from martiantest.fake import basemodule
+  >>> class submodule(FakeModule):
+  ...    class B(basemodule.A):
+  ...        pass
+  >>> from martiantest.fake import submodule
+  >>> info.bind().get(submodule.B)
+  1
+
+Now let's apply the rule where ``A`` is declared to be a
+baseclass. Since ``A`` is a base class, the computed default will not
+take effect::
+
+  >>> class basemodule2(FakeModule):
+  ...    class Context(object):
+  ...       value = 1
+  ...    class A(object):
+  ...       martian.baseclass()
+  >>> from martiantest.fake import basemodule2
+  >>> class submodule2(FakeModule):
+  ...    class B(basemodule2.A):
+  ...        pass
+  >>> from martiantest.fake import submodule2
+  >>> info.bind().get(submodule2.B) is martian.UNKNOWN
+  True
+
+If we change the default rule so we use ``UnknownError`` we see the same
+behavior, except an error message is raised::
+
+  >>> def get_default(component, module, **data):
+  ...     context = getattr(module, 'Context', None)
+  ...     if context is None:
+  ...         raise UnknownError("No Context object found!", component)
+  ...     return context.value
+
+It will work for the case where no baseclass is defined, as the rule
+can take effect then::
+
+  >>> info.bind(get_default=get_default).get(submodule.B)
+  1
+
+But we will get a ``GrokError`` when a baseclass is in play::
+
+  >>> info.bind(get_default=get_default).get(submodule2.B)
+  Traceback (most recent call last):
+    ...
+  GrokError: No Context object found!

@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+  <adapter factory=".recurrence.RecurrenceSupport" />
+  <adapter factory=".recurrence.EventOccurrenceAccessor" />
+
+  <adapter
+      factory=".recurrence.OccurrenceTraverser"
+      permission="zope.Public"
+      />
+
+  <!-- @@images view factory for occurrences -->
+  <browser:page
+      for="plone.event.interfaces.IOccurrence"
+      name="images"
+      class=".recurrence.ImageScalingViewFactory"
+      permission="zope2.View" />
+
+</configure>
